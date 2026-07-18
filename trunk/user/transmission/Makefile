@@ -59,7 +59,10 @@ clean:
 	rm -rf install
 
 romfs:
-ifeq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL),y)
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_NEW),y)
+	mkdir -p $(INSTALLDIR)/usr/share/transmission
+	cp -rf $(THISDIR)/new_web/transmission-control/web $(INSTALLDIR)/usr/share/transmission
+else ifeq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL),y)
 	mkdir -p $(INSTALLDIR)/usr/share/transmission
 	cp -rf $(THISDIR)/transmission-control/web $(INSTALLDIR)/usr/share/transmission
 else
