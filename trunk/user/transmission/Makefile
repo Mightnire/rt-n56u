@@ -67,4 +67,5 @@ else
 	rm -f $(INSTALLDIR)/usr/share/transmission/web/LICENSE
 endif
 	$(ROMFSINST) $(THISDIR)/install/usr/bin/transmission-daemon /usr/bin/transmission-daemon
+	cp -fP $(ROOTDIR)/../toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/libstdc++.so* $(ROMFSDIR)/lib
 	$(ROMFSINST) -p +x /usr/bin/transmission.sh

@@ -7,6 +7,7 @@
 - 升级 Transmission Web Control 到 1.6.1-update1（最终版）
 - 修复 transmission 静态链接 libstdc++（解决启动报错）
 - 升级 OpenSSL 到 1.1.1w（1.1.1 系列最终版，修复多个 CVE 漏洞）
+- 修复 transmission 缺 libstdc++.so.6 问题（将工具链库文件打包进固件）
 
 2026/07/17：
 ----------------------------------------------------------
