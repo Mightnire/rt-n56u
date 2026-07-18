@@ -109,6 +109,9 @@ Contributors of this project are not responsible for what happens next.
 >- R6220 (USB)
 >- NETGEAR-CHJ (R6260, R6350, R6850, WAC124)
 >- NETGEAR-BZV (R6800, R6700-v2, R7200, Nighthawk AC2400)
+>- MAC2600R
+>- TCL-T1 (MT7628)
+>- BW050-A (MT7620+MT7610, USB)
 
 ***
 
