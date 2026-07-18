@@ -99,9 +99,7 @@ install:
 	$(MAKE) -C $(SRC_NAME) install DESTDIR=""
 
 romfs:
-ifeq ($(LIBS_BUILD_SHARED),y)
-	cp -fP $(DESTDIR)/lib/libavcodec.so* $(ROMFSDIR)/lib ;
-	cp -fP $(DESTDIR)/lib/libavformat.so* $(ROMFSDIR)/lib ;
-	cp -fP $(DESTDIR)/lib/libavutil.so* $(ROMFSDIR)/lib ;
-endif
+	cp -fP $(ROOTDIR)/stage/lib/libavcodec.so* $(ROMFSDIR)/lib
+	cp -fP $(ROOTDIR)/stage/lib/libavformat.so* $(ROMFSDIR)/lib
+	cp -fP $(ROOTDIR)/stage/lib/libavutil.so* $(ROMFSDIR)/lib
 

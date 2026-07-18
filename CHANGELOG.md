@@ -2,6 +2,7 @@
 
 2026/07/18：
 - 修复 MI-R3G 5G WiFi 异常（移除无效的 MT76X3_AP 驱动，避免抢走 5G 设备）
+- 修复 minidlna 缺 ffmpeg 共享库问题（libavformat/libavcodec/libavutil）
 - BW050-A 启用 microSD 卡槽支持（MTK MMC 驱动）
 - 创建 BW050-A_SUMMARY.md 设备配置总览文档
 ----------------------------------------------------------
