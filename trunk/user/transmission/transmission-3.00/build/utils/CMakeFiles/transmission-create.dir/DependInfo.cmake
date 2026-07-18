@@ -33,7 +33,6 @@ set(CMAKE_TARGET_DEFINITIONS_C
   "HAVE_SYS_STATVFS_H"
   "HAVE_VALLOC"
   "HAVE_ZLIB"
-  "_FILE_OFFSET_BITS=64"
   )
 
 # The include file search paths:

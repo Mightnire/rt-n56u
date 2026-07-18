@@ -217,8 +217,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-strip
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=/opt/rt-n56u/trunk/user/transmission/cross-mipsel-linux.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=../../cross-mipsel-linux.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -398,11 +398,7 @@ trutils_SOURCE_DIR:STATIC=/opt/rt-n56u/trunk/user/transmission/transmission-3.00
 # INTERNAL cache entries
 ########################
 
-//ADVANCED property for variable: B64_INCLUDE_DIR
-B64_INCLUDE_DIR-ADVANCED:INTERNAL=1
 B64_INCLUDE_DIR:INTERNAL=/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/include
-//ADVANCED property for variable: B64_LIBRARY
-B64_LIBRARY-ADVANCED:INTERNAL=1
 B64_LIBRARY:INTERNAL=/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/lib/libb64.a
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
@@ -595,11 +591,7 @@ CPACK_BINARY_TZ-ADVANCED:INTERNAL=1
 CURL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CURL_LIBRARY
 CURL_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: DHT_INCLUDE_DIR
-DHT_INCLUDE_DIR-ADVANCED:INTERNAL=1
 DHT_INCLUDE_DIR:INTERNAL=/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/include
-//ADVANCED property for variable: DHT_LIBRARY
-DHT_LIBRARY-ADVANCED:INTERNAL=1
 DHT_LIBRARY:INTERNAL=/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/lib/libdht.a
 //STRINGS property for variable: ENABLE_GTK
 ENABLE_GTK-STRINGS:INTERNAL=AUTO;ON;OFF
