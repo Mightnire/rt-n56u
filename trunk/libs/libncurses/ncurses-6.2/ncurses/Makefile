@@ -97,9 +97,9 @@ NM		= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uc
 CTAGS		= 
 ETAGS		= 
 
-CC		= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
-CPP		= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
-CFLAGS		= -Os -fomit-frame-pointer -pipe -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections --param max-inline-insns-single=1200 -mips32r2 -march=mips32r2 -mtune=24kec
+CC		= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
+CPP		= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
+CFLAGS		= -Os -fomit-frame-pointer -pipe -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections --param max-inline-insns-single=1200 -mips32r2 -march=mips32r2 -mtune=1004kc
 
 INCDIR		= $(srcdir)/../include
 CPPFLAGS	= -DHAVE_CONFIG_H -I../ncurses -I. -I../include -DEMBED -I/opt/rt-n56u/trunk/stage/include  -D__linux__ -Dunix -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DNDEBUG -Dlinux

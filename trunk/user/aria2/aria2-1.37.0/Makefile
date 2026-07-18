@@ -256,8 +256,8 @@ AUTOCONF = ${SHELL} '/opt/rt-n56u/trunk/user/aria2/aria2-1.37.0/missing' autocon
 AUTOHEADER = ${SHELL} '/opt/rt-n56u/trunk/user/aria2/aria2-1.37.0/missing' autoheader
 AUTOMAKE = ${SHELL} '/opt/rt-n56u/trunk/user/aria2/aria2-1.37.0/missing' automake-1.16
 AWK = gawk
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
-CCAS = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
+CCAS = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCASDEPMODE = depmode=gcc3
 CCASFLAGS = -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections -fvisibility=hidden -ffunction-sections -fdata-sections -fvisibility=hidden
 CCDEPMODE = depmode=gcc3
@@ -267,9 +267,9 @@ CPPUNIT_CFLAGS =
 CPPUNIT_LIBS = 
 CSCOPE = cscope
 CTAGS = ctags
-CXX = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=24kec
+CXX = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=1004kc
 CXX1XCXXFLAGS = 
-CXXCPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=24kec -E
+CXXCPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -ffunction-sections -fdata-sections -fvisibility-inlines-hidden -ffunction-sections -fdata-sections -fvisibility-inlines-hidden
 CYGPATH_W = echo

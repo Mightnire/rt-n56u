@@ -18,6 +18,6 @@ use vars qw(
     $Cpreprocessor
     );
 
-$Cpreprocessor = '/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E -isystem /opt/rt-n56u/trunk/stage/include -isystem /opt/rt-n56u/trunk/stage/include';
+$Cpreprocessor = '/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E -isystem /opt/rt-n56u/trunk/stage/include -isystem /opt/rt-n56u/trunk/stage/include';
 
 1;

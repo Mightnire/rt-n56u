@@ -76,10 +76,10 @@ AR="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-ucli
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec"
+LTCC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # A language-specific compiler.
-CC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec"
+CC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -109,7 +109,7 @@ DLLTOOL="dlltool"
 OBJDUMP="objdump"
 
 # Used on cygwin: assembler.
-AS="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=24kec"
+AS="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # The name of the directory that contains temporary libtool files.
 objdir=.libs
@@ -6800,10 +6800,10 @@ AR="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-ucli
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec"
+LTCC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # A language-specific compiler.
-CC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=24kec"
+CC="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -6833,7 +6833,7 @@ DLLTOOL="dlltool"
 OBJDUMP="objdump"
 
 # Used on cygwin: assembler.
-AS="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=24kec"
+AS="/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=1004kc"
 
 # The name of the directory that contains temporary libtool files.
 objdir=.libs

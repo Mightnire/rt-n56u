@@ -149,10 +149,10 @@ AUTOCONF = ${SHELL} /opt/rt-n56u/trunk/libs/libnfnetlink/libnfnetlink-1.0.x/buil
 AUTOHEADER = ${SHELL} /opt/rt-n56u/trunk/libs/libnfnetlink/libnfnetlink-1.0.x/build-aux/missing --run autoheader
 AUTOMAKE = ${SHELL} /opt/rt-n56u/trunk/libs/libnfnetlink/libnfnetlink-1.0.x/build-aux/missing --run automake-1.11
 AWK = gawk
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -Os -fomit-frame-pointer -pipe  -DEMBED -I/opt/rt-n56u/trunk/stage/include -Dlinux -D__linux__ -Dunix -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections
-CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
+CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"libnfnetlink\" -DPACKAGE_TARNAME=\"libnfnetlink\" -DPACKAGE_VERSION=\"1.0.1\" -DPACKAGE_STRING=\"libnfnetlink\ 1.0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libnfnetlink\" -DVERSION=\"1.0.1\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"

@@ -496,10 +496,10 @@ AUTOCONF = ${SHELL} /opt/rt-n56u/trunk/libs/libevent/libevent-2.1.8-stable/missi
 AUTOHEADER = ${SHELL} /opt/rt-n56u/trunk/libs/libevent/libevent-2.1.8-stable/missing autoheader
 AUTOMAKE = ${SHELL} /opt/rt-n56u/trunk/libs/libevent/libevent-2.1.8-stable/missing automake-1.15
 AWK = gawk
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -Os -fomit-frame-pointer -pipe  -DEMBED -I/opt/rt-n56u/trunk/stage/include -Dlinux -D__linux__ -Dunix -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections -Wall -fno-strict-aliasing  -W -Wfloat-equal -Wundef -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wwrite-strings -Wredundant-decls -Wchar-subscripts -Wcomment -Wformat -Wwrite-strings -Wmissing-declarations -Wredundant-decls -Wnested-externs -Wbad-function-cast -Wswitch -Wno-unused-parameter -Wstrict-aliasing -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op
-CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
+CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
@@ -553,7 +553,7 @@ PACKAGE_URL =
 PACKAGE_VERSION = 2.1.8-stable
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
-PTHREAD_CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+PTHREAD_CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 PTHREAD_CFLAGS = 
 PTHREAD_LIBS = 
 RANLIB = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ranlib

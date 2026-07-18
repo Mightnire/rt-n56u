@@ -197,7 +197,7 @@ AUTOCONF = ${SHELL} /opt/rt-n56u/trunk/user/njit-client/njit8021xclient-master/s
 AUTOHEADER = ${SHELL} /opt/rt-n56u/trunk/user/njit-client/njit8021xclient-master/src/missing autoheader
 AUTOMAKE = ${SHELL} /opt/rt-n56u/trunk/user/njit-client/njit8021xclient-master/src/missing automake-1.15
 AWK = gawk
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused
 CPPFLAGS = 

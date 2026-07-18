@@ -463,7 +463,7 @@
 /* #undef HAVE_DTLSv1_server_method */
 
 /* Define if you have the EC_KEY type */
-/* #undef HAVE_TYPE_EC_KEY */
+#define HAVE_TYPE_EC_KEY 1
 
 /* Define if you have the OpenSSL RAND_egd function */
 /* #undef HAVE_RAND_egd */

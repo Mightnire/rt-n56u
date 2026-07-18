@@ -1587,7 +1587,7 @@ Keys:
 	N/M/P/T: show CPU usage, sort by pid/mem/cpu/time
 	S: show memory
 	R: reverse sort
-	H: toggle threads
+	H: toggle threads, 1: toggle SMP
 	Q,^C: exit
 
 Options:

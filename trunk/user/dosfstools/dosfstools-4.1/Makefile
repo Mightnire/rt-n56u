@@ -234,10 +234,10 @@ AUTOCONF = ${SHELL} /opt/rt-n56u/trunk/user/dosfstools/dosfstools-4.1/missing au
 AUTOHEADER = ${SHELL} /opt/rt-n56u/trunk/user/dosfstools/dosfstools-4.1/missing autoheader
 AUTOMAKE = ${SHELL} /opt/rt-n56u/trunk/user/dosfstools/dosfstools-4.1/missing automake-1.15
 AWK = gawk
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused
-CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
+CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"dosfstools\" -DPACKAGE_TARNAME=\"dosfstools\" -DPACKAGE_VERSION=\"4.1\" -DPACKAGE_STRING=\"dosfstools\ 4.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"dosfstools\" -DVERSION=\"4.1\" -D_FILE_OFFSET_BITS=64 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_ERR_H=1 -DHAVE_LINUX_FD_H=1 -DHAVE_LINUX_HDREG_H=1 -DHAVE_LINUX_VERSION_H=1 -DHAVE_SYS_QUEUE_H=1 -DHAVE_ENDIAN_H=1 -DHAVE_DECL_GETMNTENT=1 -DHAVE_DECL_GETMNTINFO=0

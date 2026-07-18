@@ -164,10 +164,10 @@ AWK = gawk
 BASE_THREAD_LIBS = 
 C14N_OBJ = c14n.c
 CATALOG_OBJ = 
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -Os -fomit-frame-pointer -pipe  -DEMBED -I/opt/rt-n56u/trunk/stage/include -Dlinux -D__linux__ -Dunix -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections
-CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
+CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 CYGWIN_EXTRA_LDFLAGS = 
@@ -184,7 +184,7 @@ ECHO_N = -n
 ECHO_T = 
 EGREP = /bin/grep -E
 EXEEXT = 
-EXTRA_CFLAGS = -Dlinux -mips32r2 -march=mips32r2 -mtune=24kec -pedantic -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -Wno-long-long -Wno-format-extra-args -Wno-array-bounds
+EXTRA_CFLAGS = -Dlinux -mips32r2 -march=mips32r2 -mtune=1004kc -pedantic -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -Wno-long-long -Wno-format-extra-args -Wno-array-bounds
 FGREP = /bin/grep -F
 FTP_OBJ = 
 GREP = /bin/grep
@@ -255,7 +255,7 @@ PYTHON_VERSION =
 RANLIB = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ranlib
 RDL_LIBS = 
 READER_TEST = Readertests
-RELDATE = Sat Jul 18 2026
+RELDATE = Sun Jul 19 2026
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash

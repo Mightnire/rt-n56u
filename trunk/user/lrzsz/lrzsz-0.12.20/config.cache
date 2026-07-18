@@ -83,8 +83,8 @@ ac_cv_lib_be_syslog=${ac_cv_lib_be_syslog='no'}
 ac_cv_lib_nsl_gethostbyname=${ac_cv_lib_nsl_gethostbyname='yes'}
 ac_cv_lib_socket_syslog=${ac_cv_lib_socket_syslog='no'}
 ac_cv_path_install=${ac_cv_path_install='/usr/bin/install -c'}
-ac_cv_prog_CC=${ac_cv_prog_CC='/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec'}
-ac_cv_prog_CPP=${ac_cv_prog_CPP='/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E'}
+ac_cv_prog_CC=${ac_cv_prog_CC='/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc'}
+ac_cv_prog_CPP=${ac_cv_prog_CPP='/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E'}
 ac_cv_prog_RANLIB=${ac_cv_prog_RANLIB='/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ranlib'}
 ac_cv_prog_cc_cross=${ac_cv_prog_cc_cross='yes'}
 ac_cv_prog_cc_g=${ac_cv_prog_cc_g='yes'}

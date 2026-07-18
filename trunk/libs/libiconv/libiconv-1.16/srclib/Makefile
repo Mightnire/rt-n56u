@@ -307,7 +307,7 @@ AM_DEFAULT_VERBOSITY = 1
 APPLE_UNIVERSAL_BUILD = 0
 AR = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ar
 ARFLAGS = cr
-AS = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=24kec
+AS = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-as -mips32r2 -march=mips32r2 -mtune=1004kc
 ASM_SYMBOL_PREFIX = ""
 AUTOCONF = ${SHELL} /opt/rt-n56u/trunk/libs/libiconv/libiconv-1.16/build-aux/missing autoconf
 AUTOHEADER = ${SHELL} /opt/rt-n56u/trunk/libs/libiconv/libiconv-1.16/build-aux/missing autoheader
@@ -319,12 +319,12 @@ BITSIZEOF_SIZE_T =
 BITSIZEOF_WCHAR_T = 
 BITSIZEOF_WINT_T = 
 BROKEN_WCHAR_H = 0
-CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CCDEPMODE = depmode=none
 CFLAGS = -Os -fomit-frame-pointer -pipe  -DEMBED -I/opt/rt-n56u/trunk/stage/include -Dlinux -D__linux__ -Dunix -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -ffunction-sections -fdata-sections
 CFLAG_VISIBILITY = -fvisibility=hidden
 CP = cp -p
-CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec -E
+CPP = /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H -DEXEEXT=\"\"

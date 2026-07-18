@@ -10,7 +10,7 @@ srcdir	= .
 sbindir	= ${exec_prefix}/sbin
 libdir	= ${exec_prefix}/lib
 sysconfdir = ${prefix}/etc
-CC	= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=24kec
+CC	= /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -mips32r2 -march=mips32r2 -mtune=1004kc
 CFLAGS	= -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -Wall -Wno-unused-result -Wno-unused-but-set-variable
 CPPFLAGS= 
 DEFS	= -DHAVE_CONFIG_H -DSYSCONFDIR=\"$(sysconfdir)\"
