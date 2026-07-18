@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/dht"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/dht.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/dht-complete.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-install.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-mkdir.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-download.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-update.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-patch.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-configure.rule"
+		},
+		{
+			"file" : "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/src/dht-stamp/dht-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dht"
+		],
+		"name" : "dht"
+	}
+}

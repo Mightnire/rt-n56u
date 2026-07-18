@@ -1,0 +1,1107 @@
+The target system is: Linux -  - 
+The host system is: Linux - 5.4.0-150-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc 
+Build flags: -Os;-fomit-frame-pointer;-pipe;;-Dlinux;-D__linux__;-Dunix;-DEMBED;-I/opt/rt-n56u/trunk/stage/include;-Wall;-Wno-trigraphs;-Wno-strict-aliasing;-Wno-format-security;-fno-tree-slsr;-fno-aggressive-loop-optimizations;-Wno-pointer-sign;-Wno-unused;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ 
+Build flags: -Os;-fomit-frame-pointer;-pipe;;-Dlinux;-D__linux__;-Dunix;-DEMBED;-I/opt/rt-n56u/trunk/stage/include;-Wall;-Wno-trigraphs;-Wno-strict-aliasing;-Wno-format-security;-fno-tree-slsr;-fno-aggressive-loop-optimizations;
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b94b5/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_b94b5.dir/build.make CMakeFiles/cmTC_b94b5.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b94b5.dir/testCCompiler.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_b94b5.dir/testCCompiler.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_b94b5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b94b5.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_b94b5.dir/testCCompiler.c.o  -o cmTC_b94b5 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_03084/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_03084.dir/build.make CMakeFiles/cmTC_03084.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_03084
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03084.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o  -o cmTC_03084 
+Using built-in specs.
+COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc
+COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper
+Target: mipsel-linux-uclibc
+Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld
+Thread model: posix
+gcc version 7.4.0 (crosstool-NG 1.24.0) 
+COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/
+LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_03084' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_03084 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections --gc-sections CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_03084' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mipsel-linux-uclibc-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_03084/fast"]
+  ignore line: [make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_03084.dir/build.make CMakeFiles/cmTC_03084.dir/build]
+  ignore line: [make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”]
+  ignore line: [Building C object CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_03084]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03084.dir/link.txt --verbose=1]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o  -o cmTC_03084 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper]
+  ignore line: [Target: mipsel-linux-uclibc]
+  ignore line: [Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (crosstool-NG 1.24.0) ]
+  ignore line: [COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/]
+  ignore line: [LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_03084' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL']
+  link line: [ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_03084 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections --gc-sections CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o]
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2] ==> ignore
+    arg [--sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-uClibc.so.0] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_03084] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/opt/rt-n56u/trunk/stage/lib] ==> dir [/opt/rt-n56u/trunk/stage/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+    arg [--gc-sections] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_03084.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/rt-n56u/trunk/stage/lib] ==> [/opt/rt-n56u/trunk/stage/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/opt/rt-n56u/trunk/stage/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ab39c/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_ab39c.dir/build.make CMakeFiles/cmTC_ab39c.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ab39c.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c11 -o CMakeFiles/cmTC_ab39c.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ab39c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ab39c.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_ab39c.dir/feature_tests.c.o  -o cmTC_ab39c 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bc8bb/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_bc8bb.dir/build.make CMakeFiles/cmTC_bc8bb.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_bc8bb.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c99 -o CMakeFiles/cmTC_bc8bb.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bc8bb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc8bb.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_bc8bb.dir/feature_tests.c.o  -o cmTC_bc8bb 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_aaed5/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_aaed5.dir/build.make CMakeFiles/cmTC_aaed5.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_aaed5.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c90 -o CMakeFiles/cmTC_aaed5.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_aaed5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aaed5.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_aaed5.dir/feature_tests.c.o  -o cmTC_aaed5 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3dae7/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_3dae7.dir/build.make CMakeFiles/cmTC_3dae7.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_3dae7.dir/testCXXCompiler.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_3dae7.dir/testCXXCompiler.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_3dae7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3dae7.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_3dae7.dir/testCXXCompiler.cxx.o  -o cmTC_3dae7 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ebb35/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_ebb35.dir/build.make CMakeFiles/cmTC_ebb35.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_ebb35
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebb35.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ebb35 
+Using built-in specs.
+COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++
+COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper
+Target: mipsel-linux-uclibc
+Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld
+Thread model: posix
+gcc version 7.4.0 (crosstool-NG 1.24.0) 
+COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/
+LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_ebb35' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_ebb35 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections --gc-sections CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_ebb35' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mipsel-linux-uclibc-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_ebb35/fast"]
+  ignore line: [make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ebb35.dir/build.make CMakeFiles/cmTC_ebb35.dir/build]
+  ignore line: [make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”]
+  ignore line: [Building CXX object CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_ebb35]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebb35.dir/link.txt --verbose=1]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ebb35 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper]
+  ignore line: [Target: mipsel-linux-uclibc]
+  ignore line: [Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (crosstool-NG 1.24.0) ]
+  ignore line: [COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/]
+  ignore line: [LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_ebb35' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL']
+  link line: [ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_ebb35 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections --gc-sections CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o]
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2] ==> ignore
+    arg [--sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-uClibc.so.0] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_ebb35] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/opt/rt-n56u/trunk/stage/lib] ==> dir [/opt/rt-n56u/trunk/stage/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+    arg [--gc-sections] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_ebb35.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/rt-n56u/trunk/stage/lib] ==> [/opt/rt-n56u/trunk/stage/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/opt/rt-n56u/trunk/stage/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b066a/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_b066a.dir/build.make CMakeFiles/cmTC_b066a.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_b066a.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++1z -o CMakeFiles/cmTC_b066a.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_b066a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b066a.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_b066a.dir/feature_tests.cxx.o  -o cmTC_b066a 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ef356/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_ef356.dir/build.make CMakeFiles/cmTC_ef356.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_ef356.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++14 -o CMakeFiles/cmTC_ef356.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_ef356
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef356.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_ef356.dir/feature_tests.cxx.o  -o cmTC_ef356 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_63a25/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_63a25.dir/build.make CMakeFiles/cmTC_63a25.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_63a25.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++11 -o CMakeFiles/cmTC_63a25.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_63a25
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63a25.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_63a25.dir/feature_tests.cxx.o  -o cmTC_63a25 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a7d48/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_a7d48.dir/build.make CMakeFiles/cmTC_a7d48.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_a7d48.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++98 -o CMakeFiles/cmTC_a7d48.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a7d48
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7d48.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_a7d48.dir/feature_tests.cxx.o  -o cmTC_a7d48 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d35da/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_d35da.dir/build.make CMakeFiles/cmTC_d35da.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d35da.dir/CheckIncludeFile.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_d35da.dir/CheckIncludeFile.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d35da
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d35da.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_d35da.dir/CheckIncludeFile.c.o  -o cmTC_d35da 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5bea0/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_5bea0.dir/build.make CMakeFiles/cmTC_5bea0.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5bea0.dir/CheckSymbolExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_5bea0.dir/CheckSymbolExists.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5bea0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5bea0.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_5bea0.dir/CheckSymbolExists.c.o  -o cmTC_5bea0 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+File /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file sys/inotify.h exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_99b98/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_99b98.dir/build.make CMakeFiles/cmTC_99b98.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_99b98.dir/CheckIncludeFile.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_99b98.dir/CheckIncludeFile.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_99b98
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99b98.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_99b98.dir/CheckIncludeFile.c.o  -o cmTC_99b98 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function inotify_init exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21d4c/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_21d4c.dir/build.make CMakeFiles/cmTC_21d4c.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_21d4c.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -DCHECK_FUNCTION_EXISTS=inotify_init   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_21d4c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_21d4c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21d4c.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -DCHECK_FUNCTION_EXISTS=inotify_init  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_21d4c.dir/CheckFunctionExists.c.o  -o cmTC_21d4c 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Performing C SOURCE FILE Test FILE_OFFSET_BITS_LFS_MACRO_REQUIRED succeeded with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_965c7/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_965c7.dir/build.make CMakeFiles/cmTC_965c7.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_965c7.dir/src.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DFILE_OFFSET_BITS_LFS_MACRO_REQUIRED   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_965c7.dir/src.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:5:13: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+         int main() { return 0; }
+             ^~~~
+Linking C executable cmTC_965c7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_965c7.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DFILE_OFFSET_BITS_LFS_MACRO_REQUIRED  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_965c7.dir/src.c.o  -o cmTC_965c7 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+Source file was:
+#define _FILE_OFFSET_BITS 64 
+        #include <sys/types.h>
+        #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+        int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+        int main() { return 0; }
+    
+Determining if the include file sys/statvfs.h exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3eda4/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_3eda4.dir/build.make CMakeFiles/cmTC_3eda4.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3eda4.dir/CheckIncludeFile.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_3eda4.dir/CheckIncludeFile.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3eda4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3eda4.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_3eda4.dir/CheckIncludeFile.c.o  -o cmTC_3eda4 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function canonicalize_file_name exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f388f/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_f388f.dir/build.make CMakeFiles/cmTC_f388f.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f388f.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=canonicalize_file_name   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_f388f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f388f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f388f.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=canonicalize_file_name  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_f388f.dir/CheckFunctionExists.c.o  -o cmTC_f388f 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function daemon exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9b7b4/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_9b7b4.dir/build.make CMakeFiles/cmTC_9b7b4.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9b7b4.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=daemon   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_9b7b4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b7b4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b7b4.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=daemon  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_9b7b4.dir/CheckFunctionExists.c.o  -o cmTC_9b7b4 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function fallocate64 exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b8018/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_b8018.dir/build.make CMakeFiles/cmTC_b8018.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b8018.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=fallocate64   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_b8018.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b8018
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8018.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=fallocate64  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_b8018.dir/CheckFunctionExists.c.o  -o cmTC_b8018 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function flock exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fce64/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_fce64.dir/build.make CMakeFiles/cmTC_fce64.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fce64.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=flock   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_fce64.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fce64
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fce64.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=flock  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_fce64.dir/CheckFunctionExists.c.o  -o cmTC_fce64 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function getmntent exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_73d5c/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_73d5c.dir/build.make CMakeFiles/cmTC_73d5c.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_73d5c.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=getmntent   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_73d5c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_73d5c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73d5c.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=getmntent  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_73d5c.dir/CheckFunctionExists.c.o  -o cmTC_73d5c 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function getpagesize exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_45e77/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_45e77.dir/build.make CMakeFiles/cmTC_45e77.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_45e77.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=getpagesize   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_45e77.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_45e77
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45e77.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=getpagesize  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_45e77.dir/CheckFunctionExists.c.o  -o cmTC_45e77 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function localtime_r exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_71470/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_71470.dir/build.make CMakeFiles/cmTC_71470.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_71470.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=localtime_r   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_71470.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_71470
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71470.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=localtime_r  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_71470.dir/CheckFunctionExists.c.o  -o cmTC_71470 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function memmem exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_62309/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_62309.dir/build.make CMakeFiles/cmTC_62309.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_62309.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=memmem   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_62309.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_62309
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62309.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=memmem  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_62309.dir/CheckFunctionExists.c.o  -o cmTC_62309 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function mkdtemp exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a77d0/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_a77d0.dir/build.make CMakeFiles/cmTC_a77d0.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_a77d0.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=mkdtemp   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_a77d0.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a77d0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a77d0.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=mkdtemp  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_a77d0.dir/CheckFunctionExists.c.o  -o cmTC_a77d0 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function posix_fadvise exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b102/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_5b102.dir/build.make CMakeFiles/cmTC_5b102.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5b102.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_fadvise   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_5b102.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5b102
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b102.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_fadvise  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_5b102.dir/CheckFunctionExists.c.o  -o cmTC_5b102 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function posix_fallocate exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_06855/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_06855.dir/build.make CMakeFiles/cmTC_06855.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_06855.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_fallocate   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_06855.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_06855
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06855.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_fallocate  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_06855.dir/CheckFunctionExists.c.o  -o cmTC_06855 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function posix_memalign exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_55feb/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_55feb.dir/build.make CMakeFiles/cmTC_55feb.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_55feb.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_memalign   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_55feb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+<command-line>:0:23: warning: conflicting types for built-in function 'posix_memalign' [-Wbuiltin-declaration-mismatch]
+/usr/share/cmake-3.10/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_55feb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55feb.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=posix_memalign  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_55feb.dir/CheckFunctionExists.c.o  -o cmTC_55feb 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function pread exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9b112/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_9b112.dir/build.make CMakeFiles/cmTC_9b112.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9b112.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=pread   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_9b112.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b112
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b112.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=pread  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_9b112.dir/CheckFunctionExists.c.o  -o cmTC_9b112 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function pwrite exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_278d2/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_278d2.dir/build.make CMakeFiles/cmTC_278d2.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_278d2.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=pwrite   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_278d2.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_278d2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_278d2.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=pwrite  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_278d2.dir/CheckFunctionExists.c.o  -o cmTC_278d2 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function statvfs exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_df50f/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_df50f.dir/build.make CMakeFiles/cmTC_df50f.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_df50f.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=statvfs   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_df50f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_df50f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df50f.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=statvfs  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_df50f.dir/CheckFunctionExists.c.o  -o cmTC_df50f 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function strcasestr exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f1f90/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_f1f90.dir/build.make CMakeFiles/cmTC_f1f90.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f1f90.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strcasestr   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_f1f90.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f1f90
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1f90.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strcasestr  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_f1f90.dir/CheckFunctionExists.c.o  -o cmTC_f1f90 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function strlcpy exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f8e35/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_f8e35.dir/build.make CMakeFiles/cmTC_f8e35.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f8e35.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strlcpy   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_f8e35.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f8e35
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8e35.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strlcpy  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_f8e35.dir/CheckFunctionExists.c.o  -o cmTC_f8e35 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function strsep exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c97df/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_c97df.dir/build.make CMakeFiles/cmTC_c97df.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_c97df.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strsep   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_c97df.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c97df
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c97df.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=strsep  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_c97df.dir/CheckFunctionExists.c.o  -o cmTC_c97df 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function syslog exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_58ab7/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_58ab7.dir/build.make CMakeFiles/cmTC_58ab7.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_58ab7.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=syslog   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_58ab7.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_58ab7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_58ab7.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=syslog  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_58ab7.dir/CheckFunctionExists.c.o  -o cmTC_58ab7 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function valloc exists passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17380/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_17380.dir/build.make CMakeFiles/cmTC_17380.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_17380.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=valloc   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_17380.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_17380
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17380.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=valloc  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_17380.dir/CheckFunctionExists.c.o  -o cmTC_17380 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function sqrt exists in the m passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b64fc/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_b64fc.dir/build.make CMakeFiles/cmTC_b64fc.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b64fc.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=sqrt   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_b64fc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+<command-line>:0:23: warning: conflicting types for built-in function 'sqrt' [-Wbuiltin-declaration-mismatch]
+/usr/share/cmake-3.10/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_b64fc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b64fc.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=sqrt  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_b64fc.dir/CheckFunctionExists.c.o  -o cmTC_b64fc -lm 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function socket exists in the c passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ce4d4/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_ce4d4.dir/build.make CMakeFiles/cmTC_ce4d4.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ce4d4.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=socket   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_ce4d4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ce4d4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce4d4.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=socket  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_ce4d4.dir/CheckFunctionExists.c.o  -o cmTC_ce4d4 -lc 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function gethostbyname exists in the c passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d45c6/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_d45c6.dir/build.make CMakeFiles/cmTC_d45c6.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d45c6.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=gethostbyname   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_d45c6.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d45c6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d45c6.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=gethostbyname  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_d45c6.dir/CheckFunctionExists.c.o  -o cmTC_d45c6 -lc 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+

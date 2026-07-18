@@ -1,0 +1,2 @@
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/lib/libdht.a
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/dht/include/dht/dht.h

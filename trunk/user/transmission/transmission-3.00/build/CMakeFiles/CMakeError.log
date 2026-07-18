@@ -1,0 +1,282 @@
+Performing C SOURCE FILE Test ICONV_SECOND_ARGUMENT_IS_CONST failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_746b4/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_746b4.dir/build.make CMakeFiles/cmTC_746b4.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_746b4.dir/src.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc  -I/opt/rt-n56u/trunk/stage/include  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -DICONV_SECOND_ARGUMENT_IS_CONST   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_746b4.dir/src.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:10:25: warning: passing argument 2 of 'libiconv' from incompatible pointer type [-Wincompatible-pointer-types]
+             iconv(conv, &in, &ilen, &out, &olen);
+                         ^
+In file included from /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:2:0:
+/opt/rt-n56u/trunk/stage/include/iconv.h:80:15: note: expected 'char **' but argument is of type 'const char **'
+ #define iconv libiconv
+               ^
+/opt/rt-n56u/trunk/stage/include/iconv.h:82:15: note: in expansion of macro 'iconv'
+ extern size_t iconv (iconv_t cd,  char* * inbuf, size_t *inbytesleft, char* * outbuf, size_t *outbytesleft);
+               ^~~~~
+Linking C executable cmTC_746b4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_746b4.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -DICONV_SECOND_ARGUMENT_IS_CONST  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_746b4.dir/src.c.o  -o cmTC_746b4 /opt/rt-n56u/trunk/stage/lib/libiconv.so 
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+Source file was:
+
+        #include <iconv.h>
+        int main()
+        {
+            iconv_t conv = 0;
+            const char * in = 0;
+            size_t ilen = 0;
+            char * out = 0;
+            size_t olen = 0;
+            iconv(conv, &in, &ilen, &out, &olen);
+            return 0;
+        }
+Determining if files sys/types.h;sys/event.h exist failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_48f48/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_48f48.dir/build.make CMakeFiles/cmTC_48f48.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_48f48.dir/CheckIncludeFiles.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_48f48.dir/CheckIncludeFiles.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:3:10: fatal error: sys/event.h: No such file or directory
+ #include <sys/event.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_48f48.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_48f48.dir/CheckIncludeFiles.c.o' failed
+make[5]: *** [CMakeFiles/cmTC_48f48.dir/CheckIncludeFiles.c.o] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_48f48/fast' failed
+make[4]: *** [cmTC_48f48/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+Source:
+/* */
+#include <sys/types.h>
+#include <sys/event.h>
+
+
+int main(void){return 0;}
+
+Determining if the function kqueue exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_90fb0/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_90fb0.dir/build.make CMakeFiles/cmTC_90fb0.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_90fb0.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -DCHECK_FUNCTION_EXISTS=kqueue   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_90fb0.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_90fb0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90fb0.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -DCHECK_FUNCTION_EXISTS=kqueue  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_90fb0.dir/CheckFunctionExists.c.o  -o cmTC_90fb0 
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CMakeFiles/cmTC_90fb0.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `kqueue'
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CheckFunctionExists.c:(.text.startup.main+0x28): undefined reference to `kqueue'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_90fb0.dir/build.make:97: recipe for target 'cmTC_90fb0' failed
+make[5]: *** [cmTC_90fb0] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_90fb0/fast' failed
+make[4]: *** [cmTC_90fb0/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Performing C SOURCE FILE Test NO_LFS_MACROS_REQUIRED failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d7e32/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_d7e32.dir/build.make CMakeFiles/cmTC_d7e32.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d7e32.dir/src.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DNO_LFS_MACROS_REQUIRED   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_d7e32.dir/src.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:3:41: warning: left shift count >= width of type [-Wshift-count-overflow]
+         #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+                                         ^
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:4:29: note: in expansion of macro 'LARGE_OFF_T'
+         int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+                             ^~~~~~~~~~~
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:3:65: warning: left shift count >= width of type [-Wshift-count-overflow]
+         #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+                                                                 ^
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:4:29: note: in expansion of macro 'LARGE_OFF_T'
+         int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+                             ^~~~~~~~~~~
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:3:41: warning: left shift count >= width of type [-Wshift-count-overflow]
+         #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+                                         ^
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:4:64: note: in expansion of macro 'LARGE_OFF_T'
+         int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+                                                                ^~~~~~~~~~~
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:3:65: warning: left shift count >= width of type [-Wshift-count-overflow]
+         #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+                                                                 ^
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:4:64: note: in expansion of macro 'LARGE_OFF_T'
+         int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+                                                                ^~~~~~~~~~~
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:4:13: error: variably modified 'off_t_is_large' at file scope
+         int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+             ^~~~~~~~~~~~~~
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/src.c:5:13: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+         int main() { return 0; }
+             ^~~~
+CMakeFiles/cmTC_d7e32.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d7e32.dir/src.c.o' failed
+make[5]: *** [CMakeFiles/cmTC_d7e32.dir/src.c.o] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_d7e32/fast' failed
+make[4]: *** [cmTC_d7e32/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+Source file was:
+
+        #include <sys/types.h>
+        #define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))
+        int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1];
+        int main() { return 0; }
+    
+Determining if the include file xfs/xfs.h exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cbdaa/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_cbdaa.dir/build.make CMakeFiles/cmTC_cbdaa.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_cbdaa.dir/CheckIncludeFile.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_cbdaa.dir/CheckIncludeFile.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: xfs/xfs.h: No such file or directory
+ #include <xfs/xfs.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_cbdaa.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_cbdaa.dir/CheckIncludeFile.c.o' failed
+make[5]: *** [CMakeFiles/cmTC_cbdaa.dir/CheckIncludeFile.c.o] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_cbdaa/fast' failed
+make[4]: *** [cmTC_cbdaa/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the include file xlocale.h exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_05dc4/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_05dc4.dir/build.make CMakeFiles/cmTC_05dc4.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_05dc4.dir/CheckIncludeFile.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_05dc4.dir/CheckIncludeFile.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: xlocale.h: No such file or directory
+ #include <xlocale.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_05dc4.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_05dc4.dir/CheckIncludeFile.c.o' failed
+make[5]: *** [CMakeFiles/cmTC_05dc4.dir/CheckIncludeFile.c.o] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_05dc4/fast' failed
+make[4]: *** [cmTC_05dc4/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function _configthreadlocale exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3d8c8/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_3d8c8.dir/build.make CMakeFiles/cmTC_3d8c8.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3d8c8.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=_configthreadlocale   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_3d8c8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3d8c8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d8c8.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=_configthreadlocale  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_3d8c8.dir/CheckFunctionExists.c.o  -o cmTC_3d8c8 
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CMakeFiles/cmTC_3d8c8.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `_configthreadlocale'
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CheckFunctionExists.c:(.text.startup.main+0x28): undefined reference to `_configthreadlocale'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3d8c8.dir/build.make:97: recipe for target 'cmTC_3d8c8' failed
+make[5]: *** [cmTC_3d8c8] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_3d8c8/fast' failed
+make[4]: *** [cmTC_3d8c8/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function htonll exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9a250/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_9a250.dir/build.make CMakeFiles/cmTC_9a250.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_9a250.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=htonll   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_9a250.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9a250
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a250.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=htonll  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_9a250.dir/CheckFunctionExists.c.o  -o cmTC_9a250 
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CMakeFiles/cmTC_9a250.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `htonll'
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CheckFunctionExists.c:(.text.startup.main+0x28): undefined reference to `htonll'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9a250.dir/build.make:97: recipe for target 'cmTC_9a250' failed
+make[5]: *** [cmTC_9a250] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_9a250/fast' failed
+make[4]: *** [cmTC_9a250/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function ntohll exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_02b8a/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_02b8a.dir/build.make CMakeFiles/cmTC_02b8a.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_02b8a.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=ntohll   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_02b8a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_02b8a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02b8a.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=ntohll  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_02b8a.dir/CheckFunctionExists.c.o  -o cmTC_02b8a 
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CMakeFiles/cmTC_02b8a.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `ntohll'
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CheckFunctionExists.c:(.text.startup.main+0x28): undefined reference to `ntohll'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_02b8a.dir/build.make:97: recipe for target 'cmTC_02b8a' failed
+make[5]: *** [cmTC_02b8a] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_02b8a/fast' failed
+make[4]: *** [cmTC_02b8a/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function uselocale exists failed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_59759/fast"
+make[4]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_59759.dir/build.make CMakeFiles/cmTC_59759.dir/build
+make[5]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_59759.dir/CheckFunctionExists.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=uselocale   -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_59759.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_59759
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59759.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/ -Wall -W -Wcast-align -Wfloat-equal -Wmissing-format-attribute -Wpointer-arith -Wredundant-decls -Wundef -Wunused-parameter -Wwrite-strings -Wextra -Winit-self -Wformat-security -Winline -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -DCHECK_FUNCTION_EXISTS=uselocale  -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_59759.dir/CheckFunctionExists.c.o  -o cmTC_59759 
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CMakeFiles/cmTC_59759.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `uselocale'
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/ld: CheckFunctionExists.c:(.text.startup.main+0x28): undefined reference to `uselocale'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_59759.dir/build.make:97: recipe for target 'cmTC_59759' failed
+make[5]: *** [cmTC_59759] Error 1
+make[5]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+Makefile:126: recipe for target 'cmTC_59759/fast' failed
+make[4]: *** [cmTC_59759/fast] Error 2
+make[4]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/CMakeFiles/CMakeTmp”
+
+

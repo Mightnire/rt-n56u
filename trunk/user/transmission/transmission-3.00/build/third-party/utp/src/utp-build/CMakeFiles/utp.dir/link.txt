@@ -1,0 +1,2 @@
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ar qc libutp.a  CMakeFiles/utp.dir/utp.cpp.o CMakeFiles/utp.dir/utp_utils.cpp.o
+/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-ranlib libutp.a

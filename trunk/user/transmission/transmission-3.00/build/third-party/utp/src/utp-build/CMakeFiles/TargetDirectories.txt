@@ -1,0 +1,7 @@
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/install/strip.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/edit_cache.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/utp.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/rebuild_cache.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/list_install_components.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/install/local.dir
+/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/install.dir

@@ -1,0 +1,190 @@
+The target system is: Linux -  - 
+The host system is: Linux - 5.4.0-150-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc 
+Build flags: -Os;-fomit-frame-pointer;-pipe;;-Dlinux;-D__linux__;-Dunix;-DEMBED;-I/opt/rt-n56u/trunk/stage/include;-Wall;-Wno-trigraphs;-Wno-strict-aliasing;-Wno-format-security;-fno-tree-slsr;-fno-aggressive-loop-optimizations;-Wno-pointer-sign;-Wno-unused;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough;-I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/;-I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3a85a/fast"
+make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_3a85a.dir/build.make CMakeFiles/cmTC_3a85a.dir/build
+make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3a85a.dir/testCCompiler.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_3a85a.dir/testCCompiler.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3a85a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a85a.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_3a85a.dir/testCCompiler.c.o  -o cmTC_3a85a 
+make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7b3ee/fast"
+make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_7b3ee.dir/build.make CMakeFiles/cmTC_7b3ee.dir/build
+make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_7b3ee
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b3ee.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o  -o cmTC_7b3ee 
+Using built-in specs.
+COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc
+COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper
+Target: mipsel-linux-uclibc
+Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld
+Thread model: posix
+gcc version 7.4.0 (crosstool-NG 1.24.0) 
+COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/
+LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_7b3ee' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_7b3ee /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_7b3ee' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mipsel-linux-uclibc-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_7b3ee/fast"]
+  ignore line: [make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_7b3ee.dir/build.make CMakeFiles/cmTC_7b3ee.dir/build]
+  ignore line: [make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”]
+  ignore line: [Building C object CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_7b3ee]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b3ee.dir/link.txt --verbose=1]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o  -o cmTC_7b3ee ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper]
+  ignore line: [Target: mipsel-linux-uclibc]
+  ignore line: [Configured with: /opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=mipsel-linux-uclibc --prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x --with-sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-languages=c,c++ --with-abi=32 --with-tune=mips32r2 --with-float=hard --with-pkgversion='crosstool-NG 1.24.0' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpfr=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-mpc=/opt/rt-n56u/toolchain-mipsel/.build/mipsel-linux-uclibc/buildtools --with-isl=no --with-cloog=no --disable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++ -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --enable-tls --disable-multilib --with-local-prefix=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --enable-long-long --with-gnu-ld]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (crosstool-NG 1.24.0) ]
+  ignore line: [COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/]
+  ignore line: [LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-Wno-pointer-sign' '-Wno-unused' '-O2' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/' '-I' '/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_7b3ee' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL']
+  link line: [ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_7b3ee /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o]
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2] ==> ignore
+    arg [--sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-uClibc.so.0] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_7b3ee] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/opt/rt-n56u/trunk/stage/lib] ==> dir [/opt/rt-n56u/trunk/stage/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+    arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_7b3ee.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o] ==> ignore
+    arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/rt-n56u/trunk/stage/lib] ==> [/opt/rt-n56u/trunk/stage/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
+  collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/opt/rt-n56u/trunk/stage/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib;/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_aa493/fast"
+make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_aa493.dir/build.make CMakeFiles/cmTC_aa493.dir/build
+make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_aa493.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -std=c11 -o CMakeFiles/cmTC_aa493.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_aa493
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa493.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_aa493.dir/feature_tests.c.o  -o cmTC_aa493 
+make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_339cb/fast"
+make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_339cb.dir/build.make CMakeFiles/cmTC_339cb.dir/build
+make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_339cb.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -std=c99 -o CMakeFiles/cmTC_339cb.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_339cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_339cb.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_339cb.dir/feature_tests.c.o  -o cmTC_339cb 
+make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0353c/fast"
+make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_0353c.dir/build.make CMakeFiles/cmTC_0353c.dir/build
+make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0353c.dir/feature_tests.c.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc   -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/    -mips32r2 -march=mips32r2 -mtune=24kec -std=c90 -o CMakeFiles/cmTC_0353c.dir/feature_tests.c.o   -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_0353c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0353c.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-gcc -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations -Wno-pointer-sign -Wno-unused -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/miniupnpc/include/ -I/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/../third-party/libnatpmp/   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_0353c.dir/feature_tests.c.o  -o cmTC_0353c 
+make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/b64/src/b64-build/CMakeFiles/CMakeTmp”
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
