@@ -612,7 +612,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_EVENT2:INTERNAL=[/opt/rt-n56u/trunk/stage/lib/libev
 //Details about finding ICONV
 FIND_PACKAGE_MESSAGE_DETAILS_ICONV:INTERNAL=[/opt/rt-n56u/trunk/stage/lib/libiconv.so][/opt/rt-n56u/trunk/stage/include][v()]
 //Details about finding OpenSSL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/opt/rt-n56u/trunk/stage/lib/libcrypto.so][/opt/rt-n56u/trunk/stage/include][v1.1.1k(0.9.7)]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/opt/rt-n56u/trunk/stage/lib/libcrypto.so][/opt/rt-n56u/trunk/stage/include][v1.1.1w(0.9.7)]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding ZLIB
