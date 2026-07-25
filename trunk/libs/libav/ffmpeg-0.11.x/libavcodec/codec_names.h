@@ -503,8 +503,7 @@ case CODEC_ID_MACE6:
 case CODEC_ID_VMDAUDIO:
     return "vmdaudio";
 case CODEC_ID_FLAC:
-    { extern AVCodec ff_flac_decoder;
-      return ff_flac_decoder.name; }
+    return "flac";
 case CODEC_ID_MP3ADU:
     return "mp3adu";
 case CODEC_ID_MP3ON4:
@@ -512,8 +511,7 @@ case CODEC_ID_MP3ON4:
 case CODEC_ID_SHORTEN:
     return "shorten";
 case CODEC_ID_ALAC:
-    { extern AVCodec ff_alac_decoder;
-      return ff_alac_decoder.name; }
+    return "alac";
 case CODEC_ID_WESTWOOD_SND1:
     return "westwood_snd1";
 case CODEC_ID_GSM:
