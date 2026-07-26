@@ -1,0 +1,3 @@
+kernel//opt/rt-n56u/trunk/user/shortcut-fe/shortcut-fe/shortcut-fe.ko
+kernel//opt/rt-n56u/trunk/user/shortcut-fe/shortcut-fe/shortcut-fe-ipv6.ko
+kernel//opt/rt-n56u/trunk/user/shortcut-fe/shortcut-fe/fast-classifier.ko
