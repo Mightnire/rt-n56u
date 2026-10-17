@@ -1,5 +1,13 @@
 更新日志
 
+2026/10/18：
+- 修复 Transmission Web UI (v0.1.9) 种子列表在拖高详情栏后缩放窗口导致高度塌陷与 Canvas 残影重叠异常：
+  - 根因分析：当用户将底部详情面板（detailHeight）向上拉至最大（600px）并缩小窗口时，列表高度计算公式 bodyHeight - headerHeight - footerHeight - detailHeight 击穿为负数，导致详情面板通过 translateY 向上倒冲覆盖列表，同时 Canvas 画布高度非正数引发 clearRect 擦除失效、虚拟滚动坐标塌陷及旧帧残影无限叠加。
+  - 修复方案：
+    - 列表高度兜底防护：在 DashboardView 的 listheight 计算逻辑中加入 Math.max(120, ...) 最小高度保障，杜绝负数高度击穿。
+    - 详情栏拖拽上限动态联动：将详情面板的 max-container-height 动态绑定至当前窗口可用高度（Math.max(120, bodyHeight - headerHeight - footerHeight - 120)），彻底防止拖拽挤压。
+    - 虚拟列表与 Canvas 画布防负数：在 CanvasList 与 CanvasMobileList 的 setClientHeight 以及 CanvasTableBody 的 canvasHeight 增加 Math.max(0, ...) 防御，确保清屏与绘制几何坐标严格处于合法区间。
+
 2026/10/17：
 - 升级重构电源指示灯（BOARD_GPIO_LED_POWER）生命律动与负载感应系统（BW050-A 等机型支持）：
   - 在 detect_link 中实现多维度的智能心跳指示逻辑，完全复用原生 2 秒主事件循环，零系统唤醒开销：
