@@ -732,7 +732,11 @@ struct nvram_pair router_defaults[] = {
 	{ "front_led_lan", "2" },
 	{ "front_led_wif", "1" },
 	{ "front_led_usb", "3" },
-	{ "front_led_pwr", "2" },
+	#if defined (APP_PWR_HEARTBEAT)
+    { "front_led_pwr", "2" },
+#else
+    { "front_led_pwr", "1" },
+#endif
 
 	{ "ether_igmp", "1" },
 	{ "ether_uport", "0" },		/* WAN port in AP mode is static upstream by default */

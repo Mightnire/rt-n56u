@@ -2569,6 +2569,13 @@ ej_hardware_pins_hook(int eid, webs_t wp, int argc, char **argv)
 	int has_led_pwr = 0;
 #endif
 
+#if defined (APP_PWR_HEARTBEAT)
+    int has_pwr_heartbeat = 1;
+#else
+    int has_pwr_heartbeat = 0;
+#endif
+
+
 	websWrite(wp,
 		"function support_but_wps() { return %d;}\n"
 		"function support_but_fn1() { return %d;}\n"
@@ -2579,6 +2586,7 @@ ej_hardware_pins_hook(int eid, webs_t wp, int argc, char **argv)
 		"function support_led_usb() { return %d;}\n"
 		"function support_led_wif() { return %d;}\n"
 		"function support_led_pwr() { return %d;}\n"
+		"function support_pwr_heartbeat() { return %d;}\n"
 		"function support_led_phy() { return %d;}\n",
 		has_but_wps,
 		has_but_fn1,
@@ -2589,6 +2597,7 @@ ej_hardware_pins_hook(int eid, webs_t wp, int argc, char **argv)
 		has_led_usb,
 		has_led_wif,
 		has_led_pwr,
+		has_pwr_heartbeat,
 		BOARD_NUM_ETH_LEDS
 	);
 

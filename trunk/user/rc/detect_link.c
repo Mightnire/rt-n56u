@@ -350,7 +350,7 @@ dl_update_port_speed_leds(unsigned long tick)
 }
 #endif
 
-#if defined (BOARD_GPIO_LED_POWER)
+#if defined (BOARD_GPIO_LED_POWER) && defined (APP_PWR_HEARTBEAT)
 static unsigned int
 get_cpu_usage_pct(void)
 {
@@ -410,6 +410,7 @@ dl_update_power_led(unsigned long tick)
 	}
 
 	/* 模式 4: 极简均匀慢频呼吸 (2s 亮 2s 灭) */
+#if defined (APP_PWR_HEARTBEAT)
 	if (pwr_mode == 4) {
 		LED_CONTROL(BOARD_GPIO_LED_POWER, (tick % 2 == 0) ? LED_ON : LED_OFF);
 		return;
@@ -473,6 +474,7 @@ dl_update_power_led(unsigned long tick)
 		usleep(60000);
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
 	}
+#endif
 }
 #endif
 
@@ -574,11 +576,8 @@ dl_update_leds(void)
 #elif defined (BOARD_GPIO_LED_WIFI)
 	LED_CONTROL(BOARD_GPIO_LED_WIFI, LED_ON);
 #endif
-#if defined (BOARD_GPIO_LED_ALL)
+#if defined (BOARD_GPIO_LED_ALL) && !defined (BOARD_GPIO_LED_POWER)
 	LED_CONTROL(BOARD_GPIO_LED_ALL, LED_ON);
-#endif
-#if defined (BOARD_GPIO_LED_POWER)
-	dl_update_power_led(dl_counter_total);
 #endif
 #if defined (BOARD_GPIO_LED_SW2G)
 	LED_CONTROL(BOARD_GPIO_LED_SW2G, LED_ON);

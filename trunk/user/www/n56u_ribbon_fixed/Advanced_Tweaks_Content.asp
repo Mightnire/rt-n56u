@@ -151,8 +151,14 @@ function initial(){
 		o3.remove(1);
 	}
 
-	if (!support_led_pwr())
+	if (!support_led_pwr()) {
 		showhide_div("row_led_pwr", 0);
+	} else if (!support_pwr_heartbeat()) {
+		var op = document.form.front_led_pwr;
+		op.remove(4);
+		op.remove(3);
+		op.remove(2);
+	}
 
 	showhide_div("row_led_wan", support_led_wan());
 	showhide_div("row_led_lan", support_led_lan());
