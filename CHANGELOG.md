@@ -1,6 +1,12 @@
 更新日志
 
 2026/10/17：
+- 优化与重构小米路由器 Pro（MI-R3P / MI-R3P-spi）LED 指示灯系统：
+  - 修正原配置将网口速率灯误定义为 LAN/WAN/USB 指示灯（GPIO 13/14/16）的错误，移除无效的宏定义
+  - 修正 BOARD_NUM_ETH_LEDS 为 1，对应网口单绿灯硬件 PHY 模式，消除 WebUI 幽灵黄灯配置项
+  - 适配 4 端口自适应速率指示灯架构（WAN: GPIO 14, LAN1: GPIO 13, LAN2: GPIO 16, LAN3: GPIO 15）
+  - 前面板 RGB 三色状态指示灯防混色支持：在 rc 中对 BOARD_MIR3P 启用红 (6)、黄 (10) 通道熄灭保护，确保运行阶段纯蓝发光
+  - 补全 MI-R3P-spi 内核配置中缺失的 RALINK_CPUSLEEP、RT2880_FLASH_AUTO 依赖项与 EXT4_USE_FOR_EXT23 兼容项
 - 优化与重构小米路由器 3G（MI-R3G）LED 指示灯系统：
   - 修正原配置将 LAN1 误定义为 USB 指示灯（GPIO 14）的错误，移除无效的 USB LED 宏
   - 修正 BOARD_NUM_ETH_LEDS 为 1，对应网口单绿灯硬件 PHY 模式，消除 WebUI 幽灵黄灯配置项

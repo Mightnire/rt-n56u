@@ -308,7 +308,7 @@ init_gpio_leds_buttons(void)
 #elif defined (BOARD_Q20)
 	cpu_gpio_set_pin_direction(14, 1);
 	cpu_gpio_set_pin(14, LED_ON); // set GPIO to low
-#elif defined (BOARD_MIR3G)
+#elif defined (BOARD_MIR3G) || defined (BOARD_MIR3P)
 	/* MI-R3G front tricolor LED: turn off Red (6) and Amber (10) */
 	cpu_gpio_set_pin_direction(6, 1);
 	cpu_gpio_set_pin(6, LED_OFF);
@@ -1076,7 +1076,7 @@ shutdown_router(int level)
 #if defined (BOARD_GPIO_LED_LAN4_SPEED)
 	LED_CONTROL(BOARD_GPIO_LED_LAN4_SPEED, LED_OFF);
 #endif
-#if defined (BOARD_MIR3G)
+#if defined (BOARD_MIR3G) || defined (BOARD_MIR3P)
 	cpu_gpio_set_pin(6, LED_OFF);
 	cpu_gpio_set_pin(10, LED_OFF);
 #endif

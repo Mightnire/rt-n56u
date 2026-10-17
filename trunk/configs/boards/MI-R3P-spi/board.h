@@ -12,10 +12,14 @@
 #undef  BOARD_GPIO_BTN_WPS
 #undef  BOARD_GPIO_LED_ALL
 #undef  BOARD_GPIO_LED_WIFI
-#define BOARD_GPIO_LED_POWER	8	/* 6: red, 10: yellow, 8: blue */
-#define BOARD_GPIO_LED_LAN	16
-#define BOARD_GPIO_LED_WAN	13
-#define	BOARD_GPIO_LED_USB	14
+#define BOARD_GPIO_LED_POWER	8	/* 6: red, 10: amber, 8: blue */
+#define BOARD_GPIO_LED_WAN_SPEED	14	/* WAN amber: adaptive speed indicator */
+#define BOARD_GPIO_LED_LAN1_SPEED	13	/* LAN1 amber: adaptive speed indicator */
+#define BOARD_GPIO_LED_LAN2_SPEED	16	/* LAN2 amber: adaptive speed indicator */
+#define BOARD_GPIO_LED_LAN3_SPEED	15	/* LAN3 amber: adaptive speed indicator */
+#undef  BOARD_GPIO_LED_LAN
+#undef  BOARD_GPIO_LED_WAN
+#undef  BOARD_GPIO_LED_USB
 #undef  BOARD_GPIO_LED_ROUTER
 #define BOARD_GPIO_PWR_USB_ON	1	/* 1: 5V Power ON, 0: 5V Power OFF */
 #define BOARD_GPIO_PWR_USB	12	/* USB2.0 5V Power */
@@ -24,7 +28,7 @@
 #define BOARD_NUM_ANT_5G_RX	4
 #define BOARD_NUM_ANT_2G_TX	4
 #define BOARD_NUM_ANT_2G_RX	4
-#define BOARD_NUM_ETH_LEDS	2
+#define BOARD_NUM_ETH_LEDS	1	/* 1: Green hardware PHY link/act */
 #define BOARD_NUM_ETH_EPHY	4
 #define BOARD_HAS_EPHY_L1000	1
 #define BOARD_HAS_EPHY_W1000	1
