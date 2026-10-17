@@ -257,17 +257,30 @@ init_gpio_leds_buttons(void)
 #if defined (BOARD_GPIO_LED_USB)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_USB, 1);
 	cpu_gpio_set_pin(BOARD_GPIO_LED_USB, LED_OFF);
-	cpu_gpio_led_set(BOARD_GPIO_LED_USB, LED_BLINK_STAY_HIDE);
+	cpu_gpio_led_set(BOARD_GPIO_LED_USB, LED_BLINK_STAY_SHOW);
 #if defined (BOARD_GPIO_LED_USB2)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_USB2, 1);
 	cpu_gpio_set_pin(BOARD_GPIO_LED_USB2, LED_OFF);
-	cpu_gpio_led_set(BOARD_GPIO_LED_USB2, LED_BLINK_STAY_HIDE);
+	cpu_gpio_led_set(BOARD_GPIO_LED_USB2, LED_BLINK_STAY_SHOW);
 #endif
 #endif
 	/* hide ROUTER soft-led  */
 #if defined (BOARD_GPIO_LED_ROUTER)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_ROUTER, 1);
 	cpu_gpio_set_pin(BOARD_GPIO_LED_ROUTER, LED_OFF);
+#endif
+	/* hide port speed soft-leds */
+#if defined (BOARD_GPIO_LED_WAN_SPEED)
+	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_WAN_SPEED, 1);
+	cpu_gpio_set_pin(BOARD_GPIO_LED_WAN_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN1_SPEED)
+	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_LAN1_SPEED, 1);
+	cpu_gpio_set_pin(BOARD_GPIO_LED_LAN1_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN2_SPEED)
+	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_LAN2_SPEED, 1);
+	cpu_gpio_set_pin(BOARD_GPIO_LED_LAN2_SPEED, LED_OFF);
 #endif
 	/* enable common led trigger */
 #if defined (BOARD_GPIO_LED_ALL)
@@ -287,6 +300,12 @@ init_gpio_leds_buttons(void)
 #elif defined (BOARD_Q20)
 	cpu_gpio_set_pin_direction(14, 1);
 	cpu_gpio_set_pin(14, LED_ON); // set GPIO to low
+#elif defined (BOARD_MIR3G)
+	/* MI-R3G front tricolor LED: turn off Red (6) and Amber (10) */
+	cpu_gpio_set_pin_direction(6, 1);
+	cpu_gpio_set_pin(6, LED_OFF);
+	cpu_gpio_set_pin_direction(10, 1);
+	cpu_gpio_set_pin(10, LED_OFF);
 #endif
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_POWER, 1);
 	LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
@@ -768,6 +787,18 @@ LED_CONTROL(int gpio_led, int flag)
 #endif
 		break;
 #endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED)
+	case BOARD_GPIO_LED_WAN_SPEED:
+		break;
+#endif
+#if defined (BOARD_GPIO_LED_LAN1_SPEED)
+	case BOARD_GPIO_LED_LAN1_SPEED:
+		break;
+#endif
+#if defined (BOARD_GPIO_LED_LAN2_SPEED)
+	case BOARD_GPIO_LED_LAN2_SPEED:
+		break;
+#endif
 #if defined (BOARD_GPIO_LED_POWER)
 	case BOARD_GPIO_LED_POWER:
 		front_led_x = nvram_get_int("front_led_pwr");
@@ -1013,6 +1044,19 @@ shutdown_router(int level)
 
 #if defined (BOARD_GPIO_LED_LAN)
 	LED_CONTROL(BOARD_GPIO_LED_LAN, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED)
+	LED_CONTROL(BOARD_GPIO_LED_WAN_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN1_SPEED)
+	LED_CONTROL(BOARD_GPIO_LED_LAN1_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN2_SPEED)
+	LED_CONTROL(BOARD_GPIO_LED_LAN2_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_MIR3G)
+	cpu_gpio_set_pin(6, LED_OFF);
+	cpu_gpio_set_pin(10, LED_OFF);
 #endif
 #if defined (BOARD_GPIO_LED_POWER)
 	LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);

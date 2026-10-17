@@ -203,14 +203,17 @@ static void
 dl_handle_link_usb(int force_update)
 {
 	int front_led_usb = nvram_get_int("front_led_usb");
+	if (nvram_get_int("front_led_all") == 0)
+		front_led_usb = 0;
 
 	switch (front_led_usb)
 	{
-	case 2:
-		dl_status_usb = has_usb_devices();
-		break;
+	case 3:
 	case 1:
 		dl_status_usb = is_usb_storage_mounted();
+		break;
+	case 2:
+		dl_status_usb = has_usb_devices();
 		break;
 	case 0:
 		dl_status_usb = 0;
@@ -221,12 +224,92 @@ dl_handle_link_usb(int force_update)
 
 	if (dl_status_usb_old != dl_status_usb || force_update) {
 		dl_status_usb_old = dl_status_usb;
-		
+
+		if (front_led_usb == 3) {
+			int usb_led_gpio = BOARD_GPIO_LED_USB;
 #if defined (BOARD_GPIO_LED_USB2)
-		LED_CONTROL(BOARD_GPIO_LED_USB2, (dl_status_usb & 0x2) ? LED_ON : LED_OFF);
+			int usb2_led_gpio = BOARD_GPIO_LED_USB2;
+#if BOARD_USB_PORT_SWAP
+			usb_led_gpio = BOARD_GPIO_LED_USB2;
+			usb2_led_gpio = BOARD_GPIO_LED_USB;
 #endif
-		LED_CONTROL(BOARD_GPIO_LED_USB, (dl_status_usb & 0x1) ? LED_ON : LED_OFF);
+			if (dl_status_usb & 0x2) {
+				cpu_gpio_led_set(usb2_led_gpio, LED_BLINK_STAY_SHOW);
+				cpu_gpio_led_enabled(usb2_led_gpio, 1);
+				module_param_set_int("usbcore", "usb2_led_gpio", usb2_led_gpio);
+				LED_CONTROL(usb2_led_gpio, LED_ON);
+			} else {
+				module_param_set_int("usbcore", "usb2_led_gpio", -1);
+				cpu_gpio_led_enabled(usb2_led_gpio, 0);
+				LED_CONTROL(usb2_led_gpio, LED_OFF);
+			}
+#endif
+			if (dl_status_usb & 0x1) {
+				cpu_gpio_led_set(usb_led_gpio, LED_BLINK_STAY_SHOW);
+				cpu_gpio_led_enabled(usb_led_gpio, 1);
+				module_param_set_int("usbcore", "usb_led_gpio", usb_led_gpio);
+				LED_CONTROL(usb_led_gpio, LED_ON);
+			} else {
+				module_param_set_int("usbcore", "usb_led_gpio", -1);
+				cpu_gpio_led_enabled(usb_led_gpio, 0);
+				LED_CONTROL(usb_led_gpio, LED_OFF);
+			}
+		} else {
+			module_param_set_int("usbcore", "usb_led_gpio", -1);
+			cpu_gpio_led_enabled(BOARD_GPIO_LED_USB, 0);
+#if defined (BOARD_GPIO_LED_USB2)
+			module_param_set_int("usbcore", "usb2_led_gpio", -1);
+			cpu_gpio_led_enabled(BOARD_GPIO_LED_USB2, 0);
+			LED_CONTROL(BOARD_GPIO_LED_USB2, (dl_status_usb & 0x2) ? LED_ON : LED_OFF);
+#endif
+			LED_CONTROL(BOARD_GPIO_LED_USB, (dl_status_usb & 0x1) ? LED_ON : LED_OFF);
+		}
 	}
+}
+#endif
+
+#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED)
+static void
+dl_set_port_speed_led(int port_uapi, int gpio_pin, int blink_phase)
+{
+	unsigned int link_val = 0;
+	if (phy_status_port_speed(port_uapi, &link_val) == 0) {
+		int has_link = (link_val >> 16) & 0x01;
+		int speed = link_val & 0x03;
+		int is_half_duplex = !((link_val >> 8) & 0x01);
+
+		if (!has_link) {
+			LED_CONTROL(gpio_pin, LED_OFF);
+		} else if (speed >= 2) {
+			/* 1000M: 常亮 (若为半双工则快闪警告) */
+			if (is_half_duplex)
+				LED_CONTROL(gpio_pin, (blink_phase & 1) ? LED_ON : LED_OFF);
+			else
+				LED_CONTROL(gpio_pin, LED_ON);
+		} else if (speed == 0) {
+			/* 10M: 慢速闪烁 (1秒亮 1秒灭) */
+			LED_CONTROL(gpio_pin, (blink_phase & 1) ? LED_ON : LED_OFF);
+		} else {
+			/* 100M: 熄灭 */
+			LED_CONTROL(gpio_pin, LED_OFF);
+		}
+	} else {
+		LED_CONTROL(gpio_pin, LED_OFF);
+	}
+}
+
+static void
+dl_update_port_speed_leds(int blink_phase)
+{
+#if defined (BOARD_GPIO_LED_WAN_SPEED)
+	dl_set_port_speed_led(SWAPI_PORT_WAN, BOARD_GPIO_LED_WAN_SPEED, blink_phase);
+#endif
+#if defined (BOARD_GPIO_LED_LAN1_SPEED)
+	dl_set_port_speed_led(SWAPI_PORT_LAN1, BOARD_GPIO_LED_LAN1_SPEED, blink_phase);
+#endif
+#if defined (BOARD_GPIO_LED_LAN2_SPEED)
+	dl_set_port_speed_led(SWAPI_PORT_LAN2, BOARD_GPIO_LED_LAN2_SPEED, blink_phase);
+#endif
 }
 #endif
 
@@ -269,6 +352,11 @@ dl_on_timer(void)
 	dl_handle_link_lan();
 #if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
 	dl_handle_link_usb(0);
+#endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED)
+	if (is_link_changed || !dl_initialized || (dl_counter_total & 1)) {
+		dl_update_port_speed_leds(dl_counter_total & 1);
+	}
 #endif
 }
 
@@ -316,33 +404,7 @@ dl_update_leds(void)
 	LED_CONTROL(BOARD_GPIO_LED_LAN, (dl_state) ? LED_ON : LED_OFF);
 #endif
 #if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
-	front_led_x = nvram_get_int("front_led_usb");
-	if (nvram_get_int("front_led_all") == 0)
-		front_led_x = 0;
-	if (front_led_x == 3) {
-		int usb_led_gpio = BOARD_GPIO_LED_USB;
-#if defined (BOARD_GPIO_LED_USB2)
-		int usb2_led_gpio = BOARD_GPIO_LED_USB2;
-#if BOARD_USB_PORT_SWAP
-		usb_led_gpio = BOARD_GPIO_LED_USB2;
-		usb2_led_gpio = BOARD_GPIO_LED_USB;
-#endif
-		LED_CONTROL(BOARD_GPIO_LED_USB2, LED_OFF);
-		cpu_gpio_led_enabled(BOARD_GPIO_LED_USB2, 1);
-		module_param_set_int("usbcore", "usb2_led_gpio", usb2_led_gpio);
-#endif
-		LED_CONTROL(BOARD_GPIO_LED_USB, LED_OFF);
-		cpu_gpio_led_enabled(BOARD_GPIO_LED_USB, 1);
-		module_param_set_int("usbcore", "usb_led_gpio", usb_led_gpio);
-	} else {
-		module_param_set_int("usbcore", "usb_led_gpio", -1);
-		cpu_gpio_led_enabled(BOARD_GPIO_LED_USB, 0);
-#if defined (BOARD_GPIO_LED_USB2)
-		module_param_set_int("usbcore", "usb2_led_gpio", -1);
-		cpu_gpio_led_enabled(BOARD_GPIO_LED_USB2, 0);
-#endif
-		dl_handle_link_usb(1);
-	}
+	dl_handle_link_usb(1);
 #endif
 #if defined (BOARD_K2P) || defined (BOARD_PSG1218)
 	LED_CONTROL(BOARD_GPIO_LED_WIFI, (dl_state) ? LED_OFF : LED_ON);
@@ -363,6 +425,9 @@ dl_update_leds(void)
 #endif
 #if defined (BOARD_GPIO_LED_ROUTER)
 	LED_CONTROL(BOARD_GPIO_LED_ROUTER, (dl_is_ap_mode) ? LED_OFF : LED_ON);
+#endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED)
+	dl_update_port_speed_leds(0);
 #endif
 }
 
