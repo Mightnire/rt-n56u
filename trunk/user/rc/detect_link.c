@@ -35,11 +35,7 @@
 #include "switch.h"
 #include "gpio_pins.h"
 
-#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
-#define DL_POLL_INTERVAL_MS	500 /* 500ms for speed LED flash patterns */
-#else
-#define DL_POLL_INTERVAL_MS	2000 /* 2 seconds */
-#endif
+#define DL_POLL_INTERVAL	2 /* every 2 seconds  */
 #define DL_PID_FILE		"/var/run/detect_link.pid"
 
 static unsigned long dl_counter_total = 0;
@@ -60,12 +56,12 @@ static int dl_status_usb_old = 0;
 static int dl_is_ap_mode = 0;
 
 static void
-dl_alarmtimer(unsigned long msec)
+dl_alarmtimer(unsigned long sec)
 {
 	struct itimerval itv;
 
-	itv.it_value.tv_sec  = msec / 1000;
-	itv.it_value.tv_usec = (msec % 1000) * 1000;
+	itv.it_value.tv_sec  = sec;
+	itv.it_value.tv_usec = 0;
 	itv.it_interval = itv.it_value;
 	setitimer(ITIMER_REAL, &itv, NULL);
 }
@@ -286,23 +282,23 @@ dl_set_port_speed_led(int port_uapi, int gpio_pin, unsigned long tick)
 			/* 未插线: 熄灭 */
 			LED_CONTROL(gpio_pin, LED_OFF);
 		} else if (speed >= 2) {
-			/* 千兆: 全双工常亮; 半双工快闪 (0.5s 亮 0.5s 灭) */
-			if (is_half_duplex)
-				LED_CONTROL(gpio_pin, (tick % 2 == 0) ? LED_ON : LED_OFF);
-			else
-				LED_CONTROL(gpio_pin, LED_ON);
-		} else if (speed == 1) {
-			/* 百兆: 全双工熄灭; 半双工慢闪 (1s 灭 0.5s 亮, 周期 1.5s = 3 ticks) */
+			/* 千兆: 全双工熄灭; 半双工慢闪 (2s 亮 4s 灭, 周期 6s = 3 ticks) */
 			if (is_half_duplex)
 				LED_CONTROL(gpio_pin, (tick % 3 == 0) ? LED_ON : LED_OFF);
 			else
 				LED_CONTROL(gpio_pin, LED_OFF);
-		} else {
-			/* 十兆: 全双工慢闪 (1s 亮 1s 灭, 周期 2.0s = 4 ticks); 半双工快闪 (0.5s 亮 0.5s 灭) */
+		} else if (speed == 1) {
+			/* 百兆: 全双工常亮; 半双工慢闪 (2s 亮 4s 灭, 周期 6s = 3 ticks) */
 			if (is_half_duplex)
-				LED_CONTROL(gpio_pin, (tick % 2 == 0) ? LED_ON : LED_OFF);
+				LED_CONTROL(gpio_pin, (tick % 3 == 0) ? LED_ON : LED_OFF);
 			else
-				LED_CONTROL(gpio_pin, (tick % 4 < 2) ? LED_ON : LED_OFF);
+				LED_CONTROL(gpio_pin, LED_ON);
+		} else {
+			/* 十兆: 全双工慢闪 (2s 亮 2s 灭, 周期 4s = 2 ticks); 半双工慢闪 (2s 亮 6s 灭, 周期 8s = 4 ticks) */
+			if (is_half_duplex)
+				LED_CONTROL(gpio_pin, (tick % 4 == 0) ? LED_ON : LED_OFF);
+			else
+				LED_CONTROL(gpio_pin, (tick % 2 == 0) ? LED_ON : LED_OFF);
 		}
 	} else {
 		LED_CONTROL(gpio_pin, LED_OFF);
@@ -334,18 +330,10 @@ static void
 dl_on_timer(void)
 {
 	static int dl_initialized = 0;
-	static unsigned long dl_speed_tick = 0;
 	int is_ap_mode = dl_is_ap_mode;
 	unsigned int is_link_changed = 0;
-	int is_major_tick;
 
-#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
-	dl_update_port_speed_leds(dl_speed_tick);
-	is_major_tick = (dl_speed_tick % (2000 / DL_POLL_INTERVAL_MS) == 0);
-	dl_speed_tick++;
-#else
-	is_major_tick = 1;
-#endif
+	dl_counter_total++;
 
 	phy_status_port_link_changed(&is_link_changed);
 	if (is_link_changed || !dl_initialized) {
@@ -366,11 +354,6 @@ dl_on_timer(void)
 			dl_initialized = 1;
 	}
 
-	if (!is_major_tick && !is_link_changed)
-		return;
-
-	dl_counter_total++;
-
 	if (!is_ap_mode) {
 		dl_handle_link_wan();
 		
@@ -381,6 +364,9 @@ dl_on_timer(void)
 	dl_handle_link_lan();
 #if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
 	dl_handle_link_usb(0);
+#endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
+	dl_update_port_speed_leds(dl_counter_total);
 #endif
 }
 
@@ -451,7 +437,7 @@ dl_update_leds(void)
 	LED_CONTROL(BOARD_GPIO_LED_ROUTER, (dl_is_ap_mode) ? LED_OFF : LED_ON);
 #endif
 #if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
-	dl_update_port_speed_leds(0);
+	dl_update_port_speed_leds(dl_counter_total);
 #endif
 }
 
@@ -559,7 +545,7 @@ detect_link_main(int argc, char *argv[])
 	}
 
 	dl_reset_state();
-	dl_alarmtimer(DL_POLL_INTERVAL_MS);
+	dl_alarmtimer(DL_POLL_INTERVAL);
 
 	while (1) {
 		pause();
