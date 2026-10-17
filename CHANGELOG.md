@@ -1,6 +1,26 @@
 更新日志
 
 2026/10/18：
+- 引入 ccache (Compiler Cache) 编译器缓存加速体系，大幅缩短固件构建与重编等待耗时：
+  - 在 toolchain-mipsel 中新增 setup_ccache 与 clean_ccache 自动化脚本，自动在 toolchain-3.4.x/ccache-bin 构建针对 mipsel-linux-uclibc-gcc/g++/cc/c++ 的高性能 ccache 包装器；
+  - 深度改造顶层 trunk/Makefile：自动检测 ccache-bin 并动态切换 CONFIG_CROSS_COMPILER_PATH，将工具链路径优先注入 PATH，并规范导出 CCACHE_DIR 环境变量；若未配置 ccache 则无缝平滑回退至原生 bin 目录，零侵入性且保持工具链原生纯净；
+  - 深度改造 build_firmware_modify 构建流程：在构建前自动完成 ccache 运行环境自检与配置就绪检测，在打包固件完毕后自动输出实时 ccache 命中统计报表（Direct Hits / Preprocessed / Hit Rate）；
+  - 经 BW050-A 真实编译验证：首轮增量编译直接命中率达 82.42%（300 次直接命中，仅 64 次 miss），编译耗时大幅下降。
+- 完整实现三层 IPv6 中继代理架构（Relay 模式，基于 6relayd，编译宏 CONFIG_FIRMWARE_INCLUDE_6RELAYD=y|n）：
+  - 引入极简嵌入式服务守护进程 6relayd（纯 C99 编写，仅依赖标准 C 库与 libresolv，ROMFS 体积仅 44KB）；
+  - 完美解决无 DHCPv6-PD 前缀委派环境（单 /64 前缀）下的二级路由 IPv6 下发难题：
+    - 保持 WAN 和 LAN 纯三层独立路由架构，IPv4 完整吃满 MTK 硬件 NAT (PPE 硬件加速) 与防火墙保护，局域网终端获取同网段原生公网 IPv6 地址；
+    - 完整中继 Router Advertisement (RA 路由广播)、DHCPv6 消息中继以及 Neighbor Discovery Protocol (NDP Proxy 邻居发现代理与路由自动学习)；
+    - 路由器自身在 WAN 侧拥有独立公网 IPv6 地址与默认路由，自带满血 PMTU 自动发现与 TCPMSS Clamping，从源头杜绝 MTU 1492 大包黑洞；
+    - 联动 dnsmasq：在 Relay 模式下自动禁用 dnsmasq 本地 RA 广播（enable-ra）及地址池构造器，杜绝网段与网关冲突；
+  - WebUI 精细化交互体验与严密表单校验：
+    - IPv6 外网设置：在中继模式下保留外网 DHCPv6 模式选择（Stateless RA / Stateful DHCPv6 / Both），自动收敛隐藏静态网关/地址等冗余项；
+    - IPv6 内网设置：在中继模式下智能隐藏整个内网配置表格（tbl_ip6_lan），杜绝误配本地广播导致网络异常；
+    - NAPT66 页面归集、Tooltip 气泡交互与严格表单校验：
+      - 将“启用 napt66”从原先杂乱的服务页面规范迁移至 IPv6 专属配置页；
+      - 遵照 WebUI 规范在 help.js 中扩展 helpcontent[25]，将互斥说明封装为原生 help_tooltip 悬浮提示框（鼠标悬停即刻优雅弹出交互式气泡）；
+      - 在 validForm 中实施严格表单校验，若在 Relay 模式下开启 NAPT66 则在提交时前端拦截并弹出警示，杜绝互斥配置；
+  - 经技术验证与对比，彻底剔除二层网桥透传（Passthrough / ebtables broute）及相关试验性内核模块，保持系统内核纯净高效。
 - 修复 Transmission Web UI (v0.1.9) 种子列表在拖高详情栏后缩放窗口导致高度塌陷与 Canvas 残影重叠异常：
   - 根因分析：当用户将底部详情面板（detailHeight）向上拉至最大（600px）并缩小窗口时，列表高度计算公式 bodyHeight - headerHeight - footerHeight - detailHeight 击穿为负数，导致详情面板通过 translateY 向上倒冲覆盖列表，同时 Canvas 画布高度非正数引发 clearRect 擦除失效、虚拟滚动坐标塌陷及旧帧残影无限叠加。
   - 修复方案：

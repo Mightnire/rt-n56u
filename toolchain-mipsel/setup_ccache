@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+DIR="$(cd "$(dirname "$0")" && pwd)"
+TOOL_ROOT="$DIR/toolchain-3.4.x"
+BIN_DIR="$TOOL_ROOT/bin"
+CCACHE_BIN="$TOOL_ROOT/ccache-bin"
+
+if ! which ccache >/dev/null 2>&1; then
+    echo "ccache not found in PATH! Please install ccache first: sudo apt-get install ccache"
+    exit 1
+fi
+
+if [ ! -d "$BIN_DIR" ]; then
+    echo "Toolchain directory $BIN_DIR not found!"
+    exit 1
+fi
+
+echo "Configuring ccache wrappers in $CCACHE_BIN ..."
+mkdir -p "$CCACHE_BIN"
+
+# Symlink all utilities from bin
+for tool in "$BIN_DIR"/*; do
+    fname=$(basename "$tool")
+    case "$fname" in
+        mipsel-linux-uclibc-gcc|mipsel-linux-uclibc-g++|mipsel-linux-uclibc-cc|mipsel-linux-uclibc-c++|mipsel-linux-uclibc-gcc-7.4.0)
+            cat << 'EOF' > "$CCACHE_BIN/$fname"
+#!/bin/sh
+exec ccache /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/bin/$(basename "$0") "$@"
+EOF
+            chmod +x "$CCACHE_BIN/$fname"
+            ;;
+        *)
+            ln -sf "../bin/$fname" "$CCACHE_BIN/$fname"
+            ;;
+    esac
+done
+
+ccache -M 10G >/dev/null 2>&1 || true
+ccache -o compression=true >/dev/null 2>&1 || true
+ccache -o sloppiness=time_macros,include_file_mtime >/dev/null 2>&1 || true
+
+echo "ccache wrappers successfully configured for mipsel-linux-uclibc!"

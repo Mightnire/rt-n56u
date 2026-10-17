@@ -1,0 +1,4 @@
+#!/bin/bash
+DIR="$(cd "$(dirname "$0")" && pwd)"
+rm -rf "$DIR/toolchain-3.4.x/ccache-bin"
+echo "ccache wrappers removed."
