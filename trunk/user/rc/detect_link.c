@@ -444,13 +444,9 @@ dl_update_power_led(unsigned long tick)
 	/* 根据负载级别呈现不同的生命律动效果 */
 	if (level == 0) {
 		/* 空闲待机: 舒缓安详，每 4 秒温和眨眼微闪一次 (亮 3.92s, 灭 80ms) */
-		if (tick % 2 == 0) {
-			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-			usleep(80000);
-			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
-		} else {
-			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
-		}
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
 	} else if (level == 1) {
 		/* 中载活跃: 经典 Lub-Dub 双心跳 (每 2 秒一次律动) */
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
