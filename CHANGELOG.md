@@ -1,6 +1,16 @@
 更新日志
 
 2026/10/17：
+- 升级重构电源指示灯（BOARD_GPIO_LED_POWER）生命律动与负载感应系统（BW050-A 等机型支持）：
+  - 在 detect_link 中实现多维度的智能心跳指示逻辑，完全复用原生 2 秒主事件循环，零系统唤醒开销：
+    - 模式 2 (默认)：基于 CPU 瞬时使用率（/proc/stat）动态心跳（空闲 <20% 温和微闪眨眼、中载 20%~75% 经典 Lub-Dub 双心跳、重载 >=75% 警戒急促连闪）
+    - 模式 3：基于系统 1 分钟平均负载（sysinfo loadavg）动态心跳（空闲 <0.3 微闪、中载 0.3~1.0 双心跳、重载 >=1.0 急促连闪）
+    - 模式 4：极简均匀慢频呼吸灯（2s 亮 2s 灭）
+    - 模式 1：传统常亮（按钮事件）
+    - 模式 0：彻底禁用（关闭）
+  - 全面联动 WebUI“系统微调”页面（Advanced_Tweaks_Content.asp）与多语言字典（CN/EN/RU/UK），提供全套模式下拉选单，默认值（defaults.c）切换为模式 2
+  - 完美兼容夜间定时休眠机制（led_front_t），休眠期间与关闭模式下完全静默熄灭
+  - 修复 BW050-A 内核配置缺失的 SFE 依赖占位项（# CONFIG_SHORTCUT_FE is not set、# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set），消除 non-interactive Kconfig 提示中断
 - 升级 Transmission Web UI 至最新版 v0.1.9（jianxcao/transmission-web）：
   - 彻底去除 PWA 相关后台服务与缓存文件（移除 sw.js、workbox、manifest），避免嵌入式环境缓存异常
   - 移除所有冗余的大体积位图图标（pwa-512.png、pwa-192.png、apple-touch-icon.png），仅保留 2.7KB 矢量 transmission.svg 作为通用图标

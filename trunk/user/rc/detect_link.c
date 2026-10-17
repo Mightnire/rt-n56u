@@ -25,6 +25,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <time.h>
+#include <sys/sysinfo.h>
 
 #if defined (USE_USB_SUPPORT)
 #include <usb_info.h>
@@ -349,6 +350,132 @@ dl_update_port_speed_leds(unsigned long tick)
 }
 #endif
 
+#if defined (BOARD_GPIO_LED_POWER)
+static unsigned int
+get_cpu_usage_pct(void)
+{
+	static unsigned long long prev_idle = 0, prev_total = 0;
+	unsigned long long user, nice, sys, idle, iowait, irq, softirq, steal;
+	unsigned long long total, idle_time, diff_total, diff_idle;
+	FILE *fp;
+
+	fp = fopen("/proc/stat", "r");
+	if (!fp)
+		return 0;
+
+	if (fscanf(fp, "cpu %llu %llu %llu %llu %llu %llu %llu %llu",
+	           &user, &nice, &sys, &idle, &iowait, &irq, &softirq, &steal) < 4) {
+		fclose(fp);
+		return 0;
+	}
+	fclose(fp);
+
+	idle_time = idle + iowait;
+	total = user + nice + sys + idle + iowait + irq + softirq + steal;
+
+	if (prev_total == 0) {
+		prev_idle = idle_time;
+		prev_total = total;
+		return 0;
+	}
+
+	diff_total = total - prev_total;
+	diff_idle = idle_time - prev_idle;
+
+	prev_total = total;
+	prev_idle = idle_time;
+
+	if (diff_total == 0 || diff_idle >= diff_total)
+		return 0;
+
+	return (unsigned int)((diff_total - diff_idle) * 100 / diff_total);
+}
+
+static void
+dl_update_power_led(unsigned long tick)
+{
+	int pwr_mode = nvram_get_int("front_led_pwr");
+	int level = 0;
+
+	/* 检查夜间模式与关闭选项 */
+	if (pwr_mode == 0 || !nvram_get_int("led_front_t")) {
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		return;
+	}
+
+	/* 模式 1: 传统常亮 */
+	if (pwr_mode == 1) {
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		return;
+	}
+
+	/* 模式 4: 极简均匀慢频呼吸 (2s 亮 2s 灭) */
+	if (pwr_mode == 4) {
+		LED_CONTROL(BOARD_GPIO_LED_POWER, (tick % 2 == 0) ? LED_ON : LED_OFF);
+		return;
+	}
+
+	/* 模式 2: 按 CPU 瞬时使用率; 模式 3: 按系统平均负载 (1min Load Average) */
+	if (pwr_mode == 2) {
+		unsigned int cpu = get_cpu_usage_pct();
+		if (cpu >= 75)
+			level = 2; /* 高负载: CPU >= 75% */
+		else if (cpu >= 20)
+			level = 1; /* 中负载: CPU 20% ~ 75% */
+		else
+			level = 0; /* 低负载/空闲: CPU < 20% */
+	} else if (pwr_mode == 3) {
+		struct sysinfo si;
+		if (sysinfo(&si) == 0) {
+			unsigned long load1 = si.loads[0]; /* 1.0 = 65536 */
+			if (load1 >= 65536)
+				level = 2; /* 高负载: Load >= 1.0 */
+			else if (load1 >= 19660)
+				level = 1; /* 中负载: Load 0.3 ~ 1.0 */
+			else
+				level = 0; /* 低负载/空闲: Load < 0.3 */
+		}
+	} else {
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		return;
+	}
+
+	/* 根据负载级别呈现不同的生命律动效果 */
+	if (level == 0) {
+		/* 空闲待机: 舒缓安详，每 4 秒温和眨眼微闪一次 (亮 3.92s, 灭 80ms) */
+		if (tick % 2 == 0) {
+			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+			usleep(80000);
+			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		} else {
+			LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		}
+	} else if (level == 1) {
+		/* 中载活跃: 经典 Lub-Dub 双心跳 (每 2 秒一次律动) */
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(150000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+	} else {
+		/* 满载重载: 急促警戒脉冲 (连续 3 次快速闪烁) */
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+	}
+}
+#endif
+
 static void
 dl_on_timer(void)
 {
@@ -390,6 +517,9 @@ dl_on_timer(void)
 #endif
 #if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
 	dl_update_port_speed_leds(dl_counter_total);
+#endif
+#if defined (BOARD_GPIO_LED_POWER)
+	dl_update_power_led(dl_counter_total);
 #endif
 }
 
@@ -448,7 +578,7 @@ dl_update_leds(void)
 	LED_CONTROL(BOARD_GPIO_LED_ALL, LED_ON);
 #endif
 #if defined (BOARD_GPIO_LED_POWER)
-	LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+	dl_update_power_led(dl_counter_total);
 #endif
 #if defined (BOARD_GPIO_LED_SW2G)
 	LED_CONTROL(BOARD_GPIO_LED_SW2G, LED_ON);
@@ -461,6 +591,9 @@ dl_update_leds(void)
 #endif
 #if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
 	dl_update_port_speed_leds(dl_counter_total);
+#endif
+#if defined (BOARD_GPIO_LED_POWER)
+	dl_update_power_led(dl_counter_total);
 #endif
 }
 
