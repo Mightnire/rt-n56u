@@ -13,9 +13,9 @@
 #undef  BOARD_GPIO_LED_ALL
 #undef  BOARD_GPIO_LED_WIFI
 #define BOARD_GPIO_LED_POWER	8	/* 6: red, 10: amber, 8: blue */
-#define BOARD_GPIO_LED_WAN_SPEED	13	/* WAN amber: 1000M link */
-#define BOARD_GPIO_LED_LAN1_SPEED	14	/* LAN1 amber: 1000M link */
-#define BOARD_GPIO_LED_LAN2_SPEED	16	/* LAN2 amber: 1000M link */
+#define BOARD_GPIO_LED_WAN_SPEED	13	/* WAN amber: adaptive speed indicator */
+#define BOARD_GPIO_LED_LAN1_SPEED	14	/* LAN1 amber: adaptive speed indicator */
+#define BOARD_GPIO_LED_LAN2_SPEED	16	/* LAN2 amber: adaptive speed indicator */
 #undef  BOARD_GPIO_LED_LAN
 #undef  BOARD_GPIO_LED_WAN
 #undef  BOARD_GPIO_LED_USB

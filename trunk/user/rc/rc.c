@@ -282,6 +282,14 @@ init_gpio_leds_buttons(void)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_LAN2_SPEED, 1);
 	cpu_gpio_set_pin(BOARD_GPIO_LED_LAN2_SPEED, LED_OFF);
 #endif
+#if defined (BOARD_GPIO_LED_LAN3_SPEED)
+	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_LAN3_SPEED, 1);
+	cpu_gpio_set_pin(BOARD_GPIO_LED_LAN3_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN4_SPEED)
+	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_LAN4_SPEED, 1);
+	cpu_gpio_set_pin(BOARD_GPIO_LED_LAN4_SPEED, LED_OFF);
+#endif
 	/* enable common led trigger */
 #if defined (BOARD_GPIO_LED_ALL)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_ALL, 1);
@@ -799,6 +807,14 @@ LED_CONTROL(int gpio_led, int flag)
 	case BOARD_GPIO_LED_LAN2_SPEED:
 		break;
 #endif
+#if defined (BOARD_GPIO_LED_LAN3_SPEED)
+	case BOARD_GPIO_LED_LAN3_SPEED:
+		break;
+#endif
+#if defined (BOARD_GPIO_LED_LAN4_SPEED)
+	case BOARD_GPIO_LED_LAN4_SPEED:
+		break;
+#endif
 #if defined (BOARD_GPIO_LED_POWER)
 	case BOARD_GPIO_LED_POWER:
 		front_led_x = nvram_get_int("front_led_pwr");
@@ -1053,6 +1069,12 @@ shutdown_router(int level)
 #endif
 #if defined (BOARD_GPIO_LED_LAN2_SPEED)
 	LED_CONTROL(BOARD_GPIO_LED_LAN2_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN3_SPEED)
+	LED_CONTROL(BOARD_GPIO_LED_LAN3_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN4_SPEED)
+	LED_CONTROL(BOARD_GPIO_LED_LAN4_SPEED, LED_OFF);
 #endif
 #if defined (BOARD_MIR3G)
 	cpu_gpio_set_pin(6, LED_OFF);
