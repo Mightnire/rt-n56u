@@ -1,4 +1,4 @@
-var helpcontent = new Array(25);
+var helpcontent = new Array(26);
 var help_enable = '<% nvram_get_x("", "help_enable"); %>';
 
 helpcontent[0] = new Array("");
@@ -175,6 +175,10 @@ helpcontent[24] = new Array("",
 				"<#LANHostConfig_x_DDNSWildcard_itemdesc#>",
 				"<#LANHostConfig_x_DDNSStatus_itemdesc#>");
 
+
+// IPv6 / NAPT66
+helpcontent[25] = new Array("",
+				"<#IP6_NAPT66_Hint#>");
 
 function openTooltip(obj, hint_array_id, hint_show_id)
 {

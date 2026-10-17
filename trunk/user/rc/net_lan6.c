@@ -64,6 +64,10 @@ int is_lan_radv_on(void)
 
 	if (ipv6_type == IPV6_DISABLED)
 		return -1;
+#if defined (APP_6RELAYD)
+	if (ipv6_type == IPV6_RELAY)
+		return -1;
+#endif
 
 	if (nvram_invmatch("ip6_lan_radv", "0"))
 		return 1;
@@ -81,6 +85,10 @@ int is_lan_addr6_static(void)
 	if (ipv6_type == IPV6_6TO4 ||
 	    ipv6_type == IPV6_6RD)
 		return 0;
+#if defined (APP_6RELAYD)
+	if (ipv6_type == IPV6_RELAY)
+		return 0;
+#endif
 
 	if (nvram_match("ip6_lan_auto", "0") || 
 	    ipv6_type == IPV6_NATIVE_STATIC || 

@@ -792,6 +792,9 @@ int get_ipv6_type(void)
 		"6in4",		// IPV6_6IN4
 		"6to4",		// IPV6_6TO4
 		"6rd",		// IPV6_6RD
+#if defined (APP_6RELAYD)
+		"relay",	// IPV6_RELAY
+#endif
 		NULL
 	};
 

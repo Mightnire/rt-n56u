@@ -1857,3 +1857,4 @@ BTN_SHUTDOWN=Shutdown
 JS_shutdown=You need manually power on after shutdown!!! Continue to shutdown?
 
 
+IP6_NAPT66_Hint=Note: Only for Native L3 routing. Incompatible with Relay mode.

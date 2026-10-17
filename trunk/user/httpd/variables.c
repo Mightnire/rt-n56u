@@ -367,6 +367,9 @@
 			{"ip6_lan_sflt", "", NULL, EVM_RESTART_DHCPD},
 			{"ip6_lan_sfps", "", NULL, EVM_RESTART_DHCPD},
 			{"ip6_lan_sfpe", "", NULL, EVM_RESTART_DHCPD},
+#if defined (APP_NAPT66)
+			{"napt66_enable", "", NULL, FALSE},
+#endif
 #endif
 			{0,0,0,0}
 		};

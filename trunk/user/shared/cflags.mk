@@ -1,4 +1,3 @@
-
 ##################################################################
 # Linux kernel .config related params
 ##################################################################
@@ -260,4 +259,8 @@ endif
 
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT),y)
 CFLAGS += -DAPP_PWR_HEARTBEAT
+endif
+
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_6RELAYD),y)
+CFLAGS += -DAPP_6RELAYD
 endif

@@ -374,6 +374,19 @@ void wan6_up(char *wan_ifname, int unit)
 				doSystem("ip -6 route add %s dev %s", wan_gate6, wan_ifname);
 				doSystem("ip -6 route add default via %s metric %d", wan_gate6, 1);
 			}
+#if defined (APP_6RELAYD)
+		} else if (ipv6_type == IPV6_RELAY) {
+			allow_ra = nvram_invmatch("ip6_wan_dhcp", "1");
+			control_if_ipv6_privacy(wan_ifname, allow_ra && nvram_match("ip6_wan_priv", "1"));
+			control_if_ipv6_autoconf(wan_ifname, allow_ra);
+			control_if_ipv6_radv(wan_ifname, 1);
+			doSystem("ip -6 route add default dev %s metric %d", wan_ifname, 2048);
+			if (nvram_match("ip6_wan_dhcp", "1") || nvram_match("ip6_wan_dhcp", "2")) {
+				sleep(1);
+				start_dhcp6c(wan_ifname);
+			}
+			start_6relayd(wan_ifname, IFNAME_BR);
+#endif
 		} else {
 			doSystem("ip -6 route add default dev %s metric %d", wan_ifname, 2048);
 			allow_ra = nvram_invmatch("ip6_wan_dhcp", "1");
@@ -397,6 +410,10 @@ void wan6_down(char *wan_ifname, int unit)
 		return;
 
 	stop_dhcp6c();
+#if defined (APP_6RELAYD)
+	if (ipv6_type == IPV6_RELAY)
+		stop_6relayd();
+#endif
 	control_if_ipv6_radv(wan_ifname, 0);
 	control_if_ipv6_autoconf(wan_ifname, 0);
 
@@ -551,6 +568,23 @@ void stop_dhcp6c(void)
 	char *svcs[] = { "dhcp6c", NULL };
 	kill_services(svcs, 3, 1);
 }
+
+#if defined (APP_6RELAYD)
+int start_6relayd(char *wan_ifname, char *lan_ifname)
+{
+	stop_6relayd();
+	logmessage("IPv6 Relay", "starting 6relayd (%s -> %s) ...", wan_ifname, lan_ifname);
+	return eval("/usr/sbin/6relayd", "-d", "-A", "-p", "/var/run/6relayd.pid", wan_ifname, lan_ifname);
+}
+
+void stop_6relayd(void)
+{
+	char *svcs[] = { "6relayd", NULL };
+	kill_pidfile("/var/run/6relayd.pid");
+	kill_services(svcs, 2, 1);
+}
+#endif
+
 
 #endif
 

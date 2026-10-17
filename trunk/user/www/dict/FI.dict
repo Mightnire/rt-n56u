@@ -1294,3 +1294,4 @@ TweaksLEDEth1=Ethernet Ports Yellow LED:
 TweaksWdg=Hardware Watchdog Timer:
 TweaksWdg_item=(force reboot after crash)
 TweaksWdg_desc=Hardware watchdog timer reboot system during 15 seconds on CPU hung or after system crashed.
+IP6_NAPT66_Hint=Note: Only for Native L3 routing. Incompatible with Relay mode.

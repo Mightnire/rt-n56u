@@ -164,9 +164,11 @@ enum {
 	IPV6_NATIVE_DHCP6,
 	IPV6_6IN4,
 	IPV6_6TO4,
-	IPV6_6RD
+	IPV6_6RD,
+#if defined (APP_6RELAYD)
+	IPV6_RELAY,
+#endif
 };
-
 extern in_addr_t inet_addr_safe(const char *cp);
 extern int       is_valid_ipv4(const char *cp);
 extern int       is_valid_hostname(const char *hname);

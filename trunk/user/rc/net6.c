@@ -151,6 +151,9 @@ void full_restart_ipv6(int ipv6_type_old)
 #endif
 	stop_upnp();
 	stop_dhcp6c();
+#if defined (APP_6RELAYD)
+	stop_6relayd();
+#endif
 	stop_dns_dhcpd();
 
 	if (ipv6_type == IPV6_DISABLED) {

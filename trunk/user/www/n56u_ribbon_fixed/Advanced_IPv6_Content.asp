@@ -19,6 +19,7 @@
 <script type="text/javascript" src="/general.js"></script>
 <script type="text/javascript" src="/itoggle.js"></script>
 <script type="text/javascript" src="/popup.js"></script>
+<script type="text/javascript" src="/help.js"></script>
 <script>
 var $j = jQuery.noConflict();
 
@@ -26,6 +27,7 @@ $j(document).ready(function() {
 	init_itoggle('ip6_dns_auto', change_ip6_dns_auto);
 	init_itoggle('ip6_lan_auto', change_ip6_lan_auto);
 	init_itoggle('ip6_lan_radv', change_ip6_lan_radv);
+	init_itoggle('napt66_enable');
 });
 
 </script>
@@ -44,6 +46,8 @@ function initial(){
 		$('tbl_ip6_con').style.display="none";
 		$('tbl_apply').style.display="none";
 	}else{
+		if (!support_6relayd())
+			$j('#opt_ip6_relay').remove();
 		change_ip6_service();
 		change_ip6_lan_radv();
 	}
@@ -74,6 +78,10 @@ function validate_not_empty(o) {
 
 function validForm(){
 	var ip6_con = document.form.ip6_service.value;
+	if (ip6_con=="relay" && document.form.napt66_enable && document.form.napt66_enable[0].checked) {
+		alert("<#IP6_NAPT66_Hint#>");
+		return false;
+	}
 	if (ip6_con=="static" || ip6_con=="6in4") {
 		if (!validate_not_empty(document.form.ip6_wan_addr))
 			return false;
@@ -225,6 +233,15 @@ function change_ip6_service(){
 		$j('#ip6_dns_auto_on_of').iState(0);
 		$j('#ip6_lan_auto_on_of').iState(1);
 	}
+	else if (ip6_con=="relay") {
+		$('tbl_ip6_sit').style.display="none";
+		$('row_ip6_wan_dhcp').style.display="";
+		$('row_ip6_dns_auto').style.display="";
+		$('row_ip6_lan_auto').style.display="none";
+		inputRCtrl2(document.form.ip6_lan_auto, 0);
+		$j('#ip6_lan_auto_on_of').iState(1);
+		if (ppp) pppif = true;
+	}
 	else if (ip6_con=="6rd") {
 		$('tbl_ip6_sit').style.display="";
 		$('row_ip6_wan_dhcp').style.display="none";
@@ -254,10 +271,13 @@ function change_ip6_service(){
 	}
 
 	showhide_div('row_wan_type', ip6on);
+	showhide_div('row_napt66', (ip6on && found_app_napt66()));
 	showhide_div('row_wan_if', (pppif && ip6on));
 	showhide_div('tbl_ip6_wan', ip6on);
 	showhide_div('tbl_ip6_dns', ip6on);
-	showhide_div('tbl_ip6_lan', ip6on);
+	showhide_div('tbl_ip6_lan', (ip6on && ip6_con != "relay"));
+
+
 
 	if (!ip6on) {
 		showhide_div('tbl_ip6_sit', 0);
@@ -311,7 +331,7 @@ function change_ip6_6rd_dhcp(){
 		val_addr = val_man;
 		inputCtrl(document.form.ip6_6rd_relay, val_man);
 		inputCtrl(document.form.ip6_6rd_size, val_man);
-	} else if (ip6_con == "dhcp6" || ip6_con == "6to4") {
+	} else if (ip6_con == "dhcp6" || ip6_con == "6to4" || ip6_con == "relay") {
 		val_addr = 0;
 		val_gate = 0;
 	} else {
@@ -433,6 +453,7 @@ function change_ip6_lan_dhcp(){
                                                     <option value="6in4" <% nvram_match_x("", "ip6_service", "6in4", "selected"); %>>Tunnel 6in4</option>
                                                     <option value="6to4" <% nvram_match_x("", "ip6_service", "6to4", "selected"); %>>Tunnel 6to4</option>
                                                     <option value="6rd" <% nvram_match_x("", "ip6_service", "6rd", "selected"); %>>Tunnel 6rd</option>
+                                                    <option id="opt_ip6_relay" value="relay" <% nvram_match_x("", "ip6_service", "relay", "selected"); %>>Relay (6relayd)</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -457,6 +478,20 @@ function change_ip6_lan_dhcp(){
                                         <tr id="row_wan_type">
                                             <th><#Layer3Forwarding_x_ConnectionType_itemname#></th>
                                             <td align="left" id="wan_type"></td>
+                                        </tr>
+                                        <tr id="row_napt66" style="display:none;">
+                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this, 25, 1);"><#Adm_Svc_napt66#></a></th>
+                                            <td>
+                                                <div class="main_itoggle">
+                                                    <div id="napt66_enable_on_of">
+                                                        <input type="checkbox" id="napt66_enable_fake" <% nvram_match_x("", "napt66_enable", "1", "value=1 checked"); %><% nvram_match_x("", "napt66_enable", "0", "value=0"); %>>
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" name="napt66_enable" id="napt66_enable_1" class="input" value="1" <% nvram_match_x("", "napt66_enable", "1", "checked"); %>/><#checkbox_Yes#>
+                                                    <input type="radio" name="napt66_enable" id="napt66_enable_0" class="input" value="0" <% nvram_match_x("", "napt66_enable", "0", "checked"); %>/><#checkbox_No#>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </table>
 

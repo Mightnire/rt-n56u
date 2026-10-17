@@ -376,6 +376,10 @@ void wan6_down(char *wan_ifname, int unit);
 int dhcp6c_main(int argc, char **argv);
 int start_dhcp6c(char *wan_ifname);
 void stop_dhcp6c(void);
+#if defined (APP_6RELAYD)
+int start_6relayd(char *wan_ifname, char *lan_ifname);
+void stop_6relayd(void);
+#endif
 
 /* net_ppp.c */
 int ipv6up_main(int argc, char **argv);
