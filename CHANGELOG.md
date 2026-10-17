@@ -1,6 +1,10 @@
 更新日志
 
 2026/10/17：
+- 升级 Transmission Web UI 至最新版 v0.1.9（jianxcao/transmission-web）：
+  - 彻底去除 PWA 相关后台服务与缓存文件（移除 sw.js、workbox、manifest），避免嵌入式环境缓存异常
+  - 移除所有冗余的大体积位图图标（pwa-512.png、pwa-192.png、apple-touch-icon.png），仅保留 2.7KB 矢量 transmission.svg 作为通用图标
+  - 为 ROMFS 净省约 330KB 存储空间，保持现代 WebUI 极致轻量与高响应度
 - 优化与重构小米路由器 Pro（MI-R3P / MI-R3P-spi）LED 指示灯系统：
   - 修正原配置将网口速率灯误定义为 LAN/WAN/USB 指示灯（GPIO 13/14/16）的错误，移除无效的宏定义
   - 修正 BOARD_NUM_ETH_LEDS 为 1，对应网口单绿灯硬件 PHY 模式，消除 WebUI 幽灵黄灯配置项
