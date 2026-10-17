@@ -1526,6 +1526,9 @@ safe_remove_stor_device(int port_b, int port_e, const char *dev_name, int do_spi
 	}
 
 	free_disk_data(disks_info);
+#if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
+	notify_leds_detect_link();
+#endif
 }
 
 void
@@ -1541,6 +1544,9 @@ safe_remove_all_stor_devices(int do_spindown)
 	restore_home_dir();
 #if defined(APP_NFSD)
 	unload_nfsd();
+#endif
+#if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
+	notify_leds_detect_link();
 #endif
 }
 

@@ -101,7 +101,9 @@ mdev_sd_main(int argc, char **argv)
 		try_device_swapoff(device_name);
 		if (strlen(device_name) < 4)
 			notify_rc("on_unplug_mass_storage");
-		
+#if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
+		notify_leds_detect_link();
+#endif
 		goto out_unlock;
 	}
 
@@ -120,8 +122,12 @@ mdev_sd_main(int argc, char **argv)
 	snprintf(aidisk_cmd, sizeof(aidisk_cmd), "/sbin/automount.sh $MDEV AiDisk_%c%s", device_name[2], partno);
 
 	umask(0000);
-	if (system(aidisk_cmd) == 0)
+	if (system(aidisk_cmd) == 0) {
 		notify_rc("on_hotplug_mass_storage");
+#if defined (BOARD_GPIO_LED_USB) && defined (USE_USB_SUPPORT)
+		notify_leds_detect_link();
+#endif
+	}
 
 out_unlock:
 	file_unlock(isLock);

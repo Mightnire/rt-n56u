@@ -17,6 +17,7 @@
     - 未插线（No Link）：熄灭
   - 简化 detect_link 架构，直接复用原版 2s（DL_POLL_INTERVAL）主事件循环计数器驱动 LED 闪烁周期，零额外唤醒开销
   - 扩充通用网口速率指示灯抽象（BOARD_GPIO_LED_*_SPEED），补齐 LAN3 / LAN4 宏定义与事件处理
+  - 网口速率指示灯联动 WebUI “网卡端口 LED (绿)”配置：当 ether_led0 关闭（11）或处于定时休眠（!led_ether_t）时，速率指示灯（琥珀色）同步强制熄灭并不再亮起；并在 update_ether_leds 中增加即时刷新通知
 - 优化 USB 指示灯（front_led_usb=3）联动机制：基于 USB 存储挂载状态控制，未插入设备或安全弹出存储设备后彻底熄灭，挂载就绪后常亮，读写数据传输时闪烁
 - 在存储设备安全弹出（ejusb / safe_remove_stor_device）及热插拔事件中增加指示灯即时刷新通知（notify_leds_detect_link）
 - 修复 WebUI 中文翻译（CN.dict）中 USB 指示灯模式描述颠倒的错误（模式2更正为“USB 设备已连接”，模式3更正为“USB 存储读写活动 (挂载常亮，读写闪烁)”）

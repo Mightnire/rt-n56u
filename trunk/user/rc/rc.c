@@ -797,22 +797,22 @@ LED_CONTROL(int gpio_led, int flag)
 #endif
 #if defined (BOARD_GPIO_LED_WAN_SPEED)
 	case BOARD_GPIO_LED_WAN_SPEED:
-		break;
 #endif
 #if defined (BOARD_GPIO_LED_LAN1_SPEED)
 	case BOARD_GPIO_LED_LAN1_SPEED:
-		break;
 #endif
 #if defined (BOARD_GPIO_LED_LAN2_SPEED)
 	case BOARD_GPIO_LED_LAN2_SPEED:
-		break;
 #endif
 #if defined (BOARD_GPIO_LED_LAN3_SPEED)
 	case BOARD_GPIO_LED_LAN3_SPEED:
-		break;
 #endif
 #if defined (BOARD_GPIO_LED_LAN4_SPEED)
 	case BOARD_GPIO_LED_LAN4_SPEED:
+#endif
+#if defined (BOARD_GPIO_LED_WAN_SPEED) || defined (BOARD_GPIO_LED_LAN1_SPEED) || defined (BOARD_GPIO_LED_LAN2_SPEED) || defined (BOARD_GPIO_LED_LAN3_SPEED) || defined (BOARD_GPIO_LED_LAN4_SPEED)
+		if (nvram_get_int("ether_led0") == 11 || !nvram_get_int("led_ether_t"))
+			front_led_x = 0;
 		break;
 #endif
 #if defined (BOARD_GPIO_LED_POWER)

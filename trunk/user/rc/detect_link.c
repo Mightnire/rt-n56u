@@ -308,6 +308,29 @@ dl_set_port_speed_led(int port_uapi, int gpio_pin, unsigned long tick)
 static void
 dl_update_port_speed_leds(unsigned long tick)
 {
+	int ether_led_enabled = 1;
+	if (nvram_get_int("ether_led0") == 11 || !nvram_get_int("led_ether_t") || nvram_get_int("front_led_all") == 0)
+		ether_led_enabled = 0;
+
+	if (!ether_led_enabled) {
+#if defined (BOARD_GPIO_LED_WAN_SPEED)
+		LED_CONTROL(BOARD_GPIO_LED_WAN_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN1_SPEED)
+		LED_CONTROL(BOARD_GPIO_LED_LAN1_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN2_SPEED)
+		LED_CONTROL(BOARD_GPIO_LED_LAN2_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN3_SPEED)
+		LED_CONTROL(BOARD_GPIO_LED_LAN3_SPEED, LED_OFF);
+#endif
+#if defined (BOARD_GPIO_LED_LAN4_SPEED)
+		LED_CONTROL(BOARD_GPIO_LED_LAN4_SPEED, LED_OFF);
+#endif
+		return;
+	}
+
 #if defined (BOARD_GPIO_LED_WAN_SPEED)
 	dl_set_port_speed_led(SWAPI_PORT_WAN, BOARD_GPIO_LED_WAN_SPEED, tick);
 #endif

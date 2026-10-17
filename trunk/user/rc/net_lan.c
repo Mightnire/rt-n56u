@@ -531,6 +531,7 @@ update_ether_leds(void)
 	phy_led_mode_green(led0);
 #endif
 #endif
+	notify_leds_detect_link();
 }
 
 void
