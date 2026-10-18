@@ -471,15 +471,6 @@ fi
 # 	func_disable_kernel_param "CONFIG_SOUND"
 # fi
 #######################################################################
-if which ccache >/dev/null 2>&1 ; then
-	if [ -f "$ROOTDIR/../toolchain-mipsel/setup_ccache" ] && [ ! -d "$ROOTDIR/../toolchain-mipsel/toolchain-3.4.x/ccache-bin" ] ; then
-		"$ROOTDIR/../toolchain-mipsel/setup_ccache"
-	fi
-	echo "======================================================================="
-	echo "   ccache compiler acceleration is ENABLED"
-	echo "======================================================================="
-fi
-
 if [ "$CONFIG_WITHOUT_KERNEL" != "y" ] ; then
 echo --------------------------MAKE-DEP--------------------------------
 make dep
@@ -489,10 +480,3 @@ echo --------------------------MAKE-ALL--------------------------------
 make
 fi
 
-if which ccache >/dev/null 2>&1 ; then
-	echo "======================================================================="
-	echo "                      ccache Compilation Statistics"
-	echo "======================================================================="
-	ccache -s
-	echo "======================================================================="
-fi

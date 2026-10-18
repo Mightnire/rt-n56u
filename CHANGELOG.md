@@ -12,12 +12,17 @@
   - 出厂贴纸凭据自动同步系统：
     - 从原厂 SC_Private_Data (mtd9) 提取真实出厂 SSID、WPA 密钥、WPS PIN 与硬件 MAC，封装进 Factory 扩展保留区（0x0400）；
     - 在 user/rc/rc.c 的 nvram_restore_defaults() 中加入 PR2000 专属恢复钩子，复位或初次启动时自动同步机身背部贴纸参数（SSID: NETGEAR66, PSK: festivesun652, WPA2-PSK AES），出厂体验无缝闭环；
+  - 双配置分区（Config / Config2）与机身物理滑动开关硬件联动：
+    - 在 16MB 闪存尾部开辟独立的 64KB 第二配置分区 Config2（mtdblock6，0x00FF0000 ~ 0x01000000），将 Storage 分区收缩至 192KB；
+    - 改造 Linux 3.4.x 内核 NVRAM 驱动（nvram_linux.c），在 dev_nvram_init() 启动阶段采样机身物理滑动开关（GPIO 20）：低电平（ALT 档位）挂载 Config2，高电平（默认档位）挂载 Config；
+    - 系统 syslog 服务启动时通过 /proc/nvram 自动探测当前生效分区并打印日志（active config partition: Config/Config2），终端与 WebUI 一目了然；
+  - SPI Flash 稳定读取模式修复与 SquashFS 解压根治：
+    - 修复 MT7620 驱动在 48MHz 下执行双线读取（CONFIG_MTD_SPI_READ_DOR）缺少 Dummy Cycles 导致的位流偏移与 SquashFS xz_dec_run error；
+    - 对齐 OpenWrt 官方 DTS (m25p,fast-read) 启用 CONFIG_MTD_SPI_READ_FAST=y（带 1 个 Dummy 哑周期字节采样等待，耐受达 104MHz），彻底根治滑动开关拨向 Wireless 天线侧时射频干扰引发的 SQUASHFS 读校验错误；
+  - 指示灯体系精细化修整：
+    - 确认 PR2000 主电源灯直连供电轨通电即亮，禁用冗余的 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT 编译选项并移除相关代码分支；
+    - 规范引脚定义：GPIO 72 映射为 BOARD_GPIO_LED_WAN（Internet 网络指示灯，对应地球图标），GPIO 44 映射为 BOARD_GPIO_LED_WIFI（WiFi 无线指示灯，对应天线图标），GPIO 0 映射为 BOARD_GPIO_LED_USB。
   - 豪华特性与 BW050-A 100% 对齐：集成 SFE 快捷转发加速、POWER 心跳律动、Transmission 3.00 (v0.1.9 WebUI)、Aria2+AriaNg、Samba 3.6、OpenSSH、KMS (vlmcsd) 及全格式存储驱动，16MB SPI Flash 镜像控制在 11.5MB 精巧区间。
-- 引入 ccache (Compiler Cache) 编译器缓存加速体系，大幅缩短固件构建与重编等待耗时：
-  - 在 toolchain-mipsel 中新增 setup_ccache 与 clean_ccache 自动化脚本，自动在 toolchain-3.4.x/ccache-bin 构建针对 mipsel-linux-uclibc-gcc/g++/cc/c++ 的高性能 ccache 包装器；
-  - 深度改造顶层 trunk/Makefile：自动检测 ccache-bin 并动态切换 CONFIG_CROSS_COMPILER_PATH，将工具链路径优先注入 PATH，并规范导出 CCACHE_DIR 环境变量；若未配置 ccache 则无缝平滑回退至原生 bin 目录，零侵入性且保持工具链原生纯净；
-  - 深度改造 build_firmware_modify 构建流程：在构建前自动完成 ccache 运行环境自检与配置就绪检测，在打包固件完毕后自动输出实时 ccache 命中统计报表（Direct Hits / Preprocessed / Hit Rate）；
-  - 经 BW050-A 真实编译验证：首轮增量编译直接命中率达 82.42%（300 次直接命中，仅 64 次 miss），编译耗时大幅下降。
 - 完整实现三层 IPv6 中继代理架构（Relay 模式，基于 6relayd，编译宏 CONFIG_FIRMWARE_INCLUDE_6RELAYD=y|n）：
   - 引入极简嵌入式服务守护进程 6relayd（纯 C99 编写，仅依赖标准 C 库与 libresolv，ROMFS 体积仅 44KB）；
   - 完美解决无 DHCPv6-PD 前缀委派环境（单 /64 前缀）下的二级路由 IPv6 下发难题：
