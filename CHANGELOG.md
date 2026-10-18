@@ -1,6 +1,18 @@
 更新日志
 
 2026/10/18：
+- 新增 NETGEAR PR2000 便携式无线旅行路由器（MT7620N）全套板级适配与专属固件移植：
+  - 硬件逆向与引脚映射：
+    - 复位按键：BOARD_GPIO_BTN_RESET 映射至物理 GPIO 1（低电平有效）；
+    - 指示灯体系：BOARD_GPIO_LED_POWER 映射至 GPIO 72（主状态灯，支持生命律动心跳），BOARD_GPIO_LED_USB 映射至 GPIO 0，BOARD_GPIO_LED_LAN 映射至 GPIO 44；
+    - 交换机端口重排：黄色复合口定义为 WAN（Port 4），白色网口定义为 LAN1（Port 0），解决双口旅行路由网口映射与 duplicate case 冲突；
+  - 核心缺陷修复与性能突破：
+    - 修复原厂 EEPROM 0x36 错误置 0x04 导致的 2.4G 假外置 LNA 缺陷（OpenWrt 遗留大坑），修正为 0x00 强制启用 MT7620 内部高灵敏度 LNA，根治无线接收信号衰减至 <1MB/s 与芯片过载高热；
+    - 突破非标 Flash 分区冲刷风险：将原厂藏于 0x300000 的射频标定参数迁移并固化至 Breed 标准 64KB Factory 分区（0x40000）；
+  - 出厂贴纸凭据自动同步系统：
+    - 从原厂 SC_Private_Data (mtd9) 提取真实出厂 SSID、WPA 密钥、WPS PIN 与硬件 MAC，封装进 Factory 扩展保留区（0x0400）；
+    - 在 user/rc/rc.c 的 nvram_restore_defaults() 中加入 PR2000 专属恢复钩子，复位或初次启动时自动同步机身背部贴纸参数（SSID: NETGEAR66, PSK: festivesun652, WPA2-PSK AES），出厂体验无缝闭环；
+  - 豪华特性与 BW050-A 100% 对齐：集成 SFE 快捷转发加速、POWER 心跳律动、Transmission 3.00 (v0.1.9 WebUI)、Aria2+AriaNg、Samba 3.6、OpenSSH、KMS (vlmcsd) 及全格式存储驱动，16MB SPI Flash 镜像控制在 11.5MB 精巧区间。
 - 引入 ccache (Compiler Cache) 编译器缓存加速体系，大幅缩短固件构建与重编等待耗时：
   - 在 toolchain-mipsel 中新增 setup_ccache 与 clean_ccache 自动化脚本，自动在 toolchain-3.4.x/ccache-bin 构建针对 mipsel-linux-uclibc-gcc/g++/cc/c++ 的高性能 ccache 包装器；
   - 深度改造顶层 trunk/Makefile：自动检测 ccache-bin 并动态切换 CONFIG_CROSS_COMPILER_PATH，将工具链路径优先注入 PATH，并规范导出 CCACHE_DIR 环境变量；若未配置 ccache 则无缝平滑回退至原生 bin 目录，零侵入性且保持工具链原生纯净；

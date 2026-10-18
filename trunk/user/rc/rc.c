@@ -90,6 +90,44 @@ nvram_restore_defaults(void)
 		}
 	}
 
+	#if defined (BOARD_PR2000)
+	/* PR2000 factory default WiFi credentials */
+	if (restore_defaults) {
+		char sc_buf[65];
+		int i;
+		/* Read default SSID from Factory partition (0x0400 + 0x0106 = 0x0506) */
+		if (flash_mtd_read(MTD_PART_NAME_FACTORY, 0x0506, (unsigned char *)sc_buf, 32) == 0 &&
+		    sc_buf[0] != 0 && (unsigned char)sc_buf[0] != 0xff) {
+			for (i = 0; i < 32; i++) {
+				if (sc_buf[i] == 0 || (unsigned char)sc_buf[i] == 0xff) {
+					sc_buf[i] = '\0';
+					break;
+				}
+			}
+			sc_buf[32] = '\0';
+			nvram_set("rt_ssid", sc_buf);
+			nvram_set("wl_ssid", sc_buf);
+		}
+		/* Read default WPA PSK Key from Factory partition (0x0400 + 0x0120 = 0x0520) */
+		if (flash_mtd_read(MTD_PART_NAME_FACTORY, 0x0520, (unsigned char *)sc_buf, 64) == 0 &&
+		    sc_buf[0] != 0 && (unsigned char)sc_buf[0] != 0xff) {
+			for (i = 0; i < 64; i++) {
+				if (sc_buf[i] == 0 || (unsigned char)sc_buf[i] == 0xff) {
+					sc_buf[i] = '\0';
+					break;
+				}
+			}
+			sc_buf[64] = '\0';
+			nvram_set("rt_wpa_psk", sc_buf);
+			nvram_set("wl_wpa_psk", sc_buf);
+			nvram_set("rt_auth_mode", "psk");
+			nvram_set("wl_auth_mode", "psk");
+			nvram_set("rt_crypto", "aes");
+			nvram_set("wl_crypto", "aes");
+		}
+	}
+#endif
+
 	klogctl(8, NULL, nvram_get_int("console_loglevel"));
 
 	/* load static values */
