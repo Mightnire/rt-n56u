@@ -26,10 +26,20 @@
 
 #if defined (CONFIG_RT2880_ROOTFS_IN_FLASH)
 #define MTD_STORE_PART_IDX		5
+#if defined (CONFIG_MTD_CONFIG2_PART)
+#define MTD_CONFIG2_PART_IDX		6
+#define MTD_FWSTUB_PART_IDX		7
+#else
 #define MTD_FWSTUB_PART_IDX		6
+#endif
 #else
 #define MTD_STORE_PART_IDX		4
+#if defined (CONFIG_MTD_CONFIG2_PART)
+#define MTD_CONFIG2_PART_IDX		5
+#define MTD_FWSTUB_PART_IDX		6
+#else
 #define MTD_FWSTUB_PART_IDX		5
+#endif
 #endif
 
 /* NOR, SPI partitions (Ralink/MTK reference + mod) */
@@ -60,8 +70,14 @@ static struct mtd_partition rt2880_partitions[] = {
 		name:   "Storage",		/* mtdblock5 */
 		size:   MTD_STORE_PART_SIZE,	/* 64K */
 		offset: MTDPART_OFS_APPEND,
+#if defined (CONFIG_MTD_CONFIG2_PART)
 	}, {
-		name:   "Firmware_Stub",	/* mtdblock6 */
+		name:   "Config2",		/* mtdblock6 */
+		size:   MTD_CONFIG_PART_SIZE,	/* 64K */
+		offset: MTDPART_OFS_APPEND,
+#endif
+	}, {
+		name:   "Firmware_Stub",	/* mtdblock6 or 7 */
 		size:   0,			/* calc */
 		offset: MTD_KERNEL_PART_OFFSET,
 	}
@@ -83,7 +99,11 @@ inline void recalc_partitions(uint64_t flash_size, uint32_t kernel_size)
 	rt2880_partitions[3].size = CONFIG_MTD_KERNEL_PART_SIZ;
 #endif
 	/* calc "RootFS" size */
+#if defined (CONFIG_MTD_CONFIG2_PART)
+	rt2880_partitions[4].size = flash_size - (MTD_KERNEL_PART_OFFSET + rt2880_partitions[MTD_STORE_PART_IDX].size + MTD_CONFIG_PART_SIZE + rt2880_partitions[3].size);
+#else
 	rt2880_partitions[4].size = flash_size - (MTD_KERNEL_PART_OFFSET + rt2880_partitions[MTD_STORE_PART_IDX].size + rt2880_partitions[3].size);
+#endif
 #else
 	/* ROOTFS_IN_RAM */
 	rt2880_partitions[3].size = flash_size - (MTD_KERNEL_PART_OFFSET + rt2880_partitions[MTD_STORE_PART_IDX].size);
@@ -91,8 +111,12 @@ inline void recalc_partitions(uint64_t flash_size, uint32_t kernel_size)
 
 	/* calc "Firmware_Stub" size (allow crossing over "Storage" for <= 8 MB flash) */
 	rt2880_partitions[MTD_FWSTUB_PART_IDX].size = flash_size - MTD_KERNEL_PART_OFFSET;
-	if (flash_size > 0x00800000)
+	if (flash_size > 0x00800000) {
 		rt2880_partitions[MTD_FWSTUB_PART_IDX].size -= rt2880_partitions[MTD_STORE_PART_IDX].size;
+#if defined (CONFIG_MTD_CONFIG2_PART)
+		rt2880_partitions[MTD_FWSTUB_PART_IDX].size -= MTD_CONFIG_PART_SIZE;
+#endif
+	}
 }
 
 #endif

@@ -273,3 +273,29 @@ nvram_clear(void)
 	return ret;
 }
 
+
+const char *
+get_nvram_part_name(void)
+{
+	static char part_name[32] = "Config";
+	static int probed = 0;
+	FILE *fp;
+	char line[128], name[64];
+
+	if (probed)
+		return part_name;
+
+	fp = fopen("/proc/nvram", "r");
+	if (fp) {
+		while (fgets(line, sizeof(line), fp)) {
+			if (sscanf(line, " name : %31s", name) == 1) {
+				strncpy(part_name, name, sizeof(part_name) - 1);
+				part_name[sizeof(part_name) - 1] = '\0';
+				break;
+			}
+		}
+		fclose(fp);
+	}
+	probed = 1;
+	return part_name;
+}

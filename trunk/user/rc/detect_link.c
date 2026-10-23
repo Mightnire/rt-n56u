@@ -391,11 +391,18 @@ get_cpu_usage_pct(void)
 	return (unsigned int)((diff_total - diff_idle) * 100 / diff_total);
 }
 
+#endif /* BOARD_GPIO_LED_POWER && APP_PWR_HEARTBEAT */
+
+#if defined (BOARD_GPIO_LED_POWER)
 static void
 dl_update_power_led(unsigned long tick)
 {
 	int pwr_mode = nvram_get_int("front_led_pwr");
+#if defined (APP_PWR_HEARTBEAT)
 	int level = 0;
+#else
+	(void)tick;
+#endif
 
 	/* 检查夜间模式与关闭选项 */
 	if (pwr_mode == 0 || !nvram_get_int("led_front_t")) {
@@ -470,9 +477,12 @@ dl_update_power_led(unsigned long tick)
 		usleep(60000);
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
 	}
+#else /* !APP_PWR_HEARTBEAT */
+	/* 未启用呼吸灯特性: 非关闭模式一律常亮 */
+	LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
 #endif
 }
-#endif
+#endif /* BOARD_GPIO_LED_POWER */
 
 static void
 dl_on_timer(void)

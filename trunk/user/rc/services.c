@@ -540,6 +540,22 @@ start_logger(int showinfo)
 #endif
 #endif
 		logmessage(LOGNAME, "firmware version: %s", nvram_safe_get("firmver_sub"));
+		{
+			FILE *fp = fopen("/proc/nvram", "r");
+			char line[128], part_name[32] = "Config";
+			if (fp) {
+				while (fgets(line, sizeof(line), fp)) {
+					char name[64];
+					if (sscanf(line, " name : %31s", name) == 1) {
+						strncpy(part_name, name, sizeof(part_name) - 1);
+						part_name[sizeof(part_name) - 1] = '\0';
+						break;
+					}
+				}
+				fclose(fp);
+			}
+			logmessage(LOGNAME, "active config partition: %s", part_name);
+		}
 	}
 
 	start_klogd();

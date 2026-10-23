@@ -41,6 +41,7 @@ mkdev   dev/mtdblock3 b  31 3 $disk
 mkdev   dev/mtdblock4 b  31 4 $disk
 mkdev   dev/mtdblock5 b  31 5 $disk
 mkdev   dev/mtdblock6 b  31 6 $disk
+mkdev   dev/mtdblock7 b  31 7 $disk
 mkdev   dev/mtd0      c  90 0 $disk
 mkdev   dev/mtd0ro    c  90 1 $disk
 mkdev   dev/mtd1      c  90 2 $disk
@@ -55,6 +56,8 @@ mkdev   dev/mtd5      c  90 10 $disk
 mkdev   dev/mtd5ro    c  90 11 $disk
 mkdev   dev/mtd6      c  90 12 $disk
 mkdev   dev/mtd6ro    c  90 13 $disk
+mkdev   dev/mtd7      c  90 14 $disk
+mkdev   dev/mtd7ro    c  90 15 $disk
 
 mkdev	dev/ppp     c	108	0   $cons
 mkdev	dev/pts/0   c	136	0   $cons

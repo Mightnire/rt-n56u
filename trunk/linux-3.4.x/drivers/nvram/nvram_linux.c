@@ -35,8 +35,16 @@
 
 #define NVRAM_DRIVER_VERSION	"0.08"
 #define PROC_NVRAM_NAME		"nvram"
-#define MTD_NVRAM_NAME		"Config"
+#if defined (CONFIG_MTD_CONFIG2_PART)
+static const char *nvram_mtd_name = "Config";
+#else
+#define nvram_mtd_name "Config"
+#endif
 #define NVRAM_VALUES_SPACE	(NVRAM_MTD_SIZE*2)
+
+#if defined (CONFIG_MTD_CONFIG2_PART) && defined (CONFIG_MTD_CONFIG2_SLIDER_GPIO) && (CONFIG_MTD_CONFIG2_SLIDER_GPIO >= 0)
+#include <ralink/ralink_gpio.h>
+#endif
 
 extern int ra_mtd_read_nm(char *name, loff_t from, size_t len, u_char *buf);
 extern int ra_mtd_write_nm(char *name, loff_t to, size_t len, const u_char *buf);
@@ -305,13 +313,13 @@ nvram_commit(void)
 
 	/* Check partition unchanged */
 	if (bufr) {
-		ret = ra_mtd_read_nm(MTD_NVRAM_NAME, NVRAM_MTD_OFFSET, NVRAM_SPACE, bufr);
+		ret = ra_mtd_read_nm((char*)nvram_mtd_name, NVRAM_MTD_OFFSET, NVRAM_SPACE, bufr);
 		if (ret == 0 && memcmp(bufw, bufr, NVRAM_SPACE) == 0)
 			goto skip_write;
 	}
 	
 	/* Write partition up to end of data area */
-	ret = ra_mtd_write_nm(MTD_NVRAM_NAME, NVRAM_MTD_OFFSET, NVRAM_SPACE, bufw);
+	ret = ra_mtd_write_nm((char*)nvram_mtd_name, NVRAM_MTD_OFFSET, NVRAM_SPACE, bufw);
 	if (ret) {
 		printk("nvram_commit: write error\n");
 	}
@@ -499,7 +507,7 @@ nvram_ver_seq_show(struct seq_file *m, void *v)
 	seq_printf(m, "nvram space  : %d\n", NVRAM_SPACE);
 	seq_printf(m, "major number : %d\n", nvram_major);
 
-	nvram_mtd = get_mtd_device_nm(MTD_NVRAM_NAME);
+	nvram_mtd = get_mtd_device_nm(nvram_mtd_name);
 	if (!IS_ERR(nvram_mtd)) {
 		char type[24];
 		
@@ -572,7 +580,7 @@ dev_nvram_exit(void)
 	}
 
 	if (nvram_major >= 0) {
-		unregister_chrdev(nvram_major, MTD_NVRAM_NAME);
+		unregister_chrdev(nvram_major, nvram_mtd_name);
 		nvram_major = -1;
 	}
 
@@ -591,6 +599,14 @@ dev_nvram_init(void)
 	const char *istatus;
 	struct nvram_header *header;
 
+#if defined (CONFIG_MTD_CONFIG2_PART) && defined (CONFIG_MTD_CONFIG2_SLIDER_GPIO) && (CONFIG_MTD_CONFIG2_SLIDER_GPIO >= 0)
+	ralink_gpio_set_pin_direction(CONFIG_MTD_CONFIG2_SLIDER_GPIO, 0);
+	if (ralink_gpio_get_pin_value(CONFIG_MTD_CONFIG2_SLIDER_GPIO) == 0) {
+		nvram_mtd_name = "Config2";
+	}
+	printk(KERN_INFO "NVRAM: slider switch selected partition '%s'\n", nvram_mtd_name);
+#endif
+
 	/* Initialize hash table lock */
 	spin_lock_init(&nvram_lock);
 
@@ -601,7 +617,7 @@ dev_nvram_init(void)
 	/* Initialize hash table */
 	header = kzalloc(NVRAM_SPACE, GFP_KERNEL);
 	if (header) {
-		ret = ra_mtd_read_nm(MTD_NVRAM_NAME, NVRAM_MTD_OFFSET, NVRAM_SPACE, (unsigned char*)header);
+		ret = ra_mtd_read_nm((char*)nvram_mtd_name, NVRAM_MTD_OFFSET, NVRAM_SPACE, (unsigned char*)header);
 		if (ret == 0)
 			check_res = _nvram_init(header);
 		
@@ -609,7 +625,7 @@ dev_nvram_init(void)
 	}
 
 	/* Register char device */
-	ret = register_chrdev(NVRAM_MAJOR, MTD_NVRAM_NAME, &dev_nvram_fops);
+	ret = register_chrdev(NVRAM_MAJOR, nvram_mtd_name, &dev_nvram_fops);
 	if (ret < 0) {
 		printk(KERN_ERR "NVRAM: unable to register character device\n");
 		goto err;

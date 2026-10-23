@@ -1,5 +1,10 @@
 更新日志
 
+2026/10/24：
+- 修复 MI-R3P 系列编译失败（undefined reference to `dl_update_power_led`）：此前 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT 编译开关仅将 dl_update_power_led() 的定义包进 APP_PWR_HEARTBEAT，而 dl_on_timer()/dl_update_leds() 的调用点仍只判断 BOARD_GPIO_LED_POWER，导致所有定义了电源灯但未开启该特性的机型（MI-R3P-spi、MI-R3P、K2P、DIR-878 等约 50 款）在 user/rc 链接阶段报错；现将函数定义条件放宽为 BOARD_GPIO_LED_POWER，仅把 CPU 占用率采样与负载心跳/呼吸模式保留在 APP_PWR_HEARTBEAT 内，未启用心跳的机型回退到“关闭/常亮”逻辑；
+- MI-R3P、MI-R3P-spi、MI-R3P-breed 启用 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT=y，电源灯支持按 CPU 负载的心跳/呼吸律动；
+- 二次配置分区内核选项 CONFIG_MTD_CONFIG2_PART 除 PR2000 外全部在板级内核配置中显式写入 # CONFIG_MTD_CONFIG2_PART is not set（共 58 个配置文件，含 5.0 与 breed 变体），彻底消除其它机型构建时出现的 (NEW) 交互询问。
+
 2026/10/18：
 - 新增 NETGEAR PR2000 便携式无线旅行路由器（MT7620N）全套板级适配与专属固件移植：
   - 硬件逆向与引脚映射：
@@ -16,12 +21,16 @@
     - 在 16MB 闪存尾部开辟独立的 64KB 第二配置分区 Config2（mtdblock6，0x00FF0000 ~ 0x01000000），将 Storage 分区收缩至 192KB；
     - 改造 Linux 3.4.x 内核 NVRAM 驱动（nvram_linux.c），在 dev_nvram_init() 启动阶段采样机身物理滑动开关（GPIO 20）：低电平（ALT 档位）挂载 Config2，高电平（默认档位）挂载 Config；
     - 系统 syslog 服务启动时通过 /proc/nvram 自动探测当前生效分区并打印日志（active config partition: Config/Config2），终端与 WebUI 一目了然；
+    - WebUI 界面徽标与备份文件名联动：WebUI 顶部固件版本后展示彩色模式徽标（Config 浅蓝 / Config2 绿色），导出配置文件自动命名为 Settings_PR2000_Config.CFG 或 Settings_PR2000_Config2.CFG；
+    - 出厂主机名智能区分：Config 恢复默认为主机名 PR2000-Wired，Config2 恢复默认为主机名 PR2000-Wireless，贴纸无线凭据保持无缝同步；
   - SPI Flash 稳定读取模式修复与 SquashFS 解压根治：
     - 修复 MT7620 驱动在 48MHz 下执行双线读取（CONFIG_MTD_SPI_READ_DOR）缺少 Dummy Cycles 导致的位流偏移与 SquashFS xz_dec_run error；
     - 对齐 OpenWrt 官方 DTS (m25p,fast-read) 启用 CONFIG_MTD_SPI_READ_FAST=y（带 1 个 Dummy 哑周期字节采样等待，耐受达 104MHz），彻底根治滑动开关拨向 Wireless 天线侧时射频干扰引发的 SQUASHFS 读校验错误；
-  - 指示灯体系精细化修整：
+  - 指示灯体系精准重构与硬件交换机接管彻底根治：
+    - 根治 WiFi 指示灯硬件交换机抢占缺陷：分析查明物理 WiFi 指示灯引脚为 GPIO 44（EPHY_LED4_N），开启内核 CONFIG_RALINK_GPIOMODE_EPHY=y 释放 bit 15，彻底解除内部硬件交换机（EPHY Port 4）对该引脚的硬件直驱锁定；
+    - 启用 MT76X2 AP 软闪烁驱动：配置 CONFIG_MT76X2_AP_LED_SOFT=y 与 CONFIG_MT76X2_AP_LED_SOFT_GPIO=44，并在 board.h 中将 WiFi 灯重构为 BOARD_GPIO_LED_SW2G（44），实现无线开启常亮、数据传输软闪烁、无线关闭彻底熄灭；
+    - 修复 Internet 指示灯（小地球图标）引脚控制：将 BOARD_GPIO_LED_WAN 修正映射至 GPIO 72，并在 rc.c 的 init_gpio_leds_buttons() 中动态将 GPIOMODE bit 13 切至纯 GPIO 模式，恢复完整的 WAN 连接与外网探测状态指示；
     - 确认 PR2000 主电源灯直连供电轨通电即亮，禁用冗余的 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT 编译选项并移除相关代码分支；
-    - 规范引脚定义：GPIO 72 映射为 BOARD_GPIO_LED_WAN（Internet 网络指示灯，对应地球图标），GPIO 44 映射为 BOARD_GPIO_LED_WIFI（WiFi 无线指示灯，对应天线图标），GPIO 0 映射为 BOARD_GPIO_LED_USB。
   - 豪华特性与 BW050-A 100% 对齐：集成 SFE 快捷转发加速、POWER 心跳律动、Transmission 3.00 (v0.1.9 WebUI)、Aria2+AriaNg、Samba 3.6、OpenSSH、KMS (vlmcsd) 及全格式存储驱动，16MB SPI Flash 镜像控制在 11.5MB 精巧区间。
 - 完整实现三层 IPv6 中继代理架构（Relay 模式，基于 6relayd，编译宏 CONFIG_FIRMWARE_INCLUDE_6RELAYD=y|n）：
   - 引入极简嵌入式服务守护进程 6relayd（纯 C99 编写，仅依赖标准 C 库与 libresolv，ROMFS 体积仅 44KB）；

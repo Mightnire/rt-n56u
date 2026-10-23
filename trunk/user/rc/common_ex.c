@@ -336,6 +336,7 @@ get_eeprom_params(void)
 	nvram_set_temp("productid", trim_r(productid));
 	nvram_set_temp("firmver", trim_r(fwver));
 	nvram_set_temp("firmver_sub", trim_r(fwver_sub));
+	nvram_set_temp("active_config_part", get_nvram_part_name());
 
 #if 0
 #if defined (VENDOR_ASUS)

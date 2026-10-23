@@ -27,6 +27,7 @@ extern int nvram_invmatch(const char *name, char *invmatch);
 
 extern int nvram_commit(void);
 extern int nvram_clear(void);
+extern const char *get_nvram_part_name(void);
 
 
 #endif

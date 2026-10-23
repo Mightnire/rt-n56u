@@ -2,6 +2,8 @@ ifndef ROOTDIR
 ROOTDIR=../..
 endif
 
+-include $(ROOTDIR)/.config
+
 ROMFS_DIR = $(ROOTDIR)/romfs
 
 include $(ROOTDIR)/user/shared/boards.mk
@@ -131,6 +133,10 @@ endif
 	rm -f $(ROMFS_DIR)/www/bootstrap/js/jquery.backgroundpos.min.js
 	rm -f $(ROMFS_DIR)/www/bootstrap/js/jquery.easing.1.3.js
 	rm -f $(ROMFS_DIR)/www/bootstrap/css/bootstrap.css
+ifeq ($(strip $(CONFIG_FIRMWARE_PRODUCT_ID)),"PR2000")
+	@echo "Applying PR2000 Dual Config WebUI patch to romfs..."
+	./patch_pr2000_romfs.py $(ROMFS_DIR)/www
+endif
 ifeq ($(BOARD_HAS_2G_RADIO),0)
 	rm -f $(INSTALLDIR)/www/Advanced_ACL2g_Content.asp
 	rm -f $(INSTALLDIR)/www/Advanced_WAdvanced2g_Content.asp

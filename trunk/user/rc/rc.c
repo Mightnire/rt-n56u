@@ -125,6 +125,12 @@ nvram_restore_defaults(void)
 			nvram_set("rt_crypto", "aes");
 			nvram_set("wl_crypto", "aes");
 		}
+		/* Set distinct computer_name based on active config partition */
+		if (strcmp(get_nvram_part_name(), "Config2") == 0) {
+			nvram_set("computer_name", "PR2000-Wireless");
+		} else {
+			nvram_set("computer_name", "PR2000-Wired");
+		}
 	}
 #endif
 
@@ -283,6 +289,9 @@ init_gpio_leds_buttons(void)
 #endif
 	/* hide WAN soft-led  */
 #if defined (BOARD_GPIO_LED_WAN)
+#if defined (BOARD_PR2000)
+	cpu_gpio_mode_set_bit(13, 1); // switch WLED_N (GPIO 72) to pure GPIO mode for WAN LED
+#endif
 	cpu_gpio_set_pin_direction(BOARD_GPIO_LED_WAN, 1);
 	cpu_gpio_set_pin(BOARD_GPIO_LED_WAN, LED_OFF);
 #endif
@@ -370,6 +379,11 @@ init_gpio_leds_buttons(void)
 	/* init BTN Reset  */
 #if defined (BOARD_GPIO_BTN_RESET)
 	cpu_gpio_set_pin_direction(BOARD_GPIO_BTN_RESET, 0);
+#endif
+#if defined (BOARD_PR2000)
+	/* init PR2000 slider switch pins as input */
+	cpu_gpio_set_pin_direction(20, 0);
+	cpu_gpio_set_pin_direction(21, 0);
 #endif
 	/* init BTN WPS  */
 #if defined (BOARD_GPIO_BTN_WPS)
