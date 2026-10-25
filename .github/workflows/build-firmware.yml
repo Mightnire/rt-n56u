@@ -56,7 +56,7 @@ jobs:
             fakeroot kmod cpio git python3-docutils gettext automake autopoint \
             texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev \
             libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin \
-            libelf-dev p7zip-full
+            libelf-dev p7zip-full autoconf-archive
           # Compatibility links for autotools versions across legacy submodules
           sudo ln -sf /usr/bin/aclocal /usr/local/bin/aclocal-1.15
           sudo ln -sf /usr/bin/automake /usr/local/bin/automake-1.15

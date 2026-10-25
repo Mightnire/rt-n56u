@@ -1,6 +1,12 @@
 更新日志
 
 2026/10/25：
+- 修复 libjson-c 在全新克隆环境及 CI 自动化构建中因缺失 AX_APPEND_COMPILE_FLAGS 导致的 configure 语法错误：
+  - 根因分析：json-c 源码目录 .gitignore 规则忽略了 /autoconf-archive，导致 autoconf-archive/m4 宏文件未被检入；而其 Makefile 的 extract_test 仅在目录不存在时才解压源码，导致全新克隆场景下缺失 ax_append_compile_flags.m4，引发 autoreconf 无法解析展开该宏，向 ./configure 写入未展开文本导致 -Wall 语法错误；
+  - 彻底修复：
+    1. 修正 trunk/libs/libjson-c/json-c-json-c-0.13.1-20180305/.gitignore，解除对 /autoconf-archive 的过滤，补齐 ax_*.m4 宏依赖；
+    2. 改造 trunk/libs/libjson-c/Makefile 的 extract_test 目标，增加 [ ! -d $(SRC_NAME)/autoconf-archive ] 依赖检查，具备宏目录缺失自动重解压机制；
+    3. 在 GitHub Actions 工作流依赖列表中补充 autoconf-archive 软件包，双重保障 Autotools 宏解析。
 - 重构并上线现代化 GitHub Actions 自动化编译工作流（.github/workflows/build-firmware.yml）：
   - 彻底淘汰已弃用的老旧 CI.yml 与 actions/upload-artifact@v2，全面迁移至 Ubuntu 22.04 LTS 运行环境与 actions/checkout@v4、upload-artifact@v4、action-gh-release@v2；
   - 修复云端构建工作目录路径不匹配缺陷：通过 sudo ln -sfn "$GITHUB_WORKSPACE" /opt/rt-n56u 将 GitHub Actions 默认工作目录软链接至 Padavan 源码与工具链强依赖的 /opt/rt-n56u 绝对路径；

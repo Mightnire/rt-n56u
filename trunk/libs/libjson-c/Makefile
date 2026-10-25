@@ -11,7 +11,7 @@ download_test:
 	fi )
 
 extract_test:
-	( if [ ! -d $(SRC_NAME) ]; then \
+	( if [ ! -d $(SRC_NAME) ] || [ ! -d $(SRC_NAME)/autoconf-archive ]; then \
 		tar zxf $(ARCHIVE_NAME).tar.gz; \
 	fi )
 
