@@ -10,7 +10,7 @@
 ### 项目关键特性与深度优化
 
 - **核心网络与安全组件**
-  - **OpenSSL**：升级至 1.1.1 最终 LTS 版本 `1.1.1w`，修复多项历史 CVE 安全漏洞。
+  - **OpenSSL 与证书信任链**：升级至 1.1.1 最终 LTS 版本 `1.1.1w`；引入 Mozilla 2026.10 根证书信任库，全面剔除涉事印度 CA eMudhra (emSign)；新增 `CONFIG_FIRMWARE_INCLUDE_CA_CERTIFICATES=y|n` 编译选项（按需打包 ~0.06MB 根证书，开机自动挂载并优先支持 /etc/storage 覆写）。
   - **IPv6 穿透强化**：优化 `6relayd` 动态网络接口解析与 `ip6tables` FORWARD 穿透链，IPv6 状态稳定可靠。
 - **现代化离线下载套件**
   - **Transmission**：升级至稳定性最佳的 C 语言核心 `3.07.1`，支持 64 位大文件（LFS，解决 2GB+ 文件下载崩溃），优化内核 UDP 缓冲；集成极简现代 WebUI（去 PWA 冗余设计，立省 ~330KB 闪存）。

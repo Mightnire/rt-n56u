@@ -4,7 +4,7 @@
 - 更新根证书库（CA Certificates）并全面移除不信任的印度 eMudhra (emSign) CA 证书：
   - 同步并引入 Mozilla 2026 年 10 月最新发布的根证书信任库，全面更新陈旧失效的根证书；
   - 彻底剥离并移除涉及严重弱私钥缺陷（“Key of 4”漏洞、已被 Google/Mozilla/Apple 紧急封杀）的印度 CA 机构 eMudhra / emSign 旗下全部根证书（emSign Root CA - G1/C1、emSign ECC Root CA - G3/C3）；
-  - 将精简优化后的 CA 证书信任链（/etc_ro/ca-certificates.crt）打包进 ROMFS，在 dev_init.sh 启动时自动软链至 OpenSSL 标准路径 /etc/ssl/cert.pem 与 Linux 标准路径 /etc/ssl/certs/ca-certificates.crt（支持 /etc/storage 优先覆写）；
+  - 新增 CONFIG_FIRMWARE_INCLUDE_CA_CERTIFICATES 编译选项：允许在模板配置中按需开启（大容量机型默认开启，8MB/nano 机型可裁减省出空间），开启时自动将 CA 证书信任链（/etc_ro/ca-certificates.crt）打包进 ROMFS，在 dev_init.sh 启动时自动软链至 OpenSSL 标准路径 /etc/ssl/cert.pem 与 Linux 标准路径 /etc/ssl/certs/ca-certificates.crt（支持 /etc/storage 优先覆写）；
   - 优化 libcurl 构建配置，将默认证书路径绑定至 /etc/ssl/cert.pem，并在用户环境中预设 SSL_CERT_FILE / CURL_CA_BUNDLE，彻底根治 curl、inadyn、aria2 等工具在 HTTPS 下的 SSL certificate problem 校验失败故障。
 - 重构与更新主仓库 README.md：全面汇总项目关键优化特性（OpenSSL 1.1.1w、Transmission 3.07.1、Aria2 容错增强、智能负载心跳律动、多语言翻译补齐），整理全机型支持矩阵（补全 NETGEAR PR2000、MI-R3P-spi 等新型号），并更新源码克隆地址与环境构建说明。
 - 优化 Aria2 初始配置与断点续传恢复能力：在 user/aria2/aria.sh 初始配置文件模板中新增 allow-piece-length-change=true，允许任务分片大小在重定向、连接数调整或控制文件不一致时平滑恢复，彻底消除 ErrorCode=27（分片大小不匹配）引发的任务中断故障。
