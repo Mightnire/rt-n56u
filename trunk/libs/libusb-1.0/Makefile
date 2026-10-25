@@ -15,7 +15,7 @@ extract_test:
 	fi )
 
 config_test:
-	( if [ -f ./config_done ]; then \
+	( if [ -f ./config_done ] && [ -f $(SRC_NAME)/Makefile ]; then \
 		echo "the same configuration"; \
 	else \
 		make configure && touch config_done; \

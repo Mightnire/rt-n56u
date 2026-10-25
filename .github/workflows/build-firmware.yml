@@ -48,7 +48,7 @@ jobs:
           sudo ln -sfn "$GITHUB_WORKSPACE" /opt/rt-n56u
           ls -ld /opt/rt-n56u
 
-      - name: Install Build Dependencies
+      - name: Install Build Dependencies & Toolchain Links
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
@@ -57,6 +57,20 @@ jobs:
             texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev \
             libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin \
             libelf-dev p7zip-full
+          # Compatibility links for autotools versions across legacy submodules
+          sudo ln -sf /usr/bin/aclocal /usr/local/bin/aclocal-1.15
+          sudo ln -sf /usr/bin/automake /usr/local/bin/automake-1.15
+          sudo ln -sf /usr/bin/aclocal /usr/local/bin/aclocal-1.14
+          sudo ln -sf /usr/bin/automake /usr/local/bin/automake-1.14
+
+      - name: Fix Autotools Timestamps
+        run: |
+          # Prevent git checkout timestamp jitter from triggering obsolete autotools regeneration
+          cd /opt/rt-n56u/trunk
+          find . -name "aclocal.m4" -exec touch -d "+1 minute" {} + 2>/dev/null || true
+          find . -name "configure" -exec touch -d "+2 minutes" {} + 2>/dev/null || true
+          find . -name "config.h.in" -exec touch -d "+3 minutes" {} + 2>/dev/null || true
+          find . -name "Makefile.in" -exec touch -d "+4 minutes" {} + 2>/dev/null || true
 
       - name: Prepare Toolchain
         run: |
