@@ -1,6 +1,7 @@
 SRC_NAME = transmission-3.00
 SRC_URL = https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz
-CFLAGS   += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
+CFLAGS   += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
+CXXFLAGS += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 LDFLAGS  += -Wl,--gc-sections -static-libstdc++
 
 THISDIR = $(shell pwd)
@@ -31,7 +32,9 @@ config_test:
 
 configure:
 	( mkdir -p $(SRC_NAME)/build && cd $(SRC_NAME)/build ; \
-	cmake -DCMAKE_TOOLCHAIN_FILE=../../cross-mipsel-linux.cmake \
+	cmake -DCMAKE_TOOLCHAIN_FILE=$(THISDIR)/cross-mipsel-linux.cmake \
+		  -DCMAKE_C_FLAGS="$(CFLAGS)" \
+		  -DCMAKE_CXX_FLAGS="$(CXXFLAGS)" \
 		  -DCMAKE_INSTALL_PREFIX=/usr \
 		  -DCMAKE_BUILD_TYPE=Release \
 		  -DENABLE_CLI=OFF \

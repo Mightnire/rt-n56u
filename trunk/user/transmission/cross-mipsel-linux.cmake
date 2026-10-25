@@ -28,3 +28,4 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
 add_definitions($ENV{CPUFLAGS})
 
+add_definitions(-D_FILE_OFFSET_BITS=64)

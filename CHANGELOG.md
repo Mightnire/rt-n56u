@@ -1,5 +1,8 @@
 更新日志
 
+2026/10/25：
+- 修复 Transmission 无法下载大于 2GB 单文件缺陷（启用 LFS 64位大文件支持）：在 trunk/user/transmission/Makefile 与 cross-mipsel-linux.cmake 中显式定义 -D_FILE_OFFSET_BITS=64 并将 CMake 目标工具链文件调整为绝对路径，确保 pwrite/lseek/stat 等系统调用全面升级为 pwrite64/lseek64/stat64，彻底根治 32 位 MIPS 平台下单文件超过 2GB 偏移量溢出沦为负数导致的 EINVAL (Invalid argument) 写入中断。
+
 2026/10/24：
 - 修复 MI-R3P 系列编译失败（undefined reference to `dl_update_power_led`）：此前 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT 编译开关仅将 dl_update_power_led() 的定义包进 APP_PWR_HEARTBEAT，而 dl_on_timer()/dl_update_leds() 的调用点仍只判断 BOARD_GPIO_LED_POWER，导致所有定义了电源灯但未开启该特性的机型（MI-R3P-spi、MI-R3P、K2P、DIR-878 等约 50 款）在 user/rc 链接阶段报错；现将函数定义条件放宽为 BOARD_GPIO_LED_POWER，仅把 CPU 占用率采样与负载心跳/呼吸模式保留在 APP_PWR_HEARTBEAT 内，未启用心跳的机型回退到“关闭/常亮”逻辑；
 - MI-R3P、MI-R3P-spi、MI-R3P-breed 启用 CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT=y，电源灯支持按 CPU 负载的心跳/呼吸律动；
