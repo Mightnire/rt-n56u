@@ -9,6 +9,8 @@ if [ "$PS1" ] ; then
     export TERM=xterm
     [ -r /etc_ro/banner ] && cat /etc_ro/banner
     echo "Version: $(nvram get firmver_sub)"; echo ""
+    export SSL_CERT_FILE=/etc/ssl/cert.pem
+    export CURL_CA_BUNDLE=/etc/ssl/cert.pem
 
 fi;
 

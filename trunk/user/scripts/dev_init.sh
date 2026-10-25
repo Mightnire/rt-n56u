@@ -63,6 +63,15 @@ if [ -f /etc_ro/openssl.cnf ]; then
 	cp -f /etc_ro/openssl.cnf /etc/ssl
 fi
 
+mkdir -p -m 755 /etc/ssl/certs
+if [ -f /etc/storage/ca-certificates.crt ]; then
+	ln -sf /etc/storage/ca-certificates.crt /etc/ssl/cert.pem
+	ln -sf /etc/storage/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+elif [ -f /etc_ro/ca-certificates.crt ]; then
+	ln -sf /etc_ro/ca-certificates.crt /etc/ssl/cert.pem
+	ln -sf /etc_ro/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+fi
+
 # create symlinks
 ln -sf /home/root /home/admin
 ln -sf /proc/mounts /etc/mtab

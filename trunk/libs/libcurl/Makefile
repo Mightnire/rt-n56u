@@ -51,7 +51,7 @@ configure:
 		--disable-libcurl-option \
 		--disable-threaded-resolver \
 		--without-gnutls \
-		--without-ca-bundle \
+		--with-ca-bundle=/etc/ssl/cert.pem \
 		--without-libidn \
 		--without-libssh2 \
 		--without-krb4 \
