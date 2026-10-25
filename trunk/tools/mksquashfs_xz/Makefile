@@ -4,7 +4,7 @@ SRC_NAME2=xz-5.2.4
 all: config_xz build_xz build_squashfs
 
 config_xz:
-	( if [ -f ./config_xz_done ]; then \
+	( if [ -f ./config_xz_done ] && [ -f $(SRC_NAME2)/Makefile ] && grep -q "$$(pwd)" $(SRC_NAME2)/Makefile 2>/dev/null; then \
 		echo "the same configuration"; \
 	else \
 		make configure_xz && touch config_xz_done; \

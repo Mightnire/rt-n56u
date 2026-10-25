@@ -3,6 +3,8 @@
 2026/10/25：
 - 重构并上线现代化 GitHub Actions 自动化编译工作流（.github/workflows/build-firmware.yml）：
   - 彻底淘汰已弃用的老旧 CI.yml 与 actions/upload-artifact@v2，全面迁移至 Ubuntu 22.04 LTS 运行环境与 actions/checkout@v4、upload-artifact@v4、action-gh-release@v2；
+  - 修复云端构建工作目录路径不匹配缺陷：通过 sudo ln -sfn "$GITHUB_WORKSPACE" /opt/rt-n56u 将 GitHub Actions 默认工作目录软链接至 Padavan 源码与工具链强依赖的 /opt/rt-n56u 绝对路径；
+  - 修复 tools/mksquashfs_xz 跨目录编译失败：移除仓库残留的已配置标记 config_xz_done，并在 Makefile 中加入工作路径校验，若检测到构建目录变动自动重新运行 configure_xz；
   - 支持交互式手动调度（workflow_dispatch）：提供机型下拉选择菜单（BW050-A、MI-R3G、MI-R3P-spi、PR2000、PSG1218、一键全选或自定义机型名），支持勾选一键直接发布至 GitHub Releases；
   - 支持 Git Tag (v*) 自动化触发与持续交付：打标签推送自动并行构建四大核心机型固件并自动计算校验和发布。
 - 更新根证书库（CA Certificates）并全面移除不信任的印度 eMudhra (emSign) CA 证书：

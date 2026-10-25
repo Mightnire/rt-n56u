@@ -42,6 +42,12 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Setup /opt/rt-n56u Directory Symlink
+        run: |
+          sudo mkdir -p /opt
+          sudo ln -sfn "$GITHUB_WORKSPACE" /opt/rt-n56u
+          ls -ld /opt/rt-n56u
+
       - name: Install Build Dependencies
         run: |
           sudo apt-get update
@@ -54,8 +60,16 @@ jobs:
 
       - name: Prepare Toolchain
         run: |
-          cd toolchain-mipsel
+          cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
+
+      - name: Clean Host Tools
+        run: |
+          cd /opt/rt-n56u/trunk/tools
+          make clean || true
+          rm -f mksquashfs_xz/config_xz_done
+          rm -f mksquashfs_xz/mksquashfs
+          rm -f mksquashfs_xz/unsquashfs
 
       - name: Determine Build Targets
         id: targets
@@ -79,7 +93,7 @@ jobs:
         run: |
           TARGETS="${{ steps.targets.outputs.targets }}"
           mkdir -p /opt/images
-          cd trunk
+          cd /opt/rt-n56u/trunk
           for t in $TARGETS; do
             echo "=========================================================="
             echo "--> Starting build for $t"
