@@ -66,11 +66,15 @@ jobs:
       - name: Fix Autotools Timestamps
         run: |
           # Prevent git checkout timestamp jitter from triggering obsolete autotools regeneration
+          # Timestamps must be strictly in the past relative to system clock (to satisfy AM_SANITY_CHECK)
+          # while maintaining proper autotools dependency ordering:
+          # Makefile.in (-1m) > config.h.in (-2m) > configure (-3m) > aclocal.m4 (-5m) > configure.ac/Makefile.am (-10m)
           cd /opt/rt-n56u/trunk
-          find . -name "aclocal.m4" -exec touch -d "+1 minute" {} + 2>/dev/null || true
-          find . -name "configure" -exec touch -d "+2 minutes" {} + 2>/dev/null || true
-          find . -name "config.h.in" -exec touch -d "+3 minutes" {} + 2>/dev/null || true
-          find . -name "Makefile.in" -exec touch -d "+4 minutes" {} + 2>/dev/null || true
+          find . -name "configure.ac" -o -name "configure.in" -o -name "Makefile.am" | xargs -r touch -d "-10 minutes" 2>/dev/null || true
+          find . -name "aclocal.m4" | xargs -r touch -d "-5 minutes" 2>/dev/null || true
+          find . -name "configure" | xargs -r touch -d "-3 minutes" 2>/dev/null || true
+          find . -name "config.h.in" | xargs -r touch -d "-2 minutes" 2>/dev/null || true
+          find . -name "Makefile.in" | xargs -r touch -d "-1 minute" 2>/dev/null || true
 
       - name: Prepare Toolchain
         run: |

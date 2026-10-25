@@ -5,7 +5,7 @@
   - 彻底淘汰已弃用的老旧 CI.yml 与 actions/upload-artifact@v2，全面迁移至 Ubuntu 22.04 LTS 运行环境与 actions/checkout@v4、upload-artifact@v4、action-gh-release@v2；
   - 修复云端构建工作目录路径不匹配缺陷：通过 sudo ln -sfn "$GITHUB_WORKSPACE" /opt/rt-n56u 将 GitHub Actions 默认工作目录软链接至 Padavan 源码与工具链强依赖的 /opt/rt-n56u 绝对路径；
   - 彻底解决 Autotools 时间戳抖动引发的 aclocal-1.15 缺失报错：
-    1. 在工作流中注入时间戳校准指令，确保 aclocal.m4 / configure / Makefile.in 时间戳严格晚于源文件，阻止 Make 触发不必要的 Autotools 重新生成规则；
+    1. 在工作流中注入时间戳阶梯回退校准指令（-10m ~ -1m），确保源文件与生成文件维持严格依赖时序的同时，所有分发文件时间戳均严格早于当前系统时钟，彻底规避 Autoconf AM_SANITY_CHECK 触发的 "newly created file is older than distributed files" 时钟越界阻断；
     2. 创建 aclocal-1.15 / automake-1.15 软链兼容补丁，满足旧模块工具链版本探测需求；
     3. 清理 trunk/libs/libusb-1.0 中残留的已构建 Makefile/libtool，并使 config_test 具备配置缺失自动重入机制；
   - 修复 tools/mksquashfs_xz 跨目录编译失败：移除仓库残留的已配置标记 config_xz_done，并在 Makefile 中加入工作路径校验，若检测到构建目录变动自动重新运行 configure_xz；
