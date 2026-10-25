@@ -1,0 +1,131 @@
+name: Build Padavan Firmware
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select Router Model (选择编译机型)'
+        required: true
+        default: 'BW050-A'
+        type: choice
+        options:
+          - 'BW050-A'
+          - 'MI-R3G'
+          - 'MI-R3P-spi'
+          - 'PR2000'
+          - 'PSG1218'
+          - 'ALL_KEY_MODELS'
+          - 'custom'
+      custom_target:
+        description: 'Custom model name if "custom" is selected (自定义机型名称，如 K2P, NEWIFI3)'
+        required: false
+        default: ''
+      upload_release:
+        description: 'Upload to GitHub Releases (发布到 Release)'
+        required: false
+        type: boolean
+        default: false
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Firmware
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            unzip libtool-bin curl cmake gperf gawk flex bison nano xxd \
+            fakeroot kmod cpio git python3-docutils gettext automake autopoint \
+            texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev \
+            libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin \
+            libelf-dev p7zip-full
+
+      - name: Prepare Toolchain
+        run: |
+          cd toolchain-mipsel
+          sh dl_toolchain.sh
+
+      - name: Determine Build Targets
+        id: targets
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TARGET_LIST="BW050-A MI-R3G MI-R3P-spi PR2000"
+          else
+            SELECTED="${{ inputs.target }}"
+            if [ "$SELECTED" = "ALL_KEY_MODELS" ]; then
+              TARGET_LIST="BW050-A MI-R3G MI-R3P-spi PR2000"
+            elif [ "$SELECTED" = "custom" ]; then
+              TARGET_LIST="${{ inputs.custom_target }}"
+            else
+              TARGET_LIST="$SELECTED"
+            fi
+          fi
+          echo "Building targets: $TARGET_LIST"
+          echo "targets=$TARGET_LIST" >> $GITHUB_OUTPUT
+
+      - name: Compile Firmware
+        run: |
+          TARGETS="${{ steps.targets.outputs.targets }}"
+          mkdir -p /opt/images
+          cd trunk
+          for t in $TARGETS; do
+            echo "=========================================================="
+            echo "--> Starting build for $t"
+            echo "=========================================================="
+            if [ ! -f "configs/templates/${t}.config" ]; then
+              echo "Error: Config template configs/templates/${t}.config not found!"
+              exit 1
+            fi
+            fakeroot ./build_firmware_modify "$t"
+            if ls images/*.trx 1> /dev/null 2>&1; then
+              cp -f images/*.trx /opt/images/
+              rm -f images/*.trx
+              echo "Successfully built $t"
+            else
+              echo "Error: Build failed for $t, no .trx generated!"
+              exit 1
+            fi
+            ./clear_tree_simple >/dev/null 2>&1
+          done
+
+      - name: Generate Checksums & Package
+        id: package
+        run: |
+          cd /opt/images
+          ls -lh
+          sha256sum *.trx > sha256sums.txt
+          md5sum *.trx > md5sums.txt
+          cat sha256sums.txt
+          BUILD_TIME=$(date "+%Y%m%d_%H%M%S")
+          echo "build_time=$BUILD_TIME" >> $GITHUB_OUTPUT
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Padavan-Firmware-${{ steps.package.outputs.build_time }}
+          path: |
+            /opt/images/*.trx
+            /opt/images/*.txt
+
+      - name: Publish to GitHub Releases
+        if: ${{ github.event_name == 'push' || inputs.upload_release }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            /opt/images/*.trx
+            /opt/images/*.txt
+          tag_name: ${{ github.ref_name || steps.package.outputs.build_time }}
+          name: "Padavan Firmware (${{ steps.package.outputs.build_time }})"
+          generate_release_notes: true

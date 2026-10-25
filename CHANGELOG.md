@@ -1,6 +1,10 @@
 更新日志
 
 2026/10/25：
+- 重构并上线现代化 GitHub Actions 自动化编译工作流（.github/workflows/build-firmware.yml）：
+  - 彻底淘汰已弃用的老旧 CI.yml 与 actions/upload-artifact@v2，全面迁移至 Ubuntu 22.04 LTS 运行环境与 actions/checkout@v4、upload-artifact@v4、action-gh-release@v2；
+  - 支持交互式手动调度（workflow_dispatch）：提供机型下拉选择菜单（BW050-A、MI-R3G、MI-R3P-spi、PR2000、PSG1218、一键全选或自定义机型名），支持勾选一键直接发布至 GitHub Releases；
+  - 支持 Git Tag (v*) 自动化触发与持续交付：打标签推送自动并行构建四大核心机型固件并自动计算校验和发布。
 - 更新根证书库（CA Certificates）并全面移除不信任的印度 eMudhra (emSign) CA 证书：
   - 同步并引入 Mozilla 2026 年 10 月最新发布的根证书信任库，全面更新陈旧失效的根证书；
   - 彻底剥离并移除涉及严重弱私钥缺陷（“Key of 4”漏洞、已被 Google/Mozilla/Apple 紧急封杀）的印度 CA 机构 eMudhra / emSign 旗下全部根证书（emSign Root CA - G1/C1、emSign ECC Root CA - G3/C3）；
