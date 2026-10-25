@@ -1,5 +1,5 @@
-SRC_NAME = transmission-3.00
-SRC_URL = https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz
+SRC_NAME = transmission-3.07.1
+SRC_URL = https://github.com/Mightnire/transmission-og/releases/download/3.07.1/transmission-3.07.1.tar.xz
 CFLAGS   += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 CXXFLAGS += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 LDFLAGS  += -Wl,--gc-sections -static-libstdc++

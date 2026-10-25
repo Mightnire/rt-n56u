@@ -1,0 +1,54 @@
+--- transmission-3.07.1.orig/libtransmission/port-forwarding.c
++++ transmission-3.07.1/libtransmission/port-forwarding.c
+@@ -71,6 +71,7 @@ static char const *getNatStateStr(int st
+ 
+ static void natPulse(tr_shared *s, bool do_check)
+ {
++#if 0
+     int oldStatus;
+     int newStatus;
+     tr_port public_peer_port;
+@@ -107,6 +108,9 @@ static void natPulse(tr_shared *s, bool 
+             getNatStateStr(oldStatus),
+             getNatStateStr(newStatus));
+     }
++#endif
++    s->natpmpStatus = TR_PORT_UNMAPPED;
++    s->upnpStatus = TR_PORT_UNMAPPED;
+ }
+ 
+ static void set_evtimer_from_status(tr_shared *s)
+--- transmission-3.07.1.orig/libtransmission/session.c
++++ transmission-3.07.1/libtransmission/session.c
+@@ -342,7 +342,7 @@ void tr_sessionGetDefaultSettings(tr_var
+     tr_variantDictAddInt(d, TR_KEY_peer_port_random_high, 65535);
+     tr_variantDictAddStr(d, TR_KEY_peer_socket_tos, TR_DEFAULT_PEER_SOCKET_TOS_STR);
+     tr_variantDictAddBool(d, TR_KEY_pex_enabled, true);
+-    tr_variantDictAddBool(d, TR_KEY_port_forwarding_enabled, true);
++    tr_variantDictAddBool(d, TR_KEY_port_forwarding_enabled, false);
+     tr_variantDictAddInt(d, TR_KEY_preallocation, TR_PREALLOCATE_SPARSE);
+     tr_variantDictAddBool(d, TR_KEY_prefetch_enabled, DEFAULT_PREFETCH_ENABLED);
+     tr_variantDictAddInt(d, TR_KEY_peer_id_ttl_hours, 6);
+@@ -357,7 +357,7 @@ void tr_sessionGetDefaultSettings(tr_var
+     tr_variantDictAddStr(d, TR_KEY_rpc_password, "");
+     tr_variantDictAddStr(d, TR_KEY_rpc_username, "");
+     tr_variantDictAddStr(d, TR_KEY_rpc_whitelist, TR_DEFAULT_RPC_WHITELIST);
+-    tr_variantDictAddBool(d, TR_KEY_rpc_whitelist_enabled, true);
++    tr_variantDictAddBool(d, TR_KEY_rpc_whitelist_enabled, false);
+     tr_variantDictAddStr(d, TR_KEY_rpc_host_whitelist, TR_DEFAULT_RPC_HOST_WHITELIST);
+     tr_variantDictAddBool(d, TR_KEY_rpc_host_whitelist_enabled, true);
+     tr_variantDictAddInt(d, TR_KEY_rpc_port, atoi(TR_DEFAULT_RPC_PORT_STR));
+--- transmission-3.07.1.orig/libtransmission/tr-udp.c
++++ transmission-3.07.1/libtransmission/tr-udp.c
+@@ -46,8 +46,8 @@
+ /* Since we use a single UDP socket in order to implement multiple
+    uTP sockets, try to set up huge buffers. */
+ 
+-#define RECV_BUFFER_SIZE (4 * 1024 * 1024)
+-#define SEND_BUFFER_SIZE (1 * 1024 * 1024)
++#define RECV_BUFFER_SIZE (2 * 1024 * 1024)
++#define SEND_BUFFER_SIZE (1 * 512 * 1024)
+ #define SMALL_BUFFER_SIZE (32 * 1024)
+ 
+ static void set_socket_buffers(tr_socket_t fd, bool large)
+

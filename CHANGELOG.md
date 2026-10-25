@@ -1,6 +1,11 @@
 更新日志
 
 2026/10/25：
+- 升级 Transmission 至现代维护分支 3.07.1（Mightnire/transmission-og）：
+  - 剥离上游分支引入的非标 -og 命令与安装目标前后缀，完全还原为原生标准命令集（transmission-daemon、transmission-remote 等），实现与 Padavan 守护进程及 WebUI 脚本无缝兼容；
+  - 随包内联完整第三方库源码（dht, miniupnpc, libutp, libb64, libnatpmp, libevent），摆脱 Git 子模组与外部网络依赖，构建期自给自足；
+  - 编写并应用 transmission-3.07.1.patch，保留 Padavan 专属网络微调（默认关闭 RPC 外网白名单、默认关闭路由器本地冗余 UPnP 映射、UDP 缓冲区减半优化以节省路由器内存）；
+  - 全面支持 64 位 LFS（大文件偏移量系统调用），彻底解决单任务下载 >2GB 导致写入溢出中断问题。
 - 修复 Transmission 无法下载大于 2GB 单文件缺陷（启用 LFS 64位大文件支持）：在 trunk/user/transmission/Makefile 与 cross-mipsel-linux.cmake 中显式定义 -D_FILE_OFFSET_BITS=64 并将 CMake 目标工具链文件调整为绝对路径，确保 pwrite/lseek/stat 等系统调用全面升级为 pwrite64/lseek64/stat64，彻底根治 32 位 MIPS 平台下单文件超过 2GB 偏移量溢出沦为负数导致的 EINVAL (Invalid argument) 写入中断。
 
 2026/10/24：
