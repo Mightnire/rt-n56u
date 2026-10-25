@@ -1,211 +1,95 @@
-```
-![CI](https://github.com/hanwckf/rt-n56u/workflows/CI/badge.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/hanwckf/rt-n56u/total)
-[![release](https://img.shields.io/github/release/hanwckf/rt-n56u.svg)](https://github.com/hanwckf/rt-n56u/releases)
-```
+# rt-n56u (Padavan) 路由器固件定制与增强版
 
-# README #
+本项目基于优秀的 Padavan 开源固件（继承自 hanwckf/rt-n56u 与 padavan-ng 分支），专为现代路由器提供更加稳定、轻量且强大的系统支持，重点增强了安全组件、下载套件、指示灯系统与新型号适配。
 
-Welcome to the rt-n56u project
+> [!NOTE]
+> 本项目源码供个人学习与技术探索使用。刷机有风险，请务必提前备份好原厂 EEPROM 与 Factory 分区！
 
-This project aims to improve the rt-n56u and other supported devices on the software part, allowing power user to take full control over their hardware.
-This project was created in hope to be useful, but comes without warranty or support. Installing it will probably void your warranty. 
-Contributors of this project are not responsible for what happens next.
+---
 
-### How do I get set up? ###
+### 项目关键特性与深度优化
 
-* [Get the tools to build the system](https://bitbucket.org/padavan/rt-n56u/wiki/EN/HowToMakeFirmware) or [Download pre-built system image](https://bitbucket.org/padavan/rt-n56u/downloads)
-* Feed the device with the system image file (Follow instructions of updating your current system)
-* Perform factory reset
-* Open web browser on http://my.router to configure the services
+- **核心网络与安全组件**
+  - **OpenSSL**：升级至 1.1.1 最终 LTS 版本 `1.1.1w`，修复多项历史 CVE 安全漏洞。
+  - **IPv6 穿透强化**：优化 `6relayd` 动态网络接口解析与 `ip6tables` FORWARD 穿透链，IPv6 状态稳定可靠。
+- **现代化离线下载套件**
+  - **Transmission**：升级至稳定性最佳的 C 语言核心 `3.07.1`，支持 64 位大文件（LFS，解决 2GB+ 文件下载崩溃），优化内核 UDP 缓冲；集成极简现代 WebUI（去 PWA 冗余设计，立省 ~330KB 闪存）。
+  - **Aria2**：集成最新 `AriaNg` 前端，初始模板默认开启 `allow-piece-length-change=true`，根治断点续传与动态重定向时的 `ErrorCode=27`（分片长度不匹配）报错。
+- **交互与硬件指示灯系统**
+  - **智能 POWER 负载心跳律动 (`CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT`)**：
+    - 支持瞬时 CPU 负载与系统平均负载（LoadAvg）双模式感应。
+    - 2 秒拟真节拍：低负载温和微眨（亮1.92s/灭80ms）、中载 Lub-Dub 双跳心跳、高负载急促脉冲。
+    - 零系统唤醒开销，支持 WebUI 独立开关与夜间自动熄灭，小内存机型可按需编译。
+  - **网口速率指示**：小米路由器 3G/Pro 等机型适配千兆网口自适应指示灯（千兆熄灭、百兆常亮、十兆非对称慢闪）。
+  - **USB 状态联动**：设备挂载常亮、读写闪烁、WebUI 安全弹出后自动熄灭。
+- **WebUI 与多语言本地化**
+  - 完整补齐并精炼 14 种语言（含简中、繁中、英、俄、乌、法、德等）的 Tweaks 与前置 LED 控制词典，消除 `<#Tweaks...#>` 原始未翻译标签。
 
-### Contribution guidelines ###
+---
 
-* To be completed
+### 支持机型列表（除原厂支持外的适配列表）
 
-***
+> 标注 `(USB)` 的机型原生支持外接 USB 存储与打印服务。
 
-### 特别说明 ###
-* 汉化字典来自：https://github.com/gorden5566/padavan
-* 更新日志：https://www.jianshu.com/p/d76a63a12eae
+| 芯片平台 / 品牌 | 支持型号 |
+| :--- | :--- |
+| **MT7620 平台** | **BW050-A** (MT7620A+MT7610E, 外置FEM, microSD, USB)<br>**NETGEAR PR2000** (Trek N300, 双Config分区/硬件开关联动, USB)<br>PSG1208、PSG1218、PSG1218_nano、OYE-001 (USB)、NEWIFI-MINI (USB)、MI-MINI (USB)、MI-3 (USB)、MI-NANO、HC5661A、HC5761A (USB)、HC5861B、360P2 (USB)、5K-W20 (USB)、RT-AC51U |
+| **MT7621 平台** | **MI-R3G** (RGB防混色/网口慢闪, USB)<br>**MI-R3P-spi** (16MB SPI Flash 改版, 4网口指示灯, USB)<br>**MI-R3P / MI-R3P-breed** (NAND, USB)<br>K2P、K2P_nano、K2P-USB (USB)、NEWIFI3 (USB)、B70 (USB)、A3004NS (USB)、DIR-878、DIR-882 (USB)、MR2600 (USB)、RM2100、R2100、CR660x (CR6606/CR6608/CR6609)、JCG-836PRO (USB)、JCG-AC860M (USB)、JCG-Q20、JCG-Y2 (USB)、E8820V2 (USB)、ZTE_E8820S (USB)、MSG1500 (USB)、WR1200JS (USB)、XY-C1 (USB)、MAC2600R |
+| **MT7628 平台** | TCL-T1、MI-3C、MI-4、MI-R4A、WDR7300 |
+| **MT7615 平台** | NETGEAR-CHJ (R6260, R6350, R6850, WAC124)<br>NETGEAR-BZV (R6800, R6700-v2, R7200, Nighthawk AC2400)<br>R6220 (USB)、RT-AC1200GU (USB) |
 
-***
+---
 
-### 固件特点 ###
-- 使用[gorden5566](https://github.com/gorden5566/padavan)的汉化字典
-- aria2前端更换为[AriaNg](https://github.com/mayswind/AriaNg)
-- [curl](https://github.com/curl/curl)可选编译可执行程序 ```CONFIG_FIRMWARE_INCLUDE_CURL```
-- 使用了[PROMETHEUS](http://pm.freize.net/index.html)提供的部分补丁
-- 使用了[Linaro1985/padavan-ng](https://gitlab.com/padavan-ng/padavan-ng)的部分软件包
-- 可选以下插件：
->- [scutclient](https://github.com/hanwckf/scutclient) ```CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT```
->- [gdut-drcom](https://github.com/chenhaowen01/gdut-drcom) ```CONFIG_FIRMWARE_INCLUDE_GDUT_DRCOM```
->- [dogcom](https://github.com/hanwckf/dogcom) ```CONFIG_FIRMWARE_INCLUDE_DOGCOM```
->- [minieap](https://github.com/hanwckf/minieap) ```CONFIG_FIRMWARE_INCLUDE_MINIEAP```
->- [njit-client](https://github.com/hanwckf/njit8021xclient) ```CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT```
->- [napt66](https://github.com/mzweilin/napt66) ```CONFIG_FIRMWARE_INCLUDE_NAPT66```
->- [softether-vpnserver](https://github.com/SoftEtherVPN/SoftEtherVPN_Stable) ```CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER```
->- [softether-vpnclient](https://github.com/SoftEtherVPN/SoftEtherVPN_Stable) ```CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT```
->- [softether-vpncmd](https://github.com/SoftEtherVPN/SoftEtherVPN_Stable) ```CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD```
->- [vlmcsd](https://github.com/hanwckf/vlmcsd) ```CONFIG_FIRMWARE_INCLUDE_VLMCSD```
->- [ttyd](https://github.com/tsl0922/ttyd) ```CONFIG_FIRMWARE_INCLUDE_TTYD```
->- [lrzsz](https://ohse.de/uwe/software/lrzsz.html) ```CONFIG_FIRMWARE_INCLUDE_LRZSZ```
->- [htop](https://hisham.hm/htop/releases/) ```CONFIG_FIRMWARE_INCLUDE_HTOP```
->- [nano](https://www.nano-editor.org/dist/) ```CONFIG_FIRMWARE_INCLUDE_NANO```
->- [iperf3](https://github.com/esnet/iperf) ```CONFIG_FIRMWARE_INCLUDE_IPERF3```
->- [dump1090](https://github.com/hanwckf/dump1090) ```CONFIG_FIRMWARE_INCLUDE_DUMP1090```
->- [rtl-sdr](https://github.com/osmocom/rtl-sdr) ```CONFIG_FIRMWARE_INCLUDE_RTL_SDR```
->- [samba3.6](https://gitlab.com/padavan-ng/padavan-ng/tree/master/trunk/user/samba36) ```CONFIG_FIRMWARE_INCLUDE_SMBD36```
->- [mtr](https://github.com/traviscross/mtr) ```CONFIG_FIRMWARE_INCLUDE_MTR```
->- [socat](http://www.dest-unreach.org/socat) ```CONFIG_FIRMWARE_INCLUDE_SOCAT```
->- [srelay](https://socks-relay.sourceforge.io) ```CONFIG_FIRMWARE_INCLUDE_SRELAY```
->- [3proxy](https://github.com/z3APA3A/3proxy) ```CONFIG_FIRMWARE_INCLUDE_3PROXY```
->- [mentohust](https://github.com/hanwckf/mentohust-1) ```CONFIG_FIRMWARE_INCLUDE_MENTOHUST```
->- [frpc](https://github.com/fatedier/frp) ```CONFIG_FIRMWARE_INCLUDE_FRPC```
->- [frps](https://github.com/fatedier/frp) ```CONFIG_FIRMWARE_INCLUDE_FRPS```
->- [tunsafe](https://github.com/TunSafe/TunSafe) ```CONFIG_FIRMWARE_INCLUDE_TUNSAFE```
->- [wireguard-go](https://git.zx2c4.com/wireguard-go/) ```CONFIG_FIRMWARE_INCLUDE_WIREGUARD```
->- [smartdns](https://github.com/pymumu/smartdns) ```CONFIG_FIRMWARE_INCLUDE_SMARTDNS```
+### 快速开始与固件编译
 
-- 已适配除官方适配外的以下机型
->- PSG1208
->- PSG1218
->- 5K-W20 (USB)
->- OYE-001 (USB)
->- NEWIFI-MINI (USB)
->- MI-MINI (USB)
->- MI-3 (USB)
->- MI-3C
->- MI-4
->- MI-R3G (USB)
->- MI-R4A
->- MI-R3P (USB)
->- HC5661A
->- HC5761A (USB)
->- HC5861B
->- 360P2 (USB)
->- MI-NANO
->- MZ-R13
->- MZ-R13P
->- RT-AC1200GU (USB)
->- XY-C1 (USB)
->- WR1200JS (USB)
->- NEWIFI3 (USB)
->- B70 (USB)
->- A3004NS (USB)
->- K2P
->- K2P-USB (USB)
->- JCG-836PRO (USB)
->- JCG-AC860M (USB)
->- DIR-882 (USB)
->- DIR-878
->- MR2600 (USB)
->- WDR7300
->- RM2100
->- CR660x (CR6606, CR6608, CR6609)
->- R2100
->- JCG-Y2 (USB)
->- E8820V2 (USB)
->- ZTE_E8820S (USB)
->- MSG1500 (USB)
->- R6220 (USB)
->- NETGEAR-CHJ (R6260, R6350, R6850, WAC124)
->- NETGEAR-BZV (R6800, R6700-v2, R7200, Nighthawk AC2400)
->- MAC2600R
->- TCL-T1 (MT7628)
->- BW050-A (MT7620+MT7610, USB)
+#### 1. 准备编译环境 (以 Ubuntu / Debian 为例)
 
-***
-
-### 编译说明 ###
-
-* 安装依赖包
-
-```shell
-# Debian/Ubuntu
+```bash
 sudo apt update
 sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd \
-	fakeroot kmod cpio git python3-docutils gettext automake autopoint \
-	texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev \
-	libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin
-
-# Archlinux/Manjaro
-sudo pacman -Syu --needed git base-devel cmake gperf ncurses libmpc \
-        gmp python-docutils vim rpcsvc-proto fakeroot cpio help2man
-
-# Alpine
-sudo apk add make gcc g++ cpio curl wget nano xxd kmod \
-	pkgconfig rpcgen fakeroot ncurses bash patch \
-	bsd-compat-headers python2 python3 zlib-dev \
-	automake gettext gettext-dev autoconf bison \
-	flex coreutils cmake git libtool gawk sudo
-
-# CentOS 7
-sudo yum update
-sudo yum groupinstall "Development Tools"
-sudo yum install ncurses-* flex byacc bison zlib-* texinfo gmp-* mpfr-* gettext \
-	libtool* libmpc-* gettext-* python-docutils nano help2man fakeroot
-
-# CentOS 8
-sudo yum update
-sudo yum groupinstall "Development Tools"
-sudo yum install ncurses-* flex byacc bison zlib-* gmp-* mpfr-* gettext \
-	libtool* libmpc-* gettext-* nano fakeroot
-
-# CentOS 8不能直接通过yum安装texinfo，help2man，python-docutils。请去官网下载发行的安装包编译安装
-# 以texinfo为例
-# cd /usr/local/src
-# sudo wget http://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
-# sudo tar zxvf texinfo-6.7.tar.gz
-# cd texinfo-6.7
-# sudo ./configure
-# sudo make
-# sudo make install
-
+    fakeroot kmod cpio git python3-docutils gettext automake autopoint \
+    texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev \
+    libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin
 ```
 
-* 克隆源码
+#### 2. 获取源码
 
-```shell
-git clone --depth=1 https://e.coding.net/hanwckf/rt-n56u/padavan.git /opt/rt-n56u
-#git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
+```bash
+git clone https://github.com/Mightnire/rt-n56u.git /opt/rt-n56u
 ```
 
-* 准备工具链
+#### 3. 准备交叉工具链
 
-```shell
+开发目录已包含基于 crosstool-NG 的构建脚本：
+
+```bash
 cd /opt/rt-n56u/toolchain-mipsel
-
-# （推荐）使用脚本下载预编译的工具链：
-sh dl_toolchain.sh
-
-# 或者，也可以从源码编译工具链，这需要一些时间：
 ./clean_toolchain
 ./build_toolchain
-
 ```
 
-* (可选) 修改机型配置文件
+#### 4. 开始构建固件
 
-```shell
-nano /opt/rt-n56u/trunk/configs/templates/PSG1218.config
-```
+固件配置文件位于 `trunk/configs/templates/<TARGET_BOARD>.config`。以 `BW050-A` 为例：
 
-* 开始编译
-
-```shell
+```bash
 cd /opt/rt-n56u/trunk
-# 对于WSL环境，建议使用sudo进行编译，或者使用fakeroot-tcp代替fakeroot
-fakeroot ./build_firmware_modify PSG1218
-# 脚本第一个参数为路由型号，在trunk/configs/templates/中
-# 编译好的固件在trunk/images里
-# 首次编译完成后，如果需要再次编译其它固件，需要执行清理脚本：
-./clear_tree
+
+# 切换机型或清理旧构建
+sudo ./clear_tree
+
+# 一键构建固件镜像
+sudo fakeroot ./build_firmware_modify BW050-A
 ```
 
-***
+构建成功后，固件文件（`.trx`）将输出在 `trunk/images/` 目录下。
 
-### 请参阅 ###
-- https://www.jianshu.com/p/cb51fb0fb2ac
-- https://www.jianshu.com/p/6b8403cdea46
+---
 
+### 鸣谢与致敬
+
+- [Padavan](https://bitbucket.org/padavan/rt-n56u)
+- [hanwckf/rt-n56u](https://github.com/hanwckf/rt-n56u)
+- [padavan-ng](https://gitlab.com/padavan-ng/padavan-ng)
+- [gorden5566/padavan](https://github.com/gorden5566/padavan)
+- [stefantalpalaru/transmission-og](https://github.com/stefantalpalaru/transmission-og)
