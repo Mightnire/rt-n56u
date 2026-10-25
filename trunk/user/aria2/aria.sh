@@ -72,6 +72,7 @@ file-allocation=trunc
 no-file-allocation-limit=10M
 allow-overwrite=false
 auto-file-renaming=true
+allow-piece-length-change=true
 
 ### Bittorent
 bt-enable-lpd=false

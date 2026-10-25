@@ -1,6 +1,7 @@
 更新日志
 
 2026/10/25：
+- 优化 Aria2 初始配置与断点续传恢复能力：在 user/aria2/aria.sh 初始配置文件模板中新增 allow-piece-length-change=true，允许任务分片大小在重定向、连接数调整或控制文件不一致时平滑恢复，彻底消除 ErrorCode=27（分片大小不匹配）引发的任务中断故障。
 - 升级 Transmission 至现代维护分支 3.07.1（Mightnire/transmission-og）：
   - 剥离上游分支引入的非标 -og 命令与安装目标前后缀，完全还原为原生标准命令集（transmission-daemon、transmission-remote 等），实现与 Padavan 守护进程及 WebUI 脚本无缝兼容；
   - 随包内联完整第三方库源码（dht, miniupnpc, libutp, libb64, libnatpmp, libevent），摆脱 Git 子模组与外部网络依赖，构建期自给自足；
