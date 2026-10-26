@@ -1,5 +1,7 @@
 SRC_NAME=ncurses-6.2
 SRC_URL=https://github.com/mirror/ncurses/archive/v6.2.zip
+THISDIR = $(shell pwd)
+STAGEDIR ?= $(shell cd $(THISDIR)/../../stage && pwd)
 
 all: download_test extract_test config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
@@ -32,6 +34,7 @@ configure:
 		--without-progs \
 		--without-tests \
 		--without-manpages \
+		--disable-db-install \
 		--enable-widec \
 		--with-shared \
 		--without-debug \
@@ -51,7 +54,15 @@ clean:
 	rm -f config_done
 
 install:
-	$(MAKE) -C $(SRC_NAME) install DESTDIR=""
+	$(MAKE) -C $(SRC_NAME) install.libs install.includes DESTDIR=""
+	mkdir -p $(STAGEDIR)/lib/pkgconfig $(STAGEDIR)/bin
+	if [ -f $(SRC_NAME)/misc/ncursesw.pc ]; then \
+		cp -f $(SRC_NAME)/misc/ncursesw.pc $(STAGEDIR)/lib/pkgconfig/ ; \
+	fi
+	if [ -f $(SRC_NAME)/misc/ncurses-config ]; then \
+		cp -f $(SRC_NAME)/misc/ncurses-config $(STAGEDIR)/bin/ncursesw6-config ; \
+		chmod 755 $(STAGEDIR)/bin/ncursesw6-config ; \
+	fi
 
 romfs:
 	cp -fP $(DESTDIR)/lib/libncursesw.so* $(ROMFSDIR)/lib

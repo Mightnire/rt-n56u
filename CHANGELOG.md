@@ -1,6 +1,13 @@
 更新日志
 
 2026/10/25：
+- 修复 nano 文本编辑器构建配置缺失 curses 支持故障（No curses lib was found）：
+  - 根因分析：
+    1. trunk/libs/libncurses 在交叉编译配置中未传入 --disable-db-install，在 install 阶段尝试调用 tic 编译宿主机 terminfo 数据库报错中断，导致 misc 目录下的 ncursesw.pc 与 ncursesw6-config 未能正常安装至 stage 目录；
+    2. trunk/user/nano/Makefile 在 ./configure 时未显式指定 NCURSESW_CFLAGS 与 NCURSESW_LIBS 环境变量，当 pkg-config 回退至旧版探测逻辑时无法定位跨平台 libncursesw 动态库；
+  - 彻底修复：
+    1. 优化 trunk/libs/libncurses/Makefile：追加 --disable-db-install 跳过终端数据库编译，精准调用 install.libs 和 install.includes，并确保 ncursesw.pc 与 ncursesw6-config 拷贝安装到 $(STAGEDIR)；
+    2. 改造 trunk/user/nano/Makefile：显式注入 NCURSESW_CFLAGS 与 NCURSESW_LIBS 指向 stage 目录，确保 PKG_CHECK_MODULES 一键命中 ncursesw。
 - 修复 libjson-c 在全新克隆环境及 CI 自动化构建中因缺失 AX_APPEND_COMPILE_FLAGS 导致的 configure 语法错误：
   - 根因分析：json-c 源码目录 .gitignore 规则忽略了 /autoconf-archive，导致 autoconf-archive/m4 宏文件未被检入；而其 Makefile 的 extract_test 仅在目录不存在时才解压源码，导致全新克隆场景下缺失 ax_append_compile_flags.m4，引发 autoreconf 无法解析展开该宏，向 ./configure 写入未展开文本导致 -Wall 语法错误；
   - 彻底修复：

@@ -29,6 +29,8 @@ configure:
 		--enable-tiny \
 		--enable-utf8 \
 		--disable-nls \
+		NCURSESW_CFLAGS="-I$(STAGEDIR)/include" \
+		NCURSESW_LIBS="-L$(STAGEDIR)/lib -lncursesw" \
 		PKG_CONFIG_LIBDIR="$(STAGEDIR)/lib/pkgconfig/" \
 		--host=$(HOST_TARGET) \
 		--build=$(HOST_BUILD) ; \
