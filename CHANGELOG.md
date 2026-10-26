@@ -1,6 +1,12 @@
 更新日志
 
 2026/10/25：
+- 修复 socat 工具构建因调用缺失的 yodl2man 导致中断（yodl2man: No such file or directory）：
+  - 根因分析：socat 源码 Makefile 默认 all 规则包含 doc 目标，时间戳抖动时会触发调用宿主机不存在的 yodl2man 尝试重新渲染 man 手册页；
+  - 彻底修复：
+    1. 改造 trunk/user/socat/Makefile：将构建目标精确定向为 progs，跳过全部无用的手册与文档构建；
+    2. 在 configure 阶段对 doc/socat.1 和 doc/socat.html 进行时间戳兜底，防止意外触发规则；
+    3. 修正源码下载目标文件名扩展名匹配错误（.tar.gz 修正为 .tar.bz2）。
 - 修复 nano 文本编辑器构建配置缺失 curses 支持故障（No curses lib was found）：
   - 根因分析：
     1. trunk/libs/libncurses 在交叉编译配置中未传入 --disable-db-install，在 install 阶段尝试调用 tic 编译宿主机 terminfo 数据库报错中断，导致 misc 目录下的 ncursesw.pc 与 ncursesw6-config 未能正常安装至 stage 目录；
