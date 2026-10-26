@@ -1,6 +1,11 @@
 更新日志
 
 2026/10/25：
+- 修复 samba36 构建缺失 include/version.h 头文件错误（No rule to make target include/version.h, needed by lib/version.o）：
+  - 根因分析：samba-3.6.25 源码根目录 .gitignore 忽略了 source3/include/version.h，导致该头文件未被版本库检出；且 Makefile 仅有依赖规则未提供内联生成逻辑；
+  - 彻底修复：
+    1. 修正 trunk/user/samba36/samba-3.6.25/.gitignore，解除对 source3/include/version.h 的过滤并强制提交至版本库；
+    2. 改造 trunk/user/samba36/Makefile：在解压校验中加入 include/version.h 完整性检查，并在配置前调用 script/mkversion.sh 脚本进行头文件自动生成兜底。
 - 修复 samba36 服务组件构建中断（/bin/sh: ./configure: not found）：
   - 根因分析：samba-3.6.25 源码根目录 .gitignore 默认忽略了 source3/configure 与 source3/include/config.h.in，导致全新克隆场景下该脚本未被版本库检出；而 trunk/user/samba36/Makefile 的 configure 目标仅使用 test -d $(SRC_NAME) 判定目录是否存在，误将已存在的 source3 空壳目录视为已解压完毕，跳过了 tar 源码提取与补丁应用流程，直接引发执行 ./configure 报未找到文件故障；
   - 彻底修复：

@@ -25,7 +25,8 @@ config_test:
 	fi )
 
 configure:
-	( test -f $(SRC_NAME)/configure || { tar -xf $(SRC_DIR).tar.gz ; cat patches/*.patch | patch -d $(SRC_DIR) -r - -N -p1; }; \
+	( test -f $(SRC_NAME)/configure && test -f $(SRC_NAME)/include/version.h || { tar -xf $(SRC_DIR).tar.gz ; cat patches/*.patch | patch -d $(SRC_DIR) -r - -N -p1; }; \
+	if [ ! -f $(SRC_NAME)/include/version.h ]; then sh $(SRC_NAME)/script/mkversion.sh $(SRC_NAME)/VERSION $(SRC_NAME)/include/version.h; fi ; \
 	cd $(SRC_NAME) && \
 	ac_cv_lib_attr_getxattr=no \
 	ac_cv_search_getxattr=no \
