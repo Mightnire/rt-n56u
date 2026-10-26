@@ -1,6 +1,11 @@
 更新日志
 
 2026/10/25：
+- 修复 samba36 服务组件构建中断（/bin/sh: ./configure: not found）：
+  - 根因分析：samba-3.6.25 源码根目录 .gitignore 默认忽略了 source3/configure 与 source3/include/config.h.in，导致全新克隆场景下该脚本未被版本库检出；而 trunk/user/samba36/Makefile 的 configure 目标仅使用 test -d $(SRC_NAME) 判定目录是否存在，误将已存在的 source3 空壳目录视为已解压完毕，跳过了 tar 源码提取与补丁应用流程，直接引发执行 ./configure 报未找到文件故障；
+  - 彻底修复：
+    1. 修正 trunk/user/samba36/samba-3.6.25/.gitignore，解除对 source3/configure 与 source3/include/config.h.in 的屏蔽并提交至版本库；
+    2. 改造 trunk/user/samba36/Makefile 的 configure 目标，将目录判断强化为关键执行文件存在性校验 test -f $(SRC_NAME)/configure，提供缺失自愈解压与补丁重入机制。
 - 修复 socat 工具构建因调用缺失的 yodl2man 导致中断（yodl2man: No such file or directory）：
   - 根因分析：socat 源码 Makefile 默认 all 规则包含 doc 目标，时间戳抖动时会触发调用宿主机不存在的 yodl2man 尝试重新渲染 man 手册页；
   - 彻底修复：

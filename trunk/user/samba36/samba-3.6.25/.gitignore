@@ -19,7 +19,6 @@ config.log
 config.status
 source3/.build.log
 source3/.clang_complete
-source3/configure
 source3/Makefile
 examples/libsmbclient/Makefile.internal
 examples/libsmbclient/smbwrapper/smbsh
@@ -63,7 +62,6 @@ nsswitch/libnss_wins.so
 source3/config.cache
 source3/config.log
 source3/config.status
-source3/configure
 source3/exports/libnetapi.syms
 source3/exports/libsmbclient.syms
 source3/exports/libsmbsharemodes.syms
@@ -72,7 +70,6 @@ source3/exports/libtdb.syms
 source3/exports/libwbclient.syms
 source3/include/build_env.h
 source3/include/config.h
-source3/include/config.h.in
 source3/include/includes.h.gch
 source3/include/stamp-h
 source3/include/version.h

@@ -25,7 +25,7 @@ config_test:
 	fi )
 
 configure:
-	( test -d $(SRC_NAME) || { tar -xf $(SRC_DIR).tar.gz ; cat patches/*.patch | patch -d $(SRC_DIR) -r - -N -p1; }; \
+	( test -f $(SRC_NAME)/configure || { tar -xf $(SRC_DIR).tar.gz ; cat patches/*.patch | patch -d $(SRC_DIR) -r - -N -p1; }; \
 	cd $(SRC_NAME) && \
 	ac_cv_lib_attr_getxattr=no \
 	ac_cv_search_getxattr=no \
