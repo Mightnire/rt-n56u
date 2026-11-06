@@ -1523,6 +1523,7 @@ handle_notifications(void)
 		}
 		else if (strcmp(entry->d_name, RCN_RESTART_TWEAKS) == 0)
 		{
+			update_ether_leds();
 			notify_leds_detect_link();
 		}
 		else if (strcmp(entry->d_name, RCN_RESTART_NETFILTER) == 0)
@@ -2013,6 +2014,15 @@ main(int argc, char **argv)
 	else if (!strcmp(base, "leds_ether")) {
 		if (argc > 1) {
 			int power_on = atoi(argv[1]);
+			show_hide_ether_leds(power_on);
+		} else {
+			printf("Usage: %s <show>\n\n", base);
+		}
+	}
+	else if (!strcmp(base, "leds_all")) {
+		if (argc > 1) {
+			int power_on = atoi(argv[1]);
+			show_hide_front_leds(power_on);
 			show_hide_ether_leds(power_on);
 		} else {
 			printf("Usage: %s <show>\n\n", base);

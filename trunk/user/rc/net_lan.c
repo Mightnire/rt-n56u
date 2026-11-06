@@ -509,7 +509,7 @@ update_ether_leds(void)
 	int led0 = nvram_get_int("ether_led0");
 	int led1 = nvram_get_int("ether_led1");
 
-	if (!nvram_get_int("led_ether_t")) {
+	if (!nvram_get_int("led_ether_t") || nvram_get_int("front_led_all") == 0) {
 		led0 = SWAPI_LED_OFF;
 		led1 = SWAPI_LED_OFF;
 	}
@@ -523,7 +523,7 @@ update_ether_leds(void)
 #elif (BOARD_NUM_ETH_LEDS == 1)
 	int led0 = nvram_get_int("ether_led0");
 
-	if (!nvram_get_int("led_ether_t"))
+	if (!nvram_get_int("led_ether_t") || nvram_get_int("front_led_all") == 0)
 		led0 = SWAPI_LED_OFF;
 #if BOARD_ETH_LED_SWAP
 	phy_led_mode_yellow(led0);

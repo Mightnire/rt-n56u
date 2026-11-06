@@ -1,5 +1,16 @@
 更新日志
 
+2026/11/07：
+- 修复 WPS/FN 按钮功能“打开/关闭 LED”（ez_action_led_toggle）未联动关闭网口指示灯缺陷：
+  - 根因分析：
+    1. 在 user/rc/watchdog.c 中，按钮短按/长按动作触发 ez_action_led_toggle() 时，仅调用了 show_hide_front_leds() 切换前面板 LED 状态（led_front_t），遗漏了对以太网指示灯控制函数 show_hide_ether_leds() 的调用；
+    2. 导致通过物理按钮关闭整机 LED（隐身/夜间模式）时，内置交换机硬件 PHY 网口灯（MT7620 EPHY / MT7621 MT7530 / RTL8367）及离散 GPIO 端口指示灯仍持续闪烁常亮；
+    3. user/rc/net_lan.c 的 update_ether_leds() 未同步判断 WebUI 总开关 front_led_all，且 rc.c 处理 RCN_RESTART_TWEAKS 通知时未调用 update_ether_leds()。
+  - 彻底修复：
+    1. 改造 user/rc/watchdog.c：ez_action_led_toggle() 统一结合 led_front_t 与 led_ether_t 状态进行反转，同步调用 show_hide_front_leds(is_show) 与 show_hide_ether_leds(is_show)，实现前面板与网口指示灯一键同步熄灭/点亮；
+    2. 完善 user/rc/net_lan.c：update_ether_leds() 在判定熄灭模式时追加 nvram_get_int("front_led_all") == 0 条件，使 WebUI 总控开关与网口指示灯完美联动；
+    3. 完善 user/rc/rc.c 与 Makefile：在 RCN_RESTART_TWEAKS 响应流程中增加 update_ether_leds() 调用；新增 /sbin/leds_all 命令行快捷总控指令并创建软链接，便于用户编写定时夜间模式脚本。
+
 2026/10/25：
 - 修复 samba36 构建缺失 include/version.h 头文件错误（No rule to make target include/version.h, needed by lib/version.o）：
   - 根因分析：samba-3.6.25 源码根目录 .gitignore 忽略了 source3/include/version.h，导致该头文件未被版本库检出；且 Makefile 仅有依赖规则未提供内联生成逻辑；
