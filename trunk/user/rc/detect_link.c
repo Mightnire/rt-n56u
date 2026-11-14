@@ -448,34 +448,34 @@ dl_update_power_led(unsigned long tick)
 		return;
 	}
 
-	/* 根据负载级别呈现不同的生命律动效果 */
+	/* 根据负载级别呈现不同的生命律动效果 (默认为熄灭底色，正向脉冲律动) */
 	if (level == 0) {
-		/* 空闲待机: 舒缓安详，每 4 秒温和眨眼微闪一次 (亮 3.92s, 灭 80ms) */
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(80000);
+		/* 空闲待机: 舒缓安详，平时熄灭，每 2 秒温和微闪眨眼一次 (亮 80ms, 熄灭 1.92s) */
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 	} else if (level == 1) {
-		/* 中载活跃: 经典 Lub-Dub 双心跳 (每 2 秒一次律动) */
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(80000);
+		/* 中载活跃: 经典 Lub-Dub 双心跳 (平时熄灭，每 2 秒点亮两次双脉冲) */
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 		usleep(150000);
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(80000);
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(80000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 	} else {
-		/* 满载重载: 急促警戒脉冲 (连续 3 次快速闪烁) */
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(60000);
+		/* 满载重载: 急促警戒脉冲 (平时熄灭，连续 3 次快速闪亮) */
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 		usleep(80000);
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(60000);
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 		usleep(80000);
-		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
-		usleep(60000);
 		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_ON);
+		usleep(60000);
+		LED_CONTROL(BOARD_GPIO_LED_POWER, LED_OFF);
 	}
 #else /* !APP_PWR_HEARTBEAT */
 	/* 未启用呼吸灯特性: 非关闭模式一律常亮 */
