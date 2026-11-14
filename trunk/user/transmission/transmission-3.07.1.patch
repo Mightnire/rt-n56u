@@ -1,6 +1,38 @@
---- transmission-3.07.1.orig/libtransmission/port-forwarding.c
-+++ transmission-3.07.1/libtransmission/port-forwarding.c
-@@ -71,6 +71,7 @@ static char const *getNatStateStr(int st
+diff -Naur transmission-3.07.1.orig/CMakeLists.txt transmission-3.07.1/CMakeLists.txt
+--- transmission-3.07.1.orig/CMakeLists.txt	2026-10-25 18:16:35.000000000 +0800
++++ transmission-3.07.1/CMakeLists.txt	2026-11-14 22:10:28.353495870 +0800
+@@ -48,8 +48,8 @@
+ #         "Z" for unsupported trunk builds,
+ #         "0" for stable, supported releases
+ # these should be the only two lines you need to change
+-set(TR_USER_AGENT_PREFIX "3.08+")
+-set(TR_PEER_ID_PREFIX "-TR308Z-")
++set(TR_USER_AGENT_PREFIX "3.07")
++set(TR_PEER_ID_PREFIX "-TR3070-")
+ 
+ string(REGEX MATCH "^([0-9]+)\\.([0-9]+).*" TR_VERSION "${TR_USER_AGENT_PREFIX}")
+ set(TR_VERSION_MAJOR "${CMAKE_MATCH_1}")
+diff -Naur transmission-3.07.1.orig/daemon/daemon.c transmission-3.07.1/daemon/daemon.c
+--- transmission-3.07.1.orig/daemon/daemon.c	2026-10-25 18:12:59.000000000 +0800
++++ transmission-3.07.1/daemon/daemon.c	2026-11-14 22:10:28.353495870 +0800
+@@ -85,11 +85,11 @@
+ 
+ static char const *getUsage(void)
+ {
+-    return "Transmission OG " LONG_VERSION_STRING
++    return "Transmission " LONG_VERSION_STRING
+            "  https://github.com/stefantalpalaru/transmission-og\n"
+            "A fast and easy BitTorrent client\n"
+            "\n" MY_NAME
+-           " is a headless Transmission OG session\n"
++           " is a headless Transmission session\n"
+            "that can be controlled via transmission-remote\n"
+            "or the web interface.\n"
+            "\n"
+diff -Naur transmission-3.07.1.orig/libtransmission/port-forwarding.c transmission-3.07.1/libtransmission/port-forwarding.c
+--- transmission-3.07.1.orig/libtransmission/port-forwarding.c	2026-10-25 18:07:20.000000000 +0800
++++ transmission-3.07.1/libtransmission/port-forwarding.c	2026-11-14 22:10:28.353495870 +0800
+@@ -70,6 +70,7 @@
  
  static void natPulse(tr_shared *s, bool do_check)
  {
@@ -8,7 +40,7 @@
      int oldStatus;
      int newStatus;
      tr_port public_peer_port;
-@@ -107,6 +108,9 @@ static void natPulse(tr_shared *s, bool 
+@@ -105,6 +106,9 @@
              getNatStateStr(oldStatus),
              getNatStateStr(newStatus));
      }
@@ -18,7 +50,7 @@
  }
  
  static void set_evtimer_from_status(tr_shared *s)
-@@ -185,12 +189,16 @@ static void stop_forwarding(tr_shared *s
+@@ -181,12 +185,16 @@
      tr_logAddNamedInfo(getKey(), "%s", _("Stopped"));
      natPulse(s, false);
  
@@ -35,21 +67,10 @@
      s->upnpStatus = TR_PORT_UNMAPPED;
  
      stop_timer(s);
---- transmission-3.07.1.orig/libtransmission/upnp.c
-+++ transmission-3.07.1/libtransmission/upnp.c
-@@ -70,6 +70,9 @@ tr_upnp *tr_upnpInit(void)
- 
- void tr_upnpClose(tr_upnp *handle)
- {
-+    if (handle == NULL) {
-+        return;
-+    }
-     TR_ASSERT(!handle->isMapped);
-     TR_ASSERT(handle->state == TR_UPNP_IDLE || handle->state == TR_UPNP_ERR || handle->state == TR_UPNP_DISCOVER);
- 
---- transmission-3.07.1.orig/libtransmission/session.c
-+++ transmission-3.07.1/libtransmission/session.c
-@@ -342,7 +342,7 @@ void tr_sessionGetDefaultSettings(tr_var
+diff -Naur transmission-3.07.1.orig/libtransmission/session.c transmission-3.07.1/libtransmission/session.c
+--- transmission-3.07.1.orig/libtransmission/session.c	2026-10-25 18:07:20.000000000 +0800
++++ transmission-3.07.1/libtransmission/session.c	2026-11-14 22:10:28.353495870 +0800
+@@ -342,7 +342,7 @@
      tr_variantDictAddInt(d, TR_KEY_peer_port_random_high, 65535);
      tr_variantDictAddStr(d, TR_KEY_peer_socket_tos, TR_DEFAULT_PEER_SOCKET_TOS_STR);
      tr_variantDictAddBool(d, TR_KEY_pex_enabled, true);
@@ -58,7 +79,7 @@
      tr_variantDictAddInt(d, TR_KEY_preallocation, TR_PREALLOCATE_SPARSE);
      tr_variantDictAddBool(d, TR_KEY_prefetch_enabled, DEFAULT_PREFETCH_ENABLED);
      tr_variantDictAddInt(d, TR_KEY_peer_id_ttl_hours, 6);
-@@ -357,7 +357,7 @@ void tr_sessionGetDefaultSettings(tr_var
+@@ -357,7 +357,7 @@
      tr_variantDictAddStr(d, TR_KEY_rpc_password, "");
      tr_variantDictAddStr(d, TR_KEY_rpc_username, "");
      tr_variantDictAddStr(d, TR_KEY_rpc_whitelist, TR_DEFAULT_RPC_WHITELIST);
@@ -67,8 +88,21 @@
      tr_variantDictAddStr(d, TR_KEY_rpc_host_whitelist, TR_DEFAULT_RPC_HOST_WHITELIST);
      tr_variantDictAddBool(d, TR_KEY_rpc_host_whitelist_enabled, true);
      tr_variantDictAddInt(d, TR_KEY_rpc_port, atoi(TR_DEFAULT_RPC_PORT_STR));
---- transmission-3.07.1.orig/libtransmission/tr-udp.c
-+++ transmission-3.07.1/libtransmission/tr-udp.c
+diff -Naur transmission-3.07.1.orig/libtransmission/session.h transmission-3.07.1/libtransmission/session.h
+--- transmission-3.07.1.orig/libtransmission/session.h	2026-10-25 18:07:20.000000000 +0800
++++ transmission-3.07.1/libtransmission/session.h	2026-11-14 22:10:28.353495870 +0800
+@@ -12,7 +12,7 @@
+ #error only libtransmission should #include this header.
+ #endif
+ 
+-#define TR_NAME "Transmission OG"
++#define TR_NAME "Transmission"
+ 
+ #include <libutp/utp.h>
+ 
+diff -Naur transmission-3.07.1.orig/libtransmission/tr-udp.c transmission-3.07.1/libtransmission/tr-udp.c
+--- transmission-3.07.1.orig/libtransmission/tr-udp.c	2026-10-25 18:07:20.000000000 +0800
++++ transmission-3.07.1/libtransmission/tr-udp.c	2026-11-14 22:10:28.353495870 +0800
 @@ -46,8 +46,8 @@
  /* Since we use a single UDP socket in order to implement multiple
     uTP sockets, try to set up huge buffers. */
@@ -80,3 +114,44 @@
  #define SMALL_BUFFER_SIZE (32 * 1024)
  
  static void set_socket_buffers(tr_socket_t fd, bool large)
+diff -Naur transmission-3.07.1.orig/libtransmission/upnp.c transmission-3.07.1/libtransmission/upnp.c
+--- transmission-3.07.1.orig/libtransmission/upnp.c	2026-10-25 18:07:20.000000000 +0800
++++ transmission-3.07.1/libtransmission/upnp.c	2026-11-14 22:10:28.353495870 +0800
+@@ -69,6 +69,9 @@
+ 
+ void tr_upnpClose(tr_upnp *handle)
+ {
++    if (handle == NULL) {
++        return;
++    }
+     TR_ASSERT(!handle->isMapped);
+     TR_ASSERT(handle->state == TR_UPNP_IDLE || handle->state == TR_UPNP_ERR || handle->state == TR_UPNP_DISCOVER);
+ 
+diff -Naur transmission-3.07.1.orig/libtransmission/version.h transmission-3.07.1/libtransmission/version.h
+--- transmission-3.07.1.orig/libtransmission/version.h	2026-10-25 18:20:45.000000000 +0800
++++ transmission-3.07.1/libtransmission/version.h	2026-11-14 22:11:11.483468695 +0800
+@@ -1,15 +1,15 @@
+ #pragma once
+ 
+-#define PEERID_PREFIX             "-TR308Z-"
+-#define USERAGENT_PREFIX          "3.08"
++#define PEERID_PREFIX             "-TR3070-"
++#define USERAGENT_PREFIX          "3.07"
+ #define VCS_REVISION              "49b8af7c"
+ #define VCS_REVISION_NUM          49b8af7c
+-#define SHORT_VERSION_STRING      "3.08"
+-#define LONG_VERSION_STRING       "3.08 (49b8af7c)"
+-#define VERSION_STRING_INFOPLIST  3.08
+-#define BUILD_STRING_INFOPLIST    14714.3.8
++#define SHORT_VERSION_STRING      "3.07"
++#define LONG_VERSION_STRING       "3.07 (49b8af7c)"
++#define VERSION_STRING_INFOPLIST  3.07
++#define BUILD_STRING_INFOPLIST    14714.3.07
+ #define MAJOR_VERSION             "3"
+ #define MAJOR_VERSION_NUM         3
+-#define MINOR_VERSION             "8"
+-#define MINOR_VERSION_NUM         8
+-#define TR_NIGHTLY_RELEASE        1
++#define MINOR_VERSION             "07"
++#define MINOR_VERSION_NUM         07
++#define TR_STABLE_RELEASE         1

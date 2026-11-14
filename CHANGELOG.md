@@ -1,6 +1,17 @@
 更新日志
 
 2026/11/14：
+- 校准 Transmission 客户端版本标识与 Peer ID 为正式发布版 3.07：
+  - 根因分析：
+    1. 上游分支 (transmission-og) 默认将版本宏与 Peer ID 前缀预设为未发布的开发版本 (3.08+ / -TR308Z-)，客户端名称附带 "OG" 后缀；
+    2. PT (Private Tracker) 站点通常依赖严苛的正则表达式（如 ^-(?:TR)([0-9]{4})- 与 ^Transmission\/([0-9]+\.[0-9]+)）校验客户端合法性，3.08 对应未发布版本且 status 字符 'Z' 会直接导致种子汇报被站点识别为封禁或非法客户端而拒连；
+    3. 源码包中自带静态预生成的 libtransmission/version.h，其优先级高于 CMake 构建动态生成的头文件，直接导致仅改动 CMakeLists.txt 无法在编译产物中生效。
+  - 彻底修复：
+    1. 完善 trunk/user/transmission/transmission-3.07.1.patch：
+       - CMakeLists.txt：将 TR_USER_AGENT_PREFIX 设为 "3.07"，TR_PEER_ID_PREFIX 设为正式版前缀 "-TR3070-"（末尾 0 代表 stable release）；
+       - libtransmission/version.h：同步覆盖静态头文件，将 PEERID_PREFIX 设为 "-TR3070-"，USERAGENT_PREFIX 设为 "3.07"，SHORT_VERSION_STRING 设为 "3.07"，TR_STABLE_RELEASE 设为 1；
+       - libtransmission/session.h 与 daemon/daemon.c：将 TR_NAME 与输出信息中的 "Transmission OG" 统一还原为标准 "Transmission"，保证 LTEP 握手、HTTP User-Agent 及 RPC 标识完全规范；
+    2. 重新交叉编译全套 Transmission 组件并剥离调试符号（strip），更新至 trunk/user/transmission/install/usr/bin/。
 - 修复 Transmission 3.07.1 启动即段错误崩溃（Segmentation fault / Signal 11）导致服务无法运行与 WebUI 无法访问故障：
   - 根因分析：
     1. 在 libtransmission/port-forwarding.c 中，固件补丁通过 #if 0 屏蔽了 natPulse() 内的 UPnP 探测逻辑，导致 s->upnp 指针始终保持为 NULL；
