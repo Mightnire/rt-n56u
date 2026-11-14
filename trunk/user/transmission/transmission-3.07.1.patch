@@ -18,6 +18,35 @@
  }
  
  static void set_evtimer_from_status(tr_shared *s)
+@@ -185,12 +189,16 @@ static void stop_forwarding(tr_shared *s
+     tr_logAddNamedInfo(getKey(), "%s", _("Stopped"));
+     natPulse(s, false);
+ 
++#if 0
+     tr_natpmpClose(s->natpmp);
+     s->natpmp = NULL;
++#endif
+     s->natpmpStatus = TR_PORT_UNMAPPED;
+ 
++#if 0
+     tr_upnpClose(s->upnp);
+     s->upnp = NULL;
++#endif
+     s->upnpStatus = TR_PORT_UNMAPPED;
+ 
+     stop_timer(s);
+--- transmission-3.07.1.orig/libtransmission/upnp.c
++++ transmission-3.07.1/libtransmission/upnp.c
+@@ -70,6 +70,9 @@ tr_upnp *tr_upnpInit(void)
+ 
+ void tr_upnpClose(tr_upnp *handle)
+ {
++    if (handle == NULL) {
++        return;
++    }
+     TR_ASSERT(!handle->isMapped);
+     TR_ASSERT(handle->state == TR_UPNP_IDLE || handle->state == TR_UPNP_ERR || handle->state == TR_UPNP_DISCOVER);
+ 
 --- transmission-3.07.1.orig/libtransmission/session.c
 +++ transmission-3.07.1/libtransmission/session.c
 @@ -342,7 +342,7 @@ void tr_sessionGetDefaultSettings(tr_var
@@ -51,4 +80,3 @@
  #define SMALL_BUFFER_SIZE (32 * 1024)
  
  static void set_socket_buffers(tr_socket_t fd, bool large)
-

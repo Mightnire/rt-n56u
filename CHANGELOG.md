@@ -1,5 +1,17 @@
 更新日志
 
+2026/11/14：
+- 修复 Transmission 3.07.1 启动即段错误崩溃（Segmentation fault / Signal 11）导致服务无法运行与 WebUI 无法访问故障：
+  - 根因分析：
+    1. 在 libtransmission/port-forwarding.c 中，固件补丁通过 #if 0 屏蔽了 natPulse() 内的 UPnP 探测逻辑，导致 s->upnp 指针始终保持为 NULL；
+    2. 当 transmission-daemon 启动初始化时（默认 port_forwarding_enabled=false），调用 tr_sharedTraversalEnable(s, false) 进入 stop_forwarding()；
+    3. stop_forwarding() 中无条件调用 tr_upnpClose(s->upnp)，而 upnp.c 的 tr_upnpClose() 缺少 NULL 防御，入口直接解引用 handle->isMapped，引发 BadVA=0x0 空指针解引用段错误（SIGSEGV）；
+    4. 3.00 旧版补丁曾在 stop_forwarding() 中 #if 0 屏蔽了关闭调用，升至 3.07.1 时遗漏。
+  - 彻底修复：
+    1. 完善 trunk/user/transmission/transmission-3.07.1.patch：在 stop_forwarding() 中同步对 tr_upnpClose 与 tr_natpmpClose 进行 #if 0 屏蔽；
+    2. 在 libtransmission/upnp.c 的 tr_upnpClose() 开头加入防御性 if (handle == NULL) return; 校验；
+    3. 重新构建并同步编译产物至 trunk/user/transmission/install/usr/bin/transmission-daemon。
+
 2026/11/07：
 - 修复 WPS/FN 按钮功能“打开/关闭 LED”（ez_action_led_toggle）未联动关闭网口指示灯缺陷：
   - 根因分析：
