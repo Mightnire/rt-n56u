@@ -1,21 +1,21 @@
 更新日志
 
 2026/11/14：
-- 修复 CI/CD 环境下 lrzsz 源码包因解压时间戳偏差触发过时 autotools 重建导致 automatic de-ANSI-fication 构建失败故障：
+- 修复 CI/CD 环境下 autotools 时间戳抖动引发 lrzsz 与 libiconv 递归重建导致 version mismatch / de-ANSI-fication 失败故障：
   - 根因分析：
-    1. lrzsz 0.12.20 为早期代码库（1998 年），使用已淘汰的 ansi2knr / AM_C_PROTOTYPES（de-ANSI-fication）机制；
-    2. GitHub Actions 构建运行在现代 Linux（Ubuntu 22.04）上，环境携带新版 Automake 1.16+，该版本已彻底废弃并移除了 de-ANSI-fication 支持；
-    3. 在源码检出或解压时，由于纳秒时间戳微小抖动，或者工作流中时间戳重置逻辑未覆盖 acinclude.m4、acconfig.h 与 *.m4 依赖，导致 Makefile 判定 aclocal.m4 / configure 过期，进而自动唤起系统级 aclocal 命令，触发致命错误 automatic de-ANSI-fication support has been removed；
+    1. GitHub Actions 构建运行在现代 Linux（Ubuntu 22.04）上，自带新版 Automake 1.16.5；
+    2. 代码树中历史老旧子模块（如 lrzsz 0.12.20 与 libiconv 1.16）自带由旧版 automake（如 1.16.1）生成的 Makefile.in，且依赖内部 gnulib 规则（如 srclib/Makefile.gnulib）；
+    3. 在 Actions 运行环境检出时，未显式覆盖的隐式依赖项保持为当前时钟时间（0m），比经重置的 Makefile.in 更为超前，导致 make 误判依赖更新而擅自调用系统级 automake/aclocal，触发 `error: version mismatch. This is Automake 1.16.5, but definition comes from Automake 1.16.1` 及 lrzsz 的 `automatic de-ANSI-fication support has been removed` 致命错误；
     4. .github/workflows/build-firmware.yml 仅监听 workflow_dispatch 与 push tags，未将 master 分支纳入 push 触发范围，导致日常代码推送后无法自动触发固件持续集成构建。
   - 彻底修复：
-    1. 改造 user/lrzsz/Makefile：
-       - 在 extract_test 环节加入严密的时间戳拓扑校准，按依赖逆序（configure.in/acinclude.m4/m4 -> aclocal.m4 -> configure -> config.h.in -> Makefile.in）强制回溯时间戳，彻底扼制 make 的重编译判定；
-       - 在 configure 阶段显式传入 ACLOCAL=true AUTOCONF=true AUTOMAKE=true AUTOHEADER=true；
-       - 在 all 构建目标中向子 make 注入 ACLOCAL=: AUTOCONF=: AUTOMAKE=: AUTOHEADER=:，从执行层面将 autotools 拦截为空操作（no-op）；
-    2. 完善 .github/workflows/build-firmware.yml：
-       - 补全 Fix Autotools Timestamps 步骤中对 acinclude.m4、acconfig.h、*.m4 以及 stamp-h.in 的全量时间戳纠偏；
+    1. 完善 .github/workflows/build-firmware.yml 时间戳纠偏全景体系：
+       - 将 trunk 树下所有普通文件统一初始化至过去 10 分钟（-10m），使所有源码、头文件与 gnulib 依赖处于绝对基线；
+       - 按依赖拓扑递进顺序覆盖：aclocal.m4 (-5m) -> configure (-3m) -> config.h.in / stamp-h* (-2m) -> Makefile.in (-1m)，彻底杜绝任何隐式依赖超前于构建脚本；
        - 在 push 事件中加入 master 分支监听，默认自动构建 BW050-A 基础镜像校验全链路健康度，tag 推送或手动调度时保持全机型构建；
-       - 规范 Publish to GitHub Releases 条件为仅在发布 tag 或显式勾选发布时执行。
+       - 规范 Publish to GitHub Releases 条件为仅在发布 tag 或显式勾选发布时执行；
+    2. 改造 user/lrzsz/Makefile 与 libs/libiconv/Makefile：
+       - 在 configure 阶段显式传入 AUTOMAKE=true ACLOCAL=true AUTOCONF=true AUTOHEADER=true；
+       - 在 all 构建目标中向子 make 注入 AUTOMAKE=: ACLOCAL=: AUTOCONF=: AUTOHEADER=:，在 Makefile 层建立不可突破的空操作（no-op）绝缘防御。
 - 校准 Transmission 客户端版本标识与 Peer ID 为正式发布版 3.07：
   - 根因分析：
     1. 上游分支 (transmission-og) 默认将版本宏与 Peer ID 前缀预设为未发布的开发版本 (3.08+ / -TR308Z-)，客户端名称附带 "OG" 后缀；

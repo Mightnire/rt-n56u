@@ -1,7 +1,7 @@
 SRC_NAME="libiconv-1.16"
 
 all: config_test
-	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
+	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME) AUTOMAKE=: ACLOCAL=: AUTOCONF=: AUTOHEADER=:
 
 config_test:
 	( if [ -f ./config_done ]; then \
@@ -12,6 +12,7 @@ config_test:
 
 configure:
 	( cd $(SRC_NAME) ; \
+	AUTOMAKE=true ACLOCAL=true AUTOCONF=true AUTOHEADER=true \
 	./configure \
 		--prefix=$(STAGEDIR) \
 		--enable-shared \
