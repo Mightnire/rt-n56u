@@ -1,6 +1,18 @@
 更新日志
 
 2026/11/15：
+- 优化 Transmission 默认配置并重构日志输出至系统原生 syslog：
+  - 根因分析：
+    1. 原版启动脚本 trunk/user/transmission/transmission.sh 强制指定 `-e "${DIR_LINK}/transmission.log"`，当日志级别为默认的 INFO (2) 时，DHT announce、做种统计与状态持久化产生海量小数据追加写入，使外置存储盘日志迅速膨胀至数十兆，并引发文件系统 I/O 拥堵与死锁风险；
+    2. 首次生成的 settings.json 中并发下载队列偏大 (5)、做种队列无上限限制 (seed-queue-enabled: false)、开启了无实际收益且污染无线空口的内网发现 (LPD)，对 128MB 弱内存嵌入式设备极易造成内存耗尽与 I/O 争用；
+  - 彻底修复：
+    1. 启动命令行重构：移除 `-e "${DIR_LINK}/transmission.log"` 命令行参数，使 transmission-daemon 自动接入原生 syslog()，由内存环形缓冲统一管理，零磁盘磨损、零死锁隐患；
+    2. 出厂默认配置优化（严格隔离于首次配置创建阶段，完全不影响用户既有配置）：
+       - message-level：由 2 (INFO) 调整为 1 (ERROR)，杜绝无意义日常信息刷屏，仅在发生异常时输出；
+       - lpd-enabled：由 true 改为 false（-Y 选项），关闭无用的本地对等节点多播广播；
+       - download-queue-size：由 5 下调至 3，有效缓解 USB 随机写争用；
+       - seed-queue-enabled 与 seed-queue-size：启用做种队列限制并设为 5，防止无节制累加活跃做种连接撑爆内核网络栈；
+       - upload-slots-per-torrent：由 14 优化至 6，提升单连接上传效率并防止连接数过度碎片化。
 - 重构 SYS（电源 LED）智能心跳律动指示逻辑为熄灭底色正向脉冲（默认为熄灭状态）：
   - 根因分析：
     1. 早期心跳律动系统（dl_update_power_led）在循环末尾调用 `LED_CONTROL(..., LED_ON)`，导致空闲待机与中高负载律动均为“常亮底色 + 反向暗脉冲（Active-Low）”；

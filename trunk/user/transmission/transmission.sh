@@ -50,8 +50,13 @@ func_start()
 	if [ ! -f "$DIR_CFG/settings.json" ] ; then
 		tr_user=`nvram get http_username`
 		tr_pass=`nvram get http_passwd`
-		$SVC_PATH -w "$DIR_DL1" --incomplete-dir "$DIR_DL2" -c "$DIR_DL3" --no-incomplete-dir -y -L 90 -l 30 --no-utp -M -t -u "$tr_user" -v "$tr_pass" -P "$tr_pport" -p "$tr_rport" -x /var/run/transmission.pid -d 2>/tmp/settings.json
+		$SVC_PATH -w "$DIR_DL1" --incomplete-dir "$DIR_DL2" -c "$DIR_DL3" --no-incomplete-dir -Y -L 90 -l 30 --no-utp -M -t -u "$tr_user" -v "$tr_pass" -P "$tr_pport" -p "$tr_rport" -x /var/run/transmission.pid -d 2>/tmp/settings.json
 		sed -i 's|"umask": 18,|"umask": 0,|g' /tmp/settings.json
+		sed -i 's|"message-level": 2,|"message-level": 1,|g' /tmp/settings.json
+		sed -i 's|"download-queue-size": 5,|"download-queue-size": 3,|g' /tmp/settings.json
+		sed -i 's|"seed-queue-enabled": false,|"seed-queue-enabled": true,|g' /tmp/settings.json
+		sed -i 's|"seed-queue-size": 10,|"seed-queue-size": 5,|g' /tmp/settings.json
+		sed -i 's|"upload-slots-per-torrent": 14,|"upload-slots-per-torrent": 6,|g' /tmp/settings.json
 		mv /tmp/settings.json "$DIR_CFG/settings.json"
 	fi
 	
@@ -66,7 +71,7 @@ func_start()
 		svc_user=" -c nobody"
 	fi
 	
-	start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- -g "$DIR_CFG" -P "$tr_pport" -p "$tr_rport" -e "${DIR_LINK}/transmission.log"
+	start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- -g "$DIR_CFG" -P "$tr_pport" -p "$tr_rport"
 	
 	if [ $? -eq 0 ] ; then
 		echo "[  OK  ]"
