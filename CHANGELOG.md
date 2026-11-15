@@ -1,6 +1,22 @@
 更新日志
 
 2026/11/15：
+- 在 WebUI 增加 Transmission 配置文件直接编辑与磁盘日志开关支持：
+  - 需求与设计：
+    1. 允许用户在 WebUI（Advanced_AiDisk_others.asp）直接查看并编辑 Transmission 配置文件 settings.json，免除 SSH 登录修改之繁琐；
+    2. 提供“向磁盘写入日志（trmd_log_disk）”独立开关，默认保持关闭（零磁盘写磨损，安全输出至系统 syslog），用户亦可按需显式启用磁盘日志文件（/mnt/transmission/transmission.log）；
+  - 核心实现：
+    1. 前端交互（Advanced_AiDisk_others.asp）：
+       - 增加 trmd_log_disk iToggle 开关与 row_trmd_log_disk 联动控制；
+       - 采用可折叠手风琴结构（spoiler_toggle）嵌入 trmd.settings.json 专属 textarea 编辑框；
+       - 多语言字典（CN/EN/RU/UK）完整补全 StorageTRMDLogDisk 与 StorageTRMDConfig 词条；
+    2. C 语言后端（httpd / web_ex.c / variables.c / defaults.c）：
+       - 在 variables.c 注册 trmd_log_disk 与 trmd.settings.json（File 类型，绑定 EVM_RESTART_TRMD 掩码）；
+       - defaults.c 增加 trmd_log_disk 默认值 0；
+       - web_ex.c 的 ej_dump() 接入 trmd. 前缀支持，精准映射至 /mnt/transmission/config/settings.json；
+       - web_ex.c 的 write_textarea_to_file() 加入 JSON 内容合法性校验（防御用户误清空）与进程停机防御（修改生效写入前先停机，彻底防止 transmission-daemon 退出时将内存旧数据反向覆写回 settings.json）；
+    3. 启动守护脚本（transmission.sh）：
+       - 获取 nvram 变量 trmd_log_disk，为 1 时启动带 -e "${DIR_LINK}/transmission.log"，为 0 时走原生 syslog()。
 - 优化 Transmission 默认配置并重构日志输出至系统原生 syslog：
   - 根因分析：
     1. 原版启动脚本 trunk/user/transmission/transmission.sh 强制指定 `-e "${DIR_LINK}/transmission.log"`，当日志级别为默认的 INFO (2) 时，DHT announce、做种统计与状态持久化产生海量小数据追加写入，使外置存储盘日志迅速膨胀至数十兆，并引发文件系统 I/O 拥堵与死锁风险；

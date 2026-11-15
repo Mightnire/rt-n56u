@@ -30,6 +30,7 @@ $j(document).ready(function() {
 	init_itoggle('apps_dms', change_dms_enabled);
 	init_itoggle('apps_itunes');
 	init_itoggle('trmd_enable', change_trmd_enabled);
+	init_itoggle('trmd_log_disk');
 	init_itoggle('aria_enable', change_aria_enabled);
 });
 
@@ -287,6 +288,8 @@ function change_trmd_enabled(){
 	var v = document.form.trmd_enable[0].checked;
 	showhide_div('row_trmd_pport', v);
 	showhide_div('row_trmd_rport', v);
+	showhide_div('row_trmd_log_disk', v);
+	showhide_div('row_trmd_config', v);
 }
 
 function change_aria_enabled(){
@@ -795,6 +798,31 @@ function done_validating(action){
                                             </td>
                                             <td>
                                                <a href="javascript:on_rpc_link();" id="web_rpc_link"><#WebControl#></a>
+                                            </td>
+                                        </tr>
+                                        <tr id="row_trmd_log_disk">
+                                            <th>
+                                                <#StorageTRMDLogDisk#>
+                                            </th>
+                                            <td colspan="2">
+                                                <div class="main_itoggle">
+                                                    <div id="trmd_log_disk_on_of">
+                                                        <input type="checkbox" id="trmd_log_disk_fake" <% nvram_match_x("", "trmd_log_disk", "1", "value=1 checked"); %><% nvram_match_x("", "trmd_log_disk", "0", "value=0"); %>>
+                                                    </div>
+                                                </div>
+
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" name="trmd_log_disk" id="trmd_log_disk_1" value="1" <% nvram_match_x("", "trmd_log_disk", "1", "checked"); %>/><#checkbox_Yes#>
+                                                    <input type="radio" name="trmd_log_disk" id="trmd_log_disk_0" value="0" <% nvram_match_x("", "trmd_log_disk", "0", "checked"); %>/><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr id="row_trmd_config">
+                                            <td colspan="3" style="padding-bottom: 0px;">
+                                                <a href="javascript:spoiler_toggle('script_trmd')"><span><#StorageTRMDConfig#></span></a>
+                                                <div id="script_trmd" style="display:none;">
+                                                    <textarea rows="24" wrap="off" spellcheck="false" maxlength="32768" class="span12" name="trmd.settings.json" style="font-family:'Courier New'; font-size:12px;"><% nvram_dump("trmd.settings.json",""); %></textarea>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>

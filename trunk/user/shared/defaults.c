@@ -403,6 +403,7 @@ struct nvram_pair router_defaults[] = {
 	{ "trmd_pport", "51413" },
 	{ "trmd_rport", "9091" },
 	{ "trmd_ropen", "0" },
+	{ "trmd_log_disk", "0" },
 	{ "aria_enable", "0" },
 	{ "aria_pport", "16888" },
 	{ "aria_rport", "6800" },

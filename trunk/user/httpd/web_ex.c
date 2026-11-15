@@ -304,6 +304,13 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 	if (!value)
 		return 0;
 
+#if defined(APP_TRMD)
+	if (!strcmp(file_name, "settings.json")) {
+		if (strlen(value) < 2 || !strchr(value, '{'))
+			return 0;
+	}
+#endif
+
 	file_type = 0;
 	extensions = strrchr(file_name, '.');
 	if (extensions) {
@@ -344,6 +351,10 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 
 	ret = 0;
 	if (compare_text_files(real_path, temp_path) != 0) {
+#if defined(APP_TRMD)
+		if (!strcmp(file_name, "settings.json") && pids("transmission-daemon"))
+			doSystem("/usr/bin/transmission.sh stop");
+#endif
 		if (write_file_dos2unix(value, real_path) == 0) {
 			if (file_type == 3) {
 				chmod(real_path, 0600);
@@ -718,6 +729,10 @@ ej_dump(int eid, webs_t wp, int argc, char **argv)
 		snprintf(filename, sizeof(filename), "%s/%s", STORAGE_SCRIPTS_DIR, file+8);
 	else if (strncmp(file, "crontab.", 8)==0)
 		snprintf(filename, sizeof(filename), "%s/%s", STORAGE_CRONTAB_DIR, nvram_safe_get("http_username"));
+#if defined(APP_TRMD)
+	else if (strncmp(file, "trmd.", 5)==0)
+		snprintf(filename, sizeof(filename), "%s/%s", "/mnt/transmission/config", file+5);
+#endif
 	else
 		snprintf(filename, sizeof(filename), "%s/%s", "/tmp", file);
 
@@ -902,6 +917,13 @@ validate_asp_apply(webs_t wp, int sid)
 				if (write_textarea_to_file(value, STORAGE_CRONTAB_DIR, nvram_safe_get("http_username")))
 					restart_needed_bits |= event_mask;
 			}
+#if defined(APP_TRMD)
+			else if (!strncmp(v->name, "trmd.", 5)) {
+				doSystem("mkdir -p /mnt/transmission/config");
+				if (write_textarea_to_file(value, "/mnt/transmission/config", v->name+5))
+					restart_needed_bits |= event_mask;
+			}
+#endif
 #if defined (SUPPORT_HTTPS)
 			else if (!strncmp(v->name, "httpssl.", 8)) {
 				if (write_textarea_to_file(value, STORAGE_HTTPSSL_DIR, file_name))

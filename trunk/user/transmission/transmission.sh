@@ -45,6 +45,7 @@ func_start()
 	
 	tr_pport=`nvram get trmd_pport`
 	tr_rport=`nvram get trmd_rport`
+	tr_log_disk=`nvram get trmd_log_disk`
 	
 	# create default settings.json
 	if [ ! -f "$DIR_CFG/settings.json" ] ; then
@@ -71,7 +72,11 @@ func_start()
 		svc_user=" -c nobody"
 	fi
 	
-	start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- -g "$DIR_CFG" -P "$tr_pport" -p "$tr_rport"
+	if [ "$tr_log_disk" = "1" ] ; then
+		start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- -g "$DIR_CFG" -P "$tr_pport" -p "$tr_rport" -e "${DIR_LINK}/transmission.log"
+	else
+		start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- -g "$DIR_CFG" -P "$tr_pport" -p "$tr_rport"
+	fi
 	
 	if [ $? -eq 0 ] ; then
 		echo "[  OK  ]"

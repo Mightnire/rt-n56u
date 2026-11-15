@@ -251,6 +251,8 @@
 			{"trmd_enable", "", NULL,EVM_RESTART_TRMD},
 			{"trmd_pport", "", NULL, EVM_RESTART_TRMD},
 			{"trmd_rport", "", NULL, EVM_RESTART_TRMD},
+			{"trmd_log_disk", "", NULL, EVM_RESTART_TRMD},
+			{"trmd.settings.json", "File", NULL, EVM_RESTART_TRMD},
 #endif
 #if defined(APP_ARIA)
 			{"aria_enable", "", NULL,EVM_RESTART_ARIA},
