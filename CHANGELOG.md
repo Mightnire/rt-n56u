@@ -1,6 +1,23 @@
 更新日志
 
 2026/11/15：
+- 在 WebUI 增加 Aria2 配置文件直接编辑与磁盘日志开关支持：
+  - 需求与设计：
+    1. 允许用户在 WebUI（Advanced_AiDisk_others.asp）直接查看并编辑 Aria2 配置文件 aria2.conf，免除 SSH 登录修改之繁琐；
+    2. 提供“向磁盘写入日志（aria_log_disk）”独立开关，默认保持关闭（通过命令行传递 `--log=""` 彻底阻断对外置存储磁盘的追加写磨损），用户亦可按需显式启用磁盘日志文件（/mnt/aria/config/aria2.log）；
+  - 核心实现：
+    1. 前端交互（Advanced_AiDisk_others.asp）：
+       - 增加 aria_log_disk iToggle 开关与 row_aria_log_disk 联动控制；
+       - 采用可折叠手风琴结构（spoiler_toggle）嵌入 aria.aria2.conf 专属 textarea 编辑框；
+       - 多语言字典（CN/EN/RU/UK）完整补全 StorageAriaLogDisk 与 StorageAriaConfig 词条；
+    2. C 语言后端（httpd / web_ex.c / variables.c / defaults.c）：
+       - 在 variables.c 注册 aria_log_disk 与 aria.aria2.conf（File 类型，绑定 EVM_RESTART_ARIA 掩码）；
+       - defaults.c 增加 aria_log_disk 默认值 0；
+       - web_ex.c 的 ej_dump() 接入 aria. 前缀支持，精准映射至 /mnt/aria/config/aria2.conf；
+       - web_ex.c 的 write_textarea_to_file() 加入非空校验与进程停机防御（修改生效写入前先执行 aria.sh stop，彻底防止进程覆写并确保干净重启）；
+    3. 启动守护脚本（aria.sh）：
+       - 获取 nvram 变量 aria_log_disk：为 1 时若未配置 log 则默认使用 --log="$DIR_CFG/aria2.log" --log-level=notice，为 0 时强制传入 --log="" 彻底屏蔽磁盘日志；
+       - 模板生成提升鲁棒性：将 [ ! -f "$FILE_CONF" ] 改造为 [ ! -s "$FILE_CONF" ]，出厂模板默认注释 log 与 log-level，杜绝 0 字节空文件致死。
 - 在 WebUI 增加 Transmission 配置文件直接编辑与磁盘日志开关支持：
   - 需求与设计：
     1. 允许用户在 WebUI（Advanced_AiDisk_others.asp）直接查看并编辑 Transmission 配置文件 settings.json，免除 SSH 登录修改之繁琐；

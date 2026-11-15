@@ -310,6 +310,12 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 			return 0;
 	}
 #endif
+#if defined(APP_ARIA)
+	if (!strcmp(file_name, "aria2.conf")) {
+		if (strlen(value) < 2)
+			return 0;
+	}
+#endif
 
 	file_type = 0;
 	extensions = strrchr(file_name, '.');
@@ -354,6 +360,10 @@ write_textarea_to_file(const char* value, const char* dir_name, const char* file
 #if defined(APP_TRMD)
 		if (!strcmp(file_name, "settings.json") && pids("transmission-daemon"))
 			doSystem("/usr/bin/transmission.sh stop");
+#endif
+#if defined(APP_ARIA)
+		if (!strcmp(file_name, "aria2.conf") && pids("aria2c"))
+			doSystem("/usr/bin/aria.sh stop");
 #endif
 		if (write_file_dos2unix(value, real_path) == 0) {
 			if (file_type == 3) {
@@ -733,6 +743,10 @@ ej_dump(int eid, webs_t wp, int argc, char **argv)
 	else if (strncmp(file, "trmd.", 5)==0)
 		snprintf(filename, sizeof(filename), "%s/%s", "/mnt/transmission/config", file+5);
 #endif
+#if defined(APP_ARIA)
+	else if (strncmp(file, "aria.", 5)==0)
+		snprintf(filename, sizeof(filename), "%s/%s", "/mnt/aria/config", file+5);
+#endif
 	else
 		snprintf(filename, sizeof(filename), "%s/%s", "/tmp", file);
 
@@ -921,6 +935,13 @@ validate_asp_apply(webs_t wp, int sid)
 			else if (!strncmp(v->name, "trmd.", 5)) {
 				doSystem("mkdir -p /mnt/transmission/config");
 				if (write_textarea_to_file(value, "/mnt/transmission/config", v->name+5))
+					restart_needed_bits |= event_mask;
+			}
+#endif
+#if defined(APP_ARIA)
+			else if (!strncmp(v->name, "aria.", 5)) {
+				doSystem("mkdir -p /mnt/aria/config");
+				if (write_textarea_to_file(value, "/mnt/aria/config", v->name+5))
 					restart_needed_bits |= event_mask;
 			}
 #endif

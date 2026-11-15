@@ -258,6 +258,8 @@
 			{"aria_enable", "", NULL,EVM_RESTART_ARIA},
 			{"aria_pport", "", NULL, EVM_RESTART_ARIA},
 			{"aria_rport", "", NULL, EVM_RESTART_ARIA},
+			{"aria_log_disk", "", NULL, EVM_RESTART_ARIA},
+			{"aria.aria2.conf", "File", NULL, EVM_RESTART_ARIA},
 #endif
 #if (BOARD_NUM_UPHY_USB3 > 0)
 			{"usb3_disable", "", NULL, EVM_RESTART_REBOOT},

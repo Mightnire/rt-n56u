@@ -41,13 +41,14 @@ func_start()
 
 	aria_pport=`nvram get aria_pport`
 	aria_rport=`nvram get aria_rport`
+	aria_log_disk=`nvram get aria_log_disk`
 	aria_user=`nvram get http_username`
 	aria_pass=`nvram get http_passwd`
 
 	[ -z "$aria_rport" ] && aria_rport="6800"
 	[ -z "$aria_pport" ] && aria_pport="16888"
 
-	if [ ! -f "$FILE_CONF" ] ; then
+	if [ ! -s "$FILE_CONF" ] ; then
 		[ ! -d "$DIR_DL1" ] && mkdir -p "$DIR_DL1"
 		chmod -R 777 "$DIR_DL1"
 		cat > "$FILE_CONF" <<EOF
@@ -101,8 +102,8 @@ min-split-size=1M
 check-certificate=false
 
 ### Log
-log=$DIR_CFG/aria2.log
-log-level=notice
+#log=$DIR_CFG/aria2.log
+#log-level=notice
 
 EOF
 	fi
@@ -117,6 +118,16 @@ EOF
 		SSL_OPT=
 	fi
 
+	if [ "$aria_log_disk" = "1" ] ; then
+		if ! grep -q "^[[:space:]]*log=" "$FILE_CONF" 2>/dev/null ; then
+			LOG_OPT="--log=$DIR_CFG/aria2.log --log-level=notice"
+		else
+			LOG_OPT=""
+		fi
+	else
+		LOG_OPT="--log="
+	fi
+
 	svc_user=""
 
 	if [ $SVC_ROOT -eq 0 ] ; then
@@ -127,7 +138,7 @@ EOF
 
 	start-stop-daemon -S -N $SVC_PRIORITY$svc_user -x $SVC_PATH -- \
 		-D --enable-rpc=true --conf-path="$FILE_CONF" --input-file="$FILE_LIST" --save-session="$FILE_LIST" \
-		--rpc-listen-port="$aria_rport" --listen-port="$aria_pport" --dht-listen-port="$aria_pport" $SSL_OPT
+		--rpc-listen-port="$aria_rport" --listen-port="$aria_pport" --dht-listen-port="$aria_pport" $SSL_OPT $LOG_OPT
 
 	if [ $? -eq 0 ] ; then
 		echo "[  OK  ]"
