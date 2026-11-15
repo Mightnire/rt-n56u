@@ -33,7 +33,8 @@
        - web_ex.c 的 ej_dump() 接入 trmd. 前缀支持，精准映射至 /mnt/transmission/config/settings.json；
        - web_ex.c 的 write_textarea_to_file() 加入 JSON 内容合法性校验（防御用户误清空）与进程停机防御（修改生效写入前先停机，彻底防止 transmission-daemon 退出时将内存旧数据反向覆写回 settings.json）；
     3. 启动守护脚本（transmission.sh）：
-       - 获取 nvram 变量 trmd_log_disk，为 1 时启动带 -e "${DIR_LINK}/transmission.log"，为 0 时走原生 syslog()。
+       - 获取 nvram 变量 trmd_log_disk，为 1 时启动带 -e "${DIR_LINK}/transmission.log"，为 0 时走原生 syslog()；
+       - 模板生成提升鲁棒性：将 [ ! -f "$DIR_CFG/settings.json" ] 改造为 [ ! -s "$DIR_CFG/settings.json" ]，自动覆盖并重建 0 字节损坏文件，杜绝异常断电后 daemon.c:787 报错退出。
 - 优化 Transmission 默认配置并重构日志输出至系统原生 syslog：
   - 根因分析：
     1. 原版启动脚本 trunk/user/transmission/transmission.sh 强制指定 `-e "${DIR_LINK}/transmission.log"`，当日志级别为默认的 INFO (2) 时，DHT announce、做种统计与状态持久化产生海量小数据追加写入，使外置存储盘日志迅速膨胀至数十兆，并引发文件系统 I/O 拥堵与死锁风险；

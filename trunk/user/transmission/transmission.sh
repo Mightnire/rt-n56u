@@ -48,7 +48,7 @@ func_start()
 	tr_log_disk=`nvram get trmd_log_disk`
 	
 	# create default settings.json
-	if [ ! -f "$DIR_CFG/settings.json" ] ; then
+	if [ ! -s "$DIR_CFG/settings.json" ] ; then
 		tr_user=`nvram get http_username`
 		tr_pass=`nvram get http_passwd`
 		$SVC_PATH -w "$DIR_DL1" --incomplete-dir "$DIR_DL2" -c "$DIR_DL3" --no-incomplete-dir -Y -L 90 -l 30 --no-utp -M -t -u "$tr_user" -v "$tr_pass" -P "$tr_pport" -p "$tr_rport" -x /var/run/transmission.pid -d 2>/tmp/settings.json
@@ -58,7 +58,7 @@ func_start()
 		sed -i 's|"seed-queue-enabled": false,|"seed-queue-enabled": true,|g' /tmp/settings.json
 		sed -i 's|"seed-queue-size": 10,|"seed-queue-size": 5,|g' /tmp/settings.json
 		sed -i 's|"upload-slots-per-torrent": 14,|"upload-slots-per-torrent": 6,|g' /tmp/settings.json
-		mv /tmp/settings.json "$DIR_CFG/settings.json"
+		mv -f /tmp/settings.json "$DIR_CFG/settings.json"
 	fi
 	
 	svc_user=""
