@@ -28,6 +28,9 @@
 ### 文件系统支持
 - FAT/FAT32, exFAT, NTFS (ufsd), EXT4, FUSE
 - microSD: MTK MMC 驱动已启用
+- microSD 写保护: 卡槽为 TF 槽、无机械写保护开关，内核启用
+  `CONFIG_MTK_MMC_IGNORE_WP=y` 忽略悬空的 SD_WP 引脚，否则任意卡都会被
+  误判为只读（详见「关键修复记录」第 5 条）
 
 ### 网络功能
 - IPv6: 已启用
@@ -52,6 +55,9 @@ CONFIG_FIRMWARE_INCLUDE_SFE=y
 # 启用 napt66 IPv6 NAT
 CONFIG_FIRMWARE_INCLUDE_NAPT66=y
 
+# 忽略 SD 写保护引脚（TF 卡槽无机械开关的机型必须开启，如 BW050-A）
+CONFIG_MTK_MMC_IGNORE_WP=y
+
 # Transmission WebUI (三选一)
 #CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_NEW=y   # 新版 PWA
 CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y # 旧版 Web Control
@@ -63,6 +69,16 @@ CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y # 旧版 Web Control
 2. aria2 1.35.0 → 1.37.0: patch 直接适配
 3. OpenSSL 1.1.1k → 1.1.1w: patch 有 minor offset
 4. microSD 卡槽: 内核启用 MTK MMC 驱动
+5. microSD 只读（2026/11/18）：
+   - 现象：插任意卡 `dmesg` 都是 `mmcblk0: mmc0:0001 SD 58.2 GiB (ro)`，
+     `/sys/block/mmcblk0/ro=1`，ext4 只能只读挂载，写入报
+     `Read-only file system`；换卡无效，换 USB 读卡器则正常。
+   - 定位：`MSDC_PS` 寄存器 bit31（SD_WP）恒为 1（实测 0x810f8001）；
+     `msdc_ops_get_ro()` 上报写保护 → `mmc_card_set_readonly()` 在探测
+     阶段把卡置为只读。TF 卡槽无写保护开关，WP 引脚悬空上拉，故恒高。
+   - 修复：新增内核选项 `CONFIG_MTK_MMC_IGNORE_WP`，开启后平台数据不再
+     设置 `MSDC_WP_PIN_EN`，`get_ro()` 恒返回 0；本板默认启用。
+   - 验证：`dmesg` 无 `(ro)`，`ro=0`，`mount -t ext4` 为 rw，读写删除正常。
 
 ## 文件结构
 ```

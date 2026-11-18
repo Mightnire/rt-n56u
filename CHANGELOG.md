@@ -1,5 +1,27 @@
 更新日志
 
+2026/11/18：
+- 修复 BW050-A microSD 卡被误判为只读、无法写入的问题：
+  - 现象：任意 SD 卡插入卡槽后 udev/内核均报告只读，`dmesg` 出现
+    `mmcblk0: mmc0:0001 SD 58.2 GiB (ro)`，`/sys/block/mmcblk0/ro = 1`，
+    ext4 只能只读挂载，写入返回 `Read-only file system`；换卡无效。
+  - 原因：BW050-A 使用 microSD(TF) 卡槽，没有机械写保护开关，SoC 的
+    SD_WP 引脚悬空（默认上拉），`MSDC_PS` 寄存器 bit31 恒为 1。
+    `mtk-sd` 驱动的 `msdc_ops_get_ro()` 将其作为写保护上报，mmc 核心
+    调用 `mmc_card_set_readonly()` 在探测阶段就把卡标记为只读，
+    与具体 SD 卡无关（卡 CSD 的 PERM/TMP write-protect 位均为 0）。
+  - 新增内核编译选项 `CONFIG_MTK_MMC_IGNORE_WP`
+    （drivers/mmc/host/mmc-mtk/Kconfig，默认 n）：开启后平台数据不再
+    设置 `MSDC_WP_PIN_EN`（arch/mips/rt2880/dev-mmc.c），
+    `msdc_ops_get_ro()` 恒返回 0，卡按可写处理。
+  - BW050-A 板级内核配置 `configs/boards/BW050-A/kernel-3.4.x.config`
+    默认启用该选项；其他机型（MT7621/MT7628 eMMC 等）保持默认 n，
+    行为不变。
+  - 实机验证：`dmesg` 不再出现 `(ro)`，`/sys/block/mmcblk0/ro = 0`，
+    ext4 可 rw 挂载并正常写入、删除、sync。
+- 文档：README.md 增加存储/写保护相关说明，BW050-A_SUMMARY.md 记录该
+  选项与只读问题的排查结论。
+
 2026/11/15：
 - 在 WebUI 增加 Aria2 配置文件直接编辑与磁盘日志开关支持：
   - 需求与设计：

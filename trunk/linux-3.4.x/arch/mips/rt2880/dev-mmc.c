@@ -64,6 +64,21 @@ static void mtk_mmc_power_off(void)
 	*(volatile u32 *)(CLKCFG1_REG) = cpu_to_le32(val);
 }
 
+/*
+ * Some boards (e.g. BW050-A) use a microSD/TF slot without a mechanical
+ * write-protect switch. The SD_WP pad is then left floating (or pulled up
+ * by the SoC), so MSDC_PS_WP always reads as "protected" and the mmc core
+ * marks every inserted card read-only (mount fails with EROFS).
+ *
+ * CONFIG_MTK_MMC_IGNORE_WP lets such boards drop MSDC_WP_PIN_EN from the
+ * platform data: msdc_ops_get_ro() then returns 0 and cards stay writable.
+ */
+#ifdef CONFIG_MTK_MMC_IGNORE_WP
+#define MTK_MMC_WP_FLAGS	0
+#else
+#define MTK_MMC_WP_FLAGS	MSDC_WP_PIN_EN
+#endif
+
 static struct msdc_hw mtk_mmc_hw = {
 	.clk_src	= 0,
 	.cmd_edge	= MSDC_SMPL_FALLING,
@@ -77,7 +92,8 @@ static struct msdc_hw mtk_mmc_hw = {
 #else
 	.data_pins	= 4,
 #endif
-	.flags		= MSDC_SYS_SUSPEND | MSDC_WP_PIN_EN | MSDC_CD_PIN_EN | MSDC_REMOVABLE | MSDC_HIGHSPEED,
+	.flags		= MSDC_SYS_SUSPEND | MTK_MMC_WP_FLAGS | MSDC_CD_PIN_EN |
+			  MSDC_REMOVABLE | MSDC_HIGHSPEED,
 	.ext_power_on	= mtk_mmc_power_on,
 	.ext_power_off	= mtk_mmc_power_off,
 };

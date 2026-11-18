@@ -10,6 +10,22 @@ config MTK_MMC_CD_POLL
 	bool "Card detect with Polling"
 	depends on MTK_MMC
 
+config MTK_MMC_IGNORE_WP
+	bool "Ignore SD write-protect (WP) pin"
+	depends on MTK_MMC
+	help
+	  Say Y if the board's SD slot has no mechanical write-protect
+	  switch (for example a microSD/TF slot) and its SD_WP pad is left
+	  floating or pulled high. In that case the controller always
+	  reports "write protected" and the mmc core marks every inserted
+	  card as read-only, so mounting and writing fail with EROFS.
+
+	  With this option enabled the platform data does not advertise
+	  MSDC_WP_PIN_EN, so msdc_ops_get_ro() always returns 0 and cards
+	  are treated as writable.
+
+	  BW050-A (microSD slot) needs this option. Say N otherwise.
+
 config MTK_MMC_EMMC_8BIT
 	bool "eMMC 8-bit support"
 	depends on MTK_MMC && RALINK_MT7628
