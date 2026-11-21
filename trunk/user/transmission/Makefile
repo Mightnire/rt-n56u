@@ -1,5 +1,5 @@
-SRC_NAME = transmission-3.07.1
-SRC_URL = https://github.com/Mightnire/transmission-og/releases/download/3.07.1/transmission-3.07.1.tar.xz
+SRC_NAME = transmission-3.00
+SRC_URL = https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz
 CFLAGS   += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 CXXFLAGS += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 LDFLAGS  += -Wl,--gc-sections -static-libstdc++
@@ -35,6 +35,7 @@ configure:
 	cmake -DCMAKE_TOOLCHAIN_FILE=$(THISDIR)/cross-mipsel-linux.cmake \
 		  -DCMAKE_C_FLAGS="$(CFLAGS)" \
 		  -DCMAKE_CXX_FLAGS="$(CXXFLAGS)" \
+		  -DCMAKE_EXE_LINKER_FLAGS="$(LDFLAGS)" \
 		  -DCMAKE_INSTALL_PREFIX=/usr \
 		  -DCMAKE_BUILD_TYPE=Release \
 		  -DENABLE_CLI=OFF \
@@ -64,10 +65,10 @@ clean:
 romfs:
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_NEW),y)
 	mkdir -p $(INSTALLDIR)/usr/share/transmission
-	cp -rf $(THISDIR)/new_web/transmission-control/web $(INSTALLDIR)/usr/share/transmission
+	cp -rf $(THISDIR)/web-new/web $(INSTALLDIR)/usr/share/transmission
 else ifeq ($(CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL),y)
 	mkdir -p $(INSTALLDIR)/usr/share/transmission
-	cp -rf $(THISDIR)/transmission-control/web $(INSTALLDIR)/usr/share/transmission
+	cp -rf $(THISDIR)/web-control/web $(INSTALLDIR)/usr/share/transmission
 else
 	cp -rf $(THISDIR)/install/usr/share/transmission $(INSTALLDIR)/usr/share
 	rm -f $(INSTALLDIR)/usr/share/transmission/web/LICENSE

@@ -865,7 +865,7 @@ Transmission.prototype = {
                 break;
 
             case 'about-button':
-                o = 'Transmission OG ' + this.serverVersion;
+                o = 'Transmission ' + this.serverVersion;
                 $('#about-dialog #about-title').html(o);
                 $('#about-dialog').dialog({
                     title: 'About',
@@ -875,7 +875,11 @@ Transmission.prototype = {
                 break;
 
             case 'homepage':
-                window.open('https://github.com/stefantalpalaru/transmission-og');
+                window.open('https://transmissionbt.com/');
+                break;
+
+            case 'tipjar':
+                window.open('https://transmissionbt.com/donate/');
                 break;
 
             case 'unlimited_download_rate':

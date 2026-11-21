@@ -44,7 +44,7 @@ function main() {
     // Initialise the dialog controller
     dialog = new Dialog();
 
-    // Initialise the main Transmission OG controller
+    // Initialise the main Transmission controller
     transmission = new Transmission();
 };
 

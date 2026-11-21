@@ -23,7 +23,6 @@ function PrefsDialog(remote) {
             'blocklist-enabled',
             'blocklist-size',
             'blocklist-url',
-            'default-trackers',
             'dht-enabled',
             'download-dir',
             'encryption',
@@ -115,7 +114,6 @@ function PrefsDialog(remote) {
             return e.prop('checked');
 
         case 'text':
-        case 'textarea':
         case 'url':
         case 'email':
         case 'number':
@@ -199,7 +197,6 @@ function PrefsDialog(remote) {
             case 'checkbox':
             case 'radio':
             case 'select-one':
-            case 'textarea':
                 e.change(onControlChanged);
                 break;
 
@@ -264,7 +261,6 @@ function PrefsDialog(remote) {
                 setGroupEnabled(key, val);
                 break;
             case 'text':
-            case 'textarea':
             case 'url':
             case 'email':
             case 'number':

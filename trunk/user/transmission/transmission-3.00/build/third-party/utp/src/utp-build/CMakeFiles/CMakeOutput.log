@@ -2,7 +2,7 @@ The target system is: Linux -  -
 The host system is: Linux - 5.4.0-150-generic - x86_64
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++ 
-Build flags: -Os;-fomit-frame-pointer;-pipe;;-Dlinux;-D__linux__;-Dunix;-DEMBED;-I/opt/rt-n56u/trunk/stage/include;-Wall;-Wno-trigraphs;-Wno-strict-aliasing;-Wno-format-security;-fno-tree-slsr;-fno-aggressive-loop-optimizations
+Build flags: -Os;-fomit-frame-pointer;-pipe;;-Dlinux;-D__linux__;-Dunix;-DEMBED;-I/opt/rt-n56u/trunk/stage/include;-Wall;-Wno-trigraphs;-Wno-strict-aliasing;-Wno-format-security;-fno-tree-slsr;-fno-aggressive-loop-optimizations;;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_FILE_OFFSET_BITS=64;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough;-O2;-ffunction-sections;-fdata-sections;-fvisibility=hidden;-D_FILE_OFFSET_BITS=64;-D_LARGEFILE64_SOURCE;-D_LFS64_LARGEFILE;-Wno-implicit-fallthrough
 Id flags:  
 
 The output was:
@@ -16,15 +16,15 @@ The CXX compiler identification is GNU, found in "/opt/rt-n56u/trunk/user/transm
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f5ed1/fast"
+Run Build Command:"/usr/bin/make" "cmTC_cec65/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_f5ed1.dir/build.make CMakeFiles/cmTC_f5ed1.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_cec65.dir/build.make CMakeFiles/cmTC_cec65.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_f5ed1.dir/testCXXCompiler.cxx.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_f5ed1.dir/testCXXCompiler.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_f5ed1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5ed1.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_f5ed1.dir/testCXXCompiler.cxx.o  -o cmTC_f5ed1 
+Building CXX object CMakeFiles/cmTC_cec65.dir/testCXXCompiler.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_cec65.dir/testCXXCompiler.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_cec65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cec65.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++  -rdynamic CMakeFiles/cmTC_cec65.dir/testCXXCompiler.cxx.o  -o cmTC_cec65  -L/opt/rt-n56u/trunk/stage/lib 
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 
@@ -32,15 +32,15 @@ make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/b
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bbcc6/fast"
+Run Build Command:"/usr/bin/make" "cmTC_93b8a/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_bbcc6.dir/build.make CMakeFiles/cmTC_bbcc6.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_93b8a.dir/build.make CMakeFiles/cmTC_93b8a.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_bbcc6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbcc6.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bbcc6 
+Building CXX object CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_93b8a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93b8a.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++ -v -rdynamic CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_93b8a  -L/opt/rt-n56u/trunk/stage/lib 
 Using built-in specs.
 COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++
 COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper
@@ -50,9 +50,9 @@ Thread model: posix
 gcc version 7.4.0 (crosstool-NG 1.24.0) 
 COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/
 LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/
-COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_bbcc6' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
- /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_bbcc6 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o
-COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_bbcc6' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-O2' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_93b8a' '-L/opt/rt-n56u/trunk/stage/lib' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
+ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_93b8a /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lstdc++ -Bdynamic -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-O2' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_93b8a' '-L/opt/rt-n56u/trunk/stage/lib' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL'
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 
@@ -61,15 +61,15 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(mipsel-linux-uclibc-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bbcc6/fast"]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_93b8a/fast"]
   ignore line: [make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bbcc6.dir/build.make CMakeFiles/cmTC_bbcc6.dir/build]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_93b8a.dir/build.make CMakeFiles/cmTC_93b8a.dir/build]
   ignore line: [make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”]
-  ignore line: [Building CXX object CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_bbcc6]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbcc6.dir/link.txt --verbose=1]
-  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -v -rdynamic CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bbcc6 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -o CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_93b8a]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93b8a.dir/link.txt --verbose=1]
+  ignore line: [/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++ -v -rdynamic CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_93b8a  -L/opt/rt-n56u/trunk/stage/lib ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++]
   ignore line: [COLLECT_LTO_WRAPPER=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/lto-wrapper]
@@ -79,8 +79,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.4.0 (crosstool-NG 1.24.0) ]
   ignore line: [COMPILER_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/bin/]
   ignore line: [LIBRARY_PATH=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib/:/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_bbcc6' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL']
-  link line: [ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_bbcc6 /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-Os' '-fomit-frame-pointer' '-pipe' '-D' 'linux' '-D' '__linux__' '-D' 'unix' '-D' 'EMBED' '-I' '/opt/rt-n56u/trunk/stage/include' '-Wall' '-Wno-trigraphs' '-Wno-strict-aliasing' '-Wno-format-security' '-fno-tree-slsr' '-fno-aggressive-loop-optimizations' '-O2' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-O2' '-ffunction-sections' '-fdata-sections' '-fvisibility=hidden' '-D' '_FILE_OFFSET_BITS=64' '-D' '_LARGEFILE64_SOURCE' '-D' '_LFS64_LARGEFILE' '-Wimplicit-fallthrough=0' '-L/opt/rt-n56u/trunk/stage/lib' '-v' '-rdynamic' '-o' 'cmTC_93b8a' '-L/opt/rt-n56u/trunk/stage/lib' '-shared-libgcc' '-mtune=mips32r2' '-mabi=32' '-mhard-float' '-mllsc' '-mno-shared' '-EL']
+  link line: [ /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2 --sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot --eh-frame-hdr -EL -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -melf32ltsmip -o cmTC_93b8a /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/trunk/stage/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0 -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib -L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib --gc-sections CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lstdc++ -Bdynamic -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o]
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/libexec/gcc/mipsel-linux-uclibc/7.4.0/collect2] ==> ignore
     arg [--sysroot=/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
@@ -90,18 +90,21 @@ Parsed CXX implicit link information from above output:
     arg [/lib/ld-uClibc.so.0] ==> ignore
     arg [-melf32ltsmip] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_bbcc6] ==> ignore
+    arg [cmTC_93b8a] ==> ignore
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crt1.o] ==> ignore
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crti.o] ==> ignore
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/opt/rt-n56u/trunk/stage/lib] ==> dir [/opt/rt-n56u/trunk/stage/lib]
     arg [-L/opt/rt-n56u/trunk/stage/lib] ==> dir [/opt/rt-n56u/trunk/stage/lib]
     arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
     arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib]
     arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/lib]
     arg [-L/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib] ==> dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib]
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_bbcc6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_93b8a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-Bstatic] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
+    arg [-Bdynamic] ==> ignore
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
     arg [-lgcc] ==> lib [gcc]
@@ -110,6 +113,7 @@ Parsed CXX implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/crtend.o] ==> ignore
     arg [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/rt-n56u/trunk/stage/lib] ==> [/opt/rt-n56u/trunk/stage/lib]
   collapse library dir [/opt/rt-n56u/trunk/stage/lib] ==> [/opt/rt-n56u/trunk/stage/lib]
   collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0]
   collapse library dir [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/lib/gcc/mipsel-linux-uclibc/7.4.0/../../../../mipsel-linux-uclibc/lib] ==> [/opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x/mipsel-linux-uclibc/lib]
@@ -125,15 +129,15 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f9a9c/fast"
+Run Build Command:"/usr/bin/make" "cmTC_d791f/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_f9a9c.dir/build.make CMakeFiles/cmTC_f9a9c.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_d791f.dir/build.make CMakeFiles/cmTC_d791f.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_f9a9c.dir/feature_tests.cxx.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++1z -o CMakeFiles/cmTC_f9a9c.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f9a9c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9a9c.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_f9a9c.dir/feature_tests.cxx.o  -o cmTC_f9a9c 
+Building CXX object CMakeFiles/cmTC_d791f.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++1z -o CMakeFiles/cmTC_d791f.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d791f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d791f.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++  -rdynamic CMakeFiles/cmTC_d791f.dir/feature_tests.cxx.o  -o cmTC_d791f  -L/opt/rt-n56u/trunk/stage/lib 
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 
@@ -200,15 +204,15 @@ make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/b
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ec205/fast"
+Run Build Command:"/usr/bin/make" "cmTC_0ce00/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_ec205.dir/build.make CMakeFiles/cmTC_ec205.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_0ce00.dir/build.make CMakeFiles/cmTC_0ce00.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_ec205.dir/feature_tests.cxx.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++14 -o CMakeFiles/cmTC_ec205.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_ec205
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec205.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_ec205.dir/feature_tests.cxx.o  -o cmTC_ec205 
+Building CXX object CMakeFiles/cmTC_0ce00.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++14 -o CMakeFiles/cmTC_0ce00.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_0ce00
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ce00.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++  -rdynamic CMakeFiles/cmTC_0ce00.dir/feature_tests.cxx.o  -o cmTC_0ce00  -L/opt/rt-n56u/trunk/stage/lib 
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 
@@ -275,15 +279,15 @@ make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/b
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bc20d/fast"
+Run Build Command:"/usr/bin/make" "cmTC_1af67/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_bc20d.dir/build.make CMakeFiles/cmTC_bc20d.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_1af67.dir/build.make CMakeFiles/cmTC_1af67.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_bc20d.dir/feature_tests.cxx.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++11 -o CMakeFiles/cmTC_bc20d.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_bc20d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc20d.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_bc20d.dir/feature_tests.cxx.o  -o cmTC_bc20d 
+Building CXX object CMakeFiles/cmTC_1af67.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++11 -o CMakeFiles/cmTC_1af67.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1af67
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1af67.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++  -rdynamic CMakeFiles/cmTC_1af67.dir/feature_tests.cxx.o  -o cmTC_1af67  -L/opt/rt-n56u/trunk/stage/lib 
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 
@@ -350,15 +354,15 @@ make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/b
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_16506/fast"
+Run Build Command:"/usr/bin/make" "cmTC_a238c/fast"
 make[6]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-/usr/bin/make -f CMakeFiles/cmTC_16506.dir/build.make CMakeFiles/cmTC_16506.dir/build
+/usr/bin/make -f CMakeFiles/cmTC_a238c.dir/build.make CMakeFiles/cmTC_a238c.dir/build
 make[7]: 进入目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_16506.dir/feature_tests.cxx.o
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++    -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++98 -o CMakeFiles/cmTC_16506.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_16506
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16506.dir/link.txt --verbose=1
-/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections  -rdynamic CMakeFiles/cmTC_16506.dir/feature_tests.cxx.o  -o cmTC_16506 
+Building CXX object CMakeFiles/cmTC_a238c.dir/feature_tests.cxx.o
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -D_FILE_OFFSET_BITS=64  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough    -mips32r2 -march=mips32r2 -mtune=24kec -std=c++98 -o CMakeFiles/cmTC_a238c.dir/feature_tests.cxx.o -c /opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a238c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a238c.dir/link.txt --verbose=1
+/opt/rt-n56u/trunk/../toolchain-mipsel/toolchain-3.4.x/bin/mipsel-linux-uclibc-g++  -Os -fomit-frame-pointer -pipe  -Dlinux -D__linux__ -Dunix -DEMBED -I/opt/rt-n56u/trunk/stage/include -Wall -Wno-trigraphs -Wno-strict-aliasing -Wno-format-security -fno-tree-slsr -fno-aggressive-loop-optimizations  -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough   -L/opt/rt-n56u/trunk/stage/lib -Wl,--gc-sections -static-libstdc++  -rdynamic CMakeFiles/cmTC_a238c.dir/feature_tests.cxx.o  -o cmTC_a238c  -L/opt/rt-n56u/trunk/stage/lib 
 make[7]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 make[6]: 离开目录“/opt/rt-n56u/trunk/user/transmission/transmission-3.00/build/third-party/utp/src/utp-build/CMakeFiles/CMakeTmp”
 

@@ -12,6 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "POSIX"
+  "_FILE_OFFSET_BITS=64"
   )
 
 # The include file search paths:

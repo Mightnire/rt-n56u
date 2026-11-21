@@ -1,5 +1,17 @@
 更新日志
 
+2026/11/21：
+- 切换 Transmission 为原生经典 3.00 版本并重构 Web 控制台目录架构（分支 transmission-3.0）：
+  - 恢复使用 Transmission 原生 3.00 源码包（https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz）；
+  - 全面保持 64 位大文件系统调用（LFS: -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE），确保 pwrite64/lseek64/stat64 正常生效，根治 >2GB 任务下载溢出；
+  - 继承 Padavan 原版专属网络优化补丁（transmission-3.00.patch），保留默认关闭路由器本地 UPnP 冗余映射、默认关闭 RPC 外网白名单、UDP 缓冲区减半优化以节省嵌入式内存；
+  - 重构并理顺 Web 控制台目录组织，消除多余嵌套与歧义：
+    - 将原嵌套的 `new_web/transmission-control/web` 平行重命名为 `web-new/web`（现代 Vue3/TS 响应式前端 v0.1.9）；
+    - 将原 `transmission-control/web` 平行重命名为 `web-control/web`（经典高级控制面板 1.6.1-update1）；
+    - 同步更新 Makefile 复制路径，保持各选项构建复制逻辑清晰对称；
+  - 保留 transmission-3.07.1.patch 作为参考备选；
+  - 交叉编译验证通过，成功生成并安装 transmission-daemon 及全部相关组件。
+
 2026/11/18：
 - 修复 BW050-A microSD 卡被误判为只读、无法写入的问题：
   - 现象：任意 SD 卡插入卡槽后 udev/内核均报告只读，`dmesg` 出现
