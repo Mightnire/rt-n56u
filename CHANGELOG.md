@@ -1,6 +1,10 @@
 更新日志
 
 2026/11/22：
+- 同步升级 Transmission Web (web-new) 前端构建产物至 v2.3.1 (Mightnire/transmission-web):
+  - 同步引入 Mightnire/transmission-web 最新源码提交（commit: 57d2a14, 版本 v2.3.1）；
+  - 彻底解决详情页轮询与实时同步中因 epoch barrier 造成的死锁阻断（fix(store): resolve epoch barrier deadlock to resume detail polling and live sync）；
+  - 重新构建并部署生产环境静态资源（index-8sZ2gDsX.js 与 index-Bg58Oxb4.css），单 js 仅 450KB，保持零 PWA 冗余与极简轻量。
 - 发布并升级至 Transmission 3.07.2 clean 官方归档包：
   - 将所有路由器网关微调、缓冲区优化与 Issue #1460 队列记忆补丁全量合入上游独立源码仓库（Mightnire/transmission-og）；
   - 在 GitHub 远端正式发布 Release 3.07.2，提供独立自给自足源码包（附带完整 third-party 子模块与 sha256 校验和）；
