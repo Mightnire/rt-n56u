@@ -1,6 +1,11 @@
 更新日志
 
 2026/11/22：
+- 重新发布 Transmission 3.07.2 官方 Release 并同步 Padavan 构建体系：
+  - 彻底攻克关机析构“顺位踩踏雪崩”缺陷：在 freeTorrent() 中加入 !session->isClosing 守卫，杜绝关机逐个释放任务时对剩余种子的级联递减与标脏污染；
+  - 完善全生命周期原子持久化：在 sessionCloseImplStart() 入口处统一对全量任务原子落盘，在 notifyBatchQueueChange() 与 torrentSet() 调序后即时刷脏；
+  - 远端重新打包发布 Release 3.07.2 官方独立归档包（commit: 2f436d26b），更新 sha256 校验和（823a2b420...）；
+  - Padavan 重新拉取最新 3.07.2 clean 源码包并完成全套交叉编译，更新 install/usr/bin/transmission-daemon。
 - 同步升级 Transmission Web (web-new) 前端构建产物至 v2.3.1 (Mightnire/transmission-web):
   - 同步引入 Mightnire/transmission-web 最新源码提交（commit: 57d2a14, 版本 v2.3.1）；
   - 彻底解决详情页轮询与实时同步中因 epoch barrier 造成的死锁阻断（fix(store): resolve epoch barrier deadlock to resume detail polling and live sync）；
