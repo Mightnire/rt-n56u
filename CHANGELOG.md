@@ -1,6 +1,10 @@
 更新日志
 
 2026/11/22：
+- 同步升级 Transmission Web (web-new) 前端构建产物至 v2.3.2 (Mightnire/transmission-web):
+  - 部署 v2.3.2 兼容性强化版本，消除 Flexbox gap 属性限制，全面替换为经典耐操的相邻兄弟选择器（* + *），大幅拓宽老旧浏览器与内嵌 WebKit 内核兼容性；
+  - 增加老旧浏览器内核优雅降级拦截与醒目提示（Proxy / nomodule 探测）；
+  - 部署生产环境最新优化构建产物（index-DEeGsgNv.js 与 index-Dlst8izF.css），保持零 PWA 冗余与极简轻量。
 - 重新发布 Transmission 3.07.2 官方 Release 并同步 Padavan 构建体系：
   - 彻底攻克关机析构“顺位踩踏雪崩”缺陷：在 freeTorrent() 中加入 !session->isClosing 守卫，杜绝关机逐个释放任务时对剩余种子的级联递减与标脏污染；
   - 完善全生命周期原子持久化：在 sessionCloseImplStart() 入口处统一对全量任务原子落盘，在 notifyBatchQueueChange() 与 torrentSet() 调序后即时刷脏；
