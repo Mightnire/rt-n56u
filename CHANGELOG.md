@@ -6,6 +6,10 @@
   - 严格保持已重构的 Web 控制台目录架构（web-new/web 与 web-control/web）及用户自研 WebUI 资源完全不受影响；
   - 持续保持 64 位大文件系统调用（LFS: _FILE_OFFSET_BITS=64）、静态 libstdc++ 内联以及 stage 动态库链接配置；
   - 编译并安装验证通过，生成完整的稳定版 transmission-daemon。
+- 集成 Mightnire/transmission-web 最新深度定制前端构建产物：
+  - 将 web-new 完整同步升级为最新编译的独立前端版本（Mightnire/transmission-web，产物源于 transmission-web-md1/dist）；
+  - 引入最新暗黑深红主题、矢量 Logo 优化、重置列名本地化翻译修正、深浅色自适应及独立规则标记增强；
+  - 资产体积全面精简瘦身（单 js 仅 468KB、单 css 仅 152KB），并采用相对路径引用（./assets/...），彻底规避路由子路径与反向代理下的 404 静态资源加载失效。
 
 2026/11/21：
 - Transmission Web (web-new) 优化与体验修复：
