@@ -1,5 +1,18 @@
 更新日志
 
+2026/11/22：
+- 恢复 Transmission 为稳定性更高的 transmission-og (3.07.1)：
+  - 针对原生 Transmission 3.00 存在的已知缺陷，切回成熟稳定的 transmission-og 维护分支（Mightnire/transmission-og 3.07.1）；
+  - 严格保持已重构的 Web 控制台目录架构（web-new/web 与 web-control/web）及用户自研 WebUI 资源完全不受影响；
+  - 持续保持 64 位大文件系统调用（LFS: _FILE_OFFSET_BITS=64）、静态 libstdc++ 内联以及 stage 动态库链接配置；
+  - 编译并安装验证通过，生成完整的稳定版 transmission-daemon。
+
+2026/11/21：
+- Transmission Web (web-new) 优化与体验修复：
+  - 修复状态排序错乱：重构任务状态排序权重判定机制，划分普通传输与强制传输细分层级（正在下载 -> 正在下载 [强制] -> 正在做种 -> 正在做种 [强制]），解决同状态下强制开始的种子与普通做种种子平手混杂、穿插乱序的问题，并增加名称二级稳定排序；
+  - 强制开始视觉规范化：任务列表中状态文案规范统一为“正在做种 [强制]” / “正在下载 [强制]”，并将状态徽章调整为与闪电图标同款的明亮琥珀黄（.badge-forced / .pill-forced）；
+  - 新增个性化特殊设置标识：针对覆盖了做种规则（独立空闲超时模式、自定义分享率）或单种独立限速的种子，在 PC 桌面端【名称】列后方展示 [独立规则] 徽章并支持 Tooltip 浮窗详情展示，在移动端卡片模式底部的【属性】按钮提供高亮着色与右上角精致角标反馈。
+
 2026/11/21：
 - 切换 Transmission 为原生经典 3.00 版本并重构 Web 控制台目录架构（分支 transmission-3.0）：
   - 恢复使用 Transmission 原生 3.00 源码包（https://github.com/transmission/transmission/releases/download/3.00/transmission-3.00.tar.xz）；
