@@ -1,6 +1,12 @@
 更新日志
 
 2026/11/22：
+- 根治 Transmission 重启后队列顺序丢失缺陷 (Issue #1460)：
+  - 扩展 resume.h 持久化枚举，新增 TR_FR_QUEUE_POSITION = (1 << 23) 标志；
+  - 改造 resume.c，在 tr_torrentSaveResume 中将 queuePosition 存入 .resume 字典，在 loadFromFile 中精准还原历史队列序号；
+  - 增强 torrent.c 动态状态机，在 tr_torrentSetQueuePosition 与 freeTorrent 时自动为受影响的种子标记 dirty 脏标，保证关机/重启或 6 分钟定时器触发时批量安全落盘；
+  - 在 session.c 启动加载期引入多级安全重排机制（按 queuePosition 升序与 addedDate 兜底），重新规整为连续的 0..n-1 序列，旧种子与新种子平滑沉底追加；
+  - 更新 transmission-3.07.1.patch 并重新交叉编译验证，同步推送至 GitHub 独立仓库 Mightnire/transmission-og (commit: 26d2c3184)。
 - 恢复 Transmission 为稳定性更高的 transmission-og (3.07.1)：
   - 针对原生 Transmission 3.00 存在的已知缺陷，切回成熟稳定的 transmission-og 维护分支（Mightnire/transmission-og 3.07.1）；
   - 严格保持已重构的 Web 控制台目录架构（web-new/web 与 web-control/web）及用户自研 WebUI 资源完全不受影响；
