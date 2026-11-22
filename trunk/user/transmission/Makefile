@@ -1,5 +1,5 @@
-SRC_NAME = transmission-3.07.1
-SRC_URL = https://github.com/Mightnire/transmission-og/releases/download/3.07.1/transmission-3.07.1.tar.xz
+SRC_NAME = transmission-3.07.2
+SRC_URL = https://github.com/Mightnire/transmission-og/releases/download/3.07.2/transmission-3.07.2.tar.xz
 CFLAGS   += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 CXXFLAGS += -O2 -ffunction-sections -fdata-sections -fvisibility=hidden -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LFS64_LARGEFILE -Wno-implicit-fallthrough
 LDFLAGS  += -Wl,--gc-sections -static-libstdc++
@@ -18,7 +18,7 @@ download_test:
 extract_test:
 	( if [ ! -d $(SRC_NAME) ]; then \
 		tar -xf $(SRC_NAME).tar.xz; \
-		patch -p1 -d $(SRC_NAME) < $(SRC_NAME).patch; \
+		if [ -f $(SRC_NAME).patch ]; then patch -p1 -d $(SRC_NAME) < $(SRC_NAME).patch; fi; \
 		mkdir -p $(SRC_NAME)/third-party/miniupnpc/include/miniupnp ; \
 		cp -r $(SRC_NAME)/third-party/miniupnpc/*.h $(SRC_NAME)/third-party/miniupnpc/include/miniupnp ; \
 	fi )

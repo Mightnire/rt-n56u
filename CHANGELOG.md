@@ -1,6 +1,10 @@
 更新日志
 
 2026/11/22：
+- 发布并升级至 Transmission 3.07.2 clean 官方归档包：
+  - 将所有路由器网关微调、缓冲区优化与 Issue #1460 队列记忆补丁全量合入上游独立源码仓库（Mightnire/transmission-og）；
+  - 在 GitHub 远端正式发布 Release 3.07.2，提供独立自给自足源码包（附带完整 third-party 子模块与 sha256 校验和）；
+  - Padavan 构建体系全面迁移至 transmission-3.07.2，彻底淘汰并移除 transmission-3.07.1.patch，实现零补丁开箱即用编译。
 - 根治 Transmission 重启后队列顺序丢失缺陷 (Issue #1460)：
   - 扩展 resume.h 持久化枚举，新增 TR_FR_QUEUE_POSITION = (1 << 23) 标志；
   - 改造 resume.c，在 tr_torrentSaveResume 中将 queuePosition 存入 .resume 字典，在 loadFromFile 中精准还原历史队列序号；
