@@ -1,5 +1,15 @@
 更新日志
 
+2026/11/24：
+- 专用设备 BW050-A 确认无外部复位电路，保持关闭芯片级看门狗物理复位输出：
+  - 经实机排查验证，BW050-A 硬件板卡未搭载外部物理复位监控芯片，SoC Timer 1 硬件复位输出引脚无法触发整机物理重启，维持 `# CONFIG_RALINK_TIMER_WDG_RESET_OUTPUT is not set`；
+- 重构网口自适应速率指示灯逻辑（MI-R3G / MI-R3P-spi 等机型）：
+  - 取消所有速率慢闪与半双工闪烁模式，精炼为：千兆全双工常亮、其余所有状态（百兆、十兆、半双工、未插线等）均彻底熄灭；
+  - 简化 `detect_link.c`，移除 `tick` 闪烁节拍计算，继续深度联动 WebUI 绿色 PHY 灯开关与夜间休眠模式；
+- 彻底移除 POWER 电源灯智能心跳律动系统：
+  - 移除全部心跳/呼吸/脉冲模式及 CPU 使用率与平均负载轮询逻辑，电源指示灯回归简洁可靠的开启常亮/关闭熄灭原生模型；
+  - 清理全套构建配置宏 `CONFIG_FIRMWARE_INCLUDE_POWER_LED_HEARTBEAT` 与 `APP_PWR_HEARTBEAT`，清理 WebUI `support_pwr_heartbeat` 导出与相关 ASP 选单逻辑。
+
 2026/11/22：
 - 同步升级 Transmission Web (web-new) 前端构建产物至 v2.3.2 (Mightnire/transmission-web):
   - 部署 v2.3.2 兼容性强化版本，消除 Flexbox gap 属性限制，全面替换为经典耐操的相邻兄弟选择器（* + *），大幅拓宽老旧浏览器与内嵌 WebKit 内核兼容性；

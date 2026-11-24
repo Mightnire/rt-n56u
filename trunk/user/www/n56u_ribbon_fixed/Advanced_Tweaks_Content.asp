@@ -151,14 +151,8 @@ function initial(){
 		o3.remove(1);
 	}
 
-	if (!support_led_pwr()) {
+	if (!support_led_pwr())
 		showhide_div("row_led_pwr", 0);
-	} else if (!support_pwr_heartbeat()) {
-		var op = document.form.front_led_pwr;
-		op.remove(4);
-		op.remove(3);
-		op.remove(2);
-	}
 
 	showhide_div("row_led_wan", support_led_wan());
 	showhide_div("row_led_lan", support_led_lan());
@@ -483,11 +477,8 @@ function change_led_all(){
                                             <th><#TweaksLEDPWR#></th>
                                             <td>
                                                 <select name="front_led_pwr" class="input" style="width: 320px;">
-                                                    <option value="0" <% nvram_match_x("", "front_led_pwr", "0","selected"); %>><#btn_Disable#></option>
-                                                    <option value="1" <% nvram_match_x("", "front_led_pwr", "1","selected"); %>><#TweaksLEDItemPwr1#></option>
-                                                    <option value="2" <% nvram_match_x("", "front_led_pwr", "2","selected"); %>><#TweaksLEDItemPwr2#> (*)</option>
-                                                    <option value="3" <% nvram_match_x("", "front_led_pwr", "3","selected"); %>><#TweaksLEDItemPwr3#></option>
-                                                    <option value="4" <% nvram_match_x("", "front_led_pwr", "4","selected"); %>><#TweaksLEDItemPwr4#></option>
+                                                    <option value="0" <% nvram_match_x("", "front_led_pwr", "0","selected"); %>><#btn_Disable#>, <#TweaksLEDItem11#></option>
+                                                    <option value="1" <% nvram_match_x("", "front_led_pwr", "1","selected"); %>><#btn_Enable#>, <#TweaksLEDItem11#> (*)</option>
                                                 </select>
                                             </td>
                                         </tr>
