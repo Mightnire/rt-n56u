@@ -1,5 +1,16 @@
 更新日志
 
+2026/11/25：
+- 合入上游 Linux 内核、FFmpeg 与 Dropbear 安全漏洞及并发锁缺陷修复（参照上游 `hanwckf/rt-n56u` #751 / #789 / #804）：
+  - **Linux 内核内存管理 (`CVE-2022-42703`)**：修改 `linux-3.4.x/include/linux/rmap.h` 与 `mm/rmap.c`，将 `anon_vma->degree` 拆分为独立的 `num_children` 与 `num_active_vmas` 计数，根治 `anon_vma_clone()` 复用时的叶子节点误判与双重复用 UAF 风险；
+  - **FFmpeg 媒体库 (`ffmpeg-0.11.x` & `ffmpeg-0.6.x`)**：
+    - 修复 `udp.c` 中 `pthread_cond_timedwait` 超时/失败返回路径未释放 `s->mutex` 导致的死锁隐患（#751）；
+    - 修复 `mpegtsenc.c` (`CVE-2014-2263`) PMT 节缓冲区越界写入检查、`pictordec.c` (`CVE-2017-7862`) 帧尺寸变更逻辑判断（`&&` 改为 `||`）、`aacpsy.c` (`CVE-2020-20446`) `norm_fac` 除零风险；
+    - 修复 `ffmpeg-0.6.x` 中 `ivi_common.c` (`CVE-2012-2791`) `band->scan` 空指针校验与 `indeo5.c` (`CVE-2012-2794`) `tile->num_MBs` 尺寸越界校验；
+  - **Dropbear (`libtomcrypt`)**：
+    - 核实 `scp.c` 已包含 `CVE-2020-36254`（`CVE-2018-20685`）修复；
+    - 修复 `ltc_ecc_fp_mulmod.c` 中 `XCALLOC` 内存分配失败返回 `CRYPT_MEM` 前未释放 `ltc_ecc_fp_lock` 互斥锁的死锁隐患（#751）。
+
 2026/11/24：
 - 专用设备 BW050-A 确认无外部复位电路，保持关闭芯片级看门狗物理复位输出：
   - 经实机排查验证，BW050-A 硬件板卡未搭载外部物理复位监控芯片，SoC Timer 1 硬件复位输出引脚无法触发整机物理重启，维持 `# CONFIG_RALINK_TIMER_WDG_RESET_OUTPUT is not set`；
