@@ -1,6 +1,11 @@
 更新日志
 
 2026/11/25：
+- 为 `BW050-A` 与 `PR2000` 启用内核高精度定时器（`CONFIG_HIGH_RES_TIMERS=y`、`CONFIG_TICK_ONESHOT=y`、`CONFIG_HZ_250=y`）：
+  - 同步关闭模板 `CONFIG_FIRMWARE_CPU_SLEEP` 与内核 `CONFIG_RALINK_SYSTICK_COUNTER` / `CONFIG_RALINK_CPUSLEEP`，避免 `build_firmware_modify` 在构建期强制覆盖禁用高精度定时器；
+- 新增设备状态“已连接设备”列表展示 IPv6 地址功能（参照上游 issue #663）：
+  - 在 `user/httpd/web_ex.c` 中新增 `get_ipv6_clients` EJ 钩子（`#if defined (USE_IPV6)`），直接通过 `AF_NETLINK` (`RTM_GETNEIGH`) 查询内核 `br0` IPv6 邻居表并过滤 `FAILED`/`INCOMPLETE`，按 MAC 聚合返回设备全部 IPv6 地址（含公网全球单播、ULA 与 `fe80::` 链路本地地址）；
+  - 在 `device-map/clients.asp` 表头 `IP` 列旁新增无文字纯复选框（悬停提示 `IPv6`）（默认不勾选、仅当页生效不持久化），勾选后在对应设备 IPv4 地址下一行小字自动换行展示其全部 IPv6 地址，并在 `lan_clients.asp` 刷新时同步更新；
 - 修正 WebUI 中文语言字典 (`trunk/user/www/dict/CN.dict`) 防火墙子菜单名称错误：将 `menu5_5_3` 由“无线访问控制”更正为“MAC 过滤”（对应 `/Advanced_MACFilter_Content.asp`，实际同时作用于有线与无线设备，参照上游 issue #617）；
 - 合入上游 Linux 内核、FFmpeg 与 Dropbear 安全漏洞及并发锁缺陷修复（参照上游 `hanwckf/rt-n56u` #751 / #789 / #804）：
   - **Linux 内核内存管理 (`CVE-2022-42703`)**：修改 `linux-3.4.x/include/linux/rmap.h` 与 `mm/rmap.c`，将 `anon_vma->degree` 拆分为独立的 `num_children` 与 `num_active_vmas` 计数，根治 `anon_vma_clone()` 复用时的叶子节点误判与双重复用 UAF 风险；

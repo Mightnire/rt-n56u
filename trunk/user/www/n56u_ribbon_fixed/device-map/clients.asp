@@ -19,6 +19,7 @@
 var $j = jQuery.noConflict();
 
 var ipmonitor = [<% get_static_client(); %>];
+var ipv6_clients = <% get_ipv6_clients(); %>;
 var wireless = {<% wl_auth_list(); %>};
 
 var list_type = '<% nvram_get_x("", "macfilter_enable_x"); %>';
@@ -139,6 +140,7 @@ function update_clients(e) {
 		},
 		success: function(response) {
 			ipmonitor = ipmonitor_last;
+			ipv6_clients = ipv6_clients_last;
 			nmap_fullscan = nmap_fullscan_last;
 			clients = [];
 			clients = getclients(1,0);
@@ -161,7 +163,17 @@ function add_client_row(table, atIndex, client, blocked, j){
 	typeCell.style.textAlign = "center";
 	typeCell.innerHTML = "<img title='"+ DEVICE_TYPE[client[5]]+"' src='/bootstrap/img/wl_device/" + client[5] +".gif'>";
 	nameCell.innerHTML = (client[6] == "1") ? "<a href=http://" + client[0] + " target='blank'>" + client[0] + "</a>" : client[0];
-	ipCell.innerHTML = (client[6] == "1") ? "<a href=http://" + client[1] + " target='blank'>" + client[1] + "</a>" : client[1];
+	var ip_html = (client[6] == "1") ? "<a href=http://" + client[1] + " target='blank'>" + client[1] + "</a>" : client[1];
+	var cb = $('show_ipv6_cb');
+	if (cb && cb.checked && client[2]) {
+		var v6_list = ipv6_clients[client[2].toUpperCase()];
+		if (v6_list && v6_list.length > 0) {
+			for (var v6i = 0; v6i < v6_list.length; v6i++) {
+				ip_html += "<br><span style='font-size:11px; word-break:break-word;'>" + v6_list[v6i] + "</span>";
+			}
+		}
+	}
+	ipCell.innerHTML = ip_html;
 	macCell.innerHTML = "<a target='_blank' href='https://services13.ieee.org/RST/standards-ra-web/rest/assignments/?registry=MAC&text=" + client[2].substr(0,6) + "'>" + mac_add_delimiters(client[2]) + "</a>";
 	if (client[3] == 10){
 		rssiCell.innerHTML = client[4].toString();
@@ -176,6 +188,9 @@ function show_clients(){
 	var i, j, k;
 	var table1, table2;
 	var addClient, clientType, clientName, clientIP, clientMAC, clientBlock;
+	var v6_on = ($('show_ipv6_cb') && $('show_ipv6_cb').checked);
+	if ($('col_ip')) $('col_ip').style.width = v6_on ? "28%" : "20%";
+	if ($('col_unip')) $('col_unip').style.width = v6_on ? "28%" : "20%";
 	
 	table1 = $('Clients_table');
 	table2 = $('xClients_table');
@@ -375,7 +390,7 @@ function networkmap_update(s){
         <tr>
             <th width="8%"><a href="javascript:sort(0)"><#Type#></a></th>
             <th><a href="javascript:sort(1)"><#Computer_Name#></a></th>
-            <th width="20%"><a href="javascript:sort(2)">IP</a></th>
+            <th id="col_ip" width="20%" style="white-space: nowrap;"><a href="javascript:sort(2)" style="display: inline;">IP</a><input type="checkbox" id="show_ipv6_cb" onclick="show_clients();" title="IPv6" style="margin: -2px 0 0 4px; vertical-align: middle; cursor: pointer;"></th>
             <th width="24%"><a href="javascript:sort(3)">MAC</a></th>
             <th width="8%" id="col_rssi"><a href="javascript:sort(4)">RSSI</a></th>
             <th width="0%" id="col_block"></th>
@@ -394,7 +409,7 @@ function networkmap_update(s){
         <tr>
             <th width="8%"><#Type#></th>
             <th><#Computer_Name#></th>
-            <th width="20%">IP</th>
+            <th id="col_unip" width="20%">IP</th>
             <th width="24%">MAC</th>
             <th width="8%" id="col_unrssi">RSSI</th>
             <th width="0%" id="col_unblock"></th>

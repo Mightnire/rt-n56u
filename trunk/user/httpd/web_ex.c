@@ -41,6 +41,11 @@
 #include <net/if.h>
 #include <linux/types.h>
 #include <linux/sockios.h>
+#if defined (USE_IPV6)
+#include <linux/netlink.h>
+#include <linux/rtnetlink.h>
+#include <linux/neighbour.h>
+#endif
 
 #ifndef __user
 #define __user
@@ -2818,6 +2823,130 @@ static int ej_get_nvram_list(int eid, webs_t wp, int argc, char **argv) {
 	return 0;
 }
 
+static int
+ej_get_ipv6_clients(int eid, webs_t wp, int argc, char **argv)
+{
+#if defined (USE_IPV6)
+	typedef struct {
+		char mac[13];
+		int count;
+		char addrs[16][INET6_ADDRSTRLEN];
+	} v6_client_t;
+	v6_client_t *clients;
+	int num_clients = 0;
+	int fd, br_idx, i, j, done = 0;
+	struct {
+		struct nlmsghdr nlh;
+		struct ndmsg ndm;
+	} req;
+	char buf[8192];
+
+	br_idx = (int)if_nametoindex(IFNAME_BR);
+	if (br_idx <= 0) {
+		websWrite(wp, "{}");
+		return 0;
+	}
+
+	clients = calloc(128, sizeof(v6_client_t));
+	if (!clients) {
+		websWrite(wp, "{}");
+		return 0;
+	}
+
+	fd = socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
+	if (fd >= 0) {
+		memset(&req, 0, sizeof(req));
+		req.nlh.nlmsg_len = NLMSG_LENGTH(sizeof(struct ndmsg));
+		req.nlh.nlmsg_type = RTM_GETNEIGH;
+		req.nlh.nlmsg_flags = NLM_F_REQUEST | NLM_F_DUMP;
+		req.nlh.nlmsg_seq = 1;
+		req.ndm.ndm_family = AF_INET6;
+
+		if (send(fd, &req, req.nlh.nlmsg_len, 0) >= 0) {
+			while (!done) {
+				int len = recv(fd, buf, sizeof(buf), 0);
+				struct nlmsghdr *nh;
+				if (len <= 0)
+					break;
+				for (nh = (struct nlmsghdr *)buf; NLMSG_OK(nh, len); nh = NLMSG_NEXT(nh, len)) {
+					struct ndmsg *ndm;
+					struct rtattr *rta;
+					int rtalen;
+					char ip6[INET6_ADDRSTRLEN] = "";
+					char mac_norm[13] = "";
+					int has_ip = 0, has_mac = 0, idx = -1;
+
+					if (nh->nlmsg_type == NLMSG_DONE || nh->nlmsg_type == NLMSG_ERROR) {
+						done = 1;
+						break;
+					}
+					if (nh->nlmsg_type != RTM_NEWNEIGH)
+						continue;
+
+					ndm = (struct ndmsg *)NLMSG_DATA(nh);
+					if (ndm->ndm_family != AF_INET6 || ndm->ndm_ifindex != br_idx)
+						continue;
+					if (ndm->ndm_state & (NUD_FAILED | NUD_INCOMPLETE))
+						continue;
+
+					rta = RTM_RTA(ndm);
+					rtalen = RTM_PAYLOAD(nh);
+					for (; RTA_OK(rta, rtalen); rta = RTA_NEXT(rta, rtalen)) {
+						if (rta->rta_type == NDA_DST && RTA_PAYLOAD(rta) >= 16) {
+							if (inet_ntop(AF_INET6, RTA_DATA(rta), ip6, sizeof(ip6)))
+								has_ip = 1;
+						} else if (rta->rta_type == NDA_LLADDR && RTA_PAYLOAD(rta) >= 6) {
+							unsigned char *m = (unsigned char *)RTA_DATA(rta);
+							snprintf(mac_norm, sizeof(mac_norm), "%02X%02X%02X%02X%02X%02X",
+							         m[0], m[1], m[2], m[3], m[4], m[5]);
+							has_mac = 1;
+						}
+					}
+
+					if (!has_ip || !has_mac)
+						continue;
+
+					for (i = 0; i < num_clients; i++) {
+						if (strcmp(clients[i].mac, mac_norm) == 0) {
+							idx = i;
+							break;
+						}
+					}
+					if (idx < 0) {
+						if (num_clients >= 128)
+							continue;
+						idx = num_clients++;
+						strcpy(clients[idx].mac, mac_norm);
+						clients[idx].count = 0;
+					}
+					for (j = 0; j < clients[idx].count; j++) {
+						if (strcmp(clients[idx].addrs[j], ip6) == 0)
+							break;
+					}
+					if (j == clients[idx].count && clients[idx].count < 16) {
+						snprintf(clients[idx].addrs[clients[idx].count++], INET6_ADDRSTRLEN, "%s", ip6);
+					}
+				}
+			}
+		}
+		close(fd);
+	}
+
+	websWrite(wp, "{");
+	for (i = 0; i < num_clients; i++) {
+		websWrite(wp, "%s\"%s\":[", (i > 0) ? "," : "", clients[i].mac);
+		for (j = 0; j < clients[i].count; j++) {
+			websWrite(wp, "%s\"%s\"", (j > 0) ? "," : "", clients[i].addrs[j]);
+		}
+		websWrite(wp, "]");
+	}
+	websWrite(wp, "}");
+	free(clients);
+#else
+	websWrite(wp, "{}");
+#endif
+	return 0;
+}
 // for detect static IP's client.
 static int ej_get_static_client(int eid, webs_t wp, int argc, char **argv)
 {
@@ -4143,6 +4272,7 @@ struct ej_handler ej_handlers[] =
 	{ "get_nvram_list", ej_get_nvram_list},
 	{ "get_flash_time", ej_get_flash_time},
 	{ "get_static_client", ej_get_static_client},
+	{ "get_ipv6_clients", ej_get_ipv6_clients},
 	{ "get_static_ccount", ej_get_static_ccount},
 #ifndef WEBUI_HIDE_VPN
 	{ "get_vpns_client", ej_get_vpns_client},
