@@ -1,6 +1,7 @@
 更新日志
 
 2026/11/25：
+- 修正 WebUI 中文语言字典 (`trunk/user/www/dict/CN.dict`) 防火墙子菜单名称错误：将 `menu5_5_3` 由“无线访问控制”更正为“MAC 过滤”（对应 `/Advanced_MACFilter_Content.asp`，实际同时作用于有线与无线设备，参照上游 issue #617）；
 - 合入上游 Linux 内核、FFmpeg 与 Dropbear 安全漏洞及并发锁缺陷修复（参照上游 `hanwckf/rt-n56u` #751 / #789 / #804）：
   - **Linux 内核内存管理 (`CVE-2022-42703`)**：修改 `linux-3.4.x/include/linux/rmap.h` 与 `mm/rmap.c`，将 `anon_vma->degree` 拆分为独立的 `num_children` 与 `num_active_vmas` 计数，根治 `anon_vma_clone()` 复用时的叶子节点误判与双重复用 UAF 风险；
   - **FFmpeg 媒体库 (`ffmpeg-0.11.x` & `ffmpeg-0.6.x`)**：
