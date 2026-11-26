@@ -1,5 +1,11 @@
 更新日志
 
+2026/11/26：
+- 修复 `MAC2600R/kernel-3.4.x.config` 缺失 `# CONFIG_RT_FIRST_IF_MT7915` / `# CONFIG_RT_SECOND_IF_MT7915` / `# CONFIG_RT_THIRD_IF_MT7915` 占位项导致 `silentoldconfig` 中止的问题；
+- 关闭 MT7621 机型（`MI-R3P-spi`、`MI-R3G`、`MAC2600R`）模板中的 `CONFIG_FIRMWARE_CPU_SLEEP`，真正启用内核高精度定时器（`CONFIG_HIGH_RES_TIMERS=y`）：
+  - 在 `MI-R3P-spi.config`、`MI-R3G.config`、`MAC2600R.config` 中注释 `CONFIG_FIRMWARE_CPU_SLEEP=y`，避免 `build_firmware_modify` 在构建期强制打开 `CONFIG_RALINK_SYSTICK_COUNTER` / `CONFIG_RALINK_CPUSLEEP` 并覆盖关闭 `CONFIG_HIGH_RES_TIMERS`；
+  - 同步将 `MI-R3G/kernel-3.4.x.config` 中残留的 `CONFIG_RALINK_CPUSLEEP=y` 清理为 `# CONFIG_RALINK_CPUSLEEP is not set`。
+
 2026/11/25：
 - 为 `BW050-A` 与 `PR2000` 启用内核高精度定时器（`CONFIG_HIGH_RES_TIMERS=y`、`CONFIG_TICK_ONESHOT=y`、`CONFIG_HZ_250=y`）：
   - 同步关闭模板 `CONFIG_FIRMWARE_CPU_SLEEP` 与内核 `CONFIG_RALINK_SYSTICK_COUNTER` / `CONFIG_RALINK_CPUSLEEP`，避免 `build_firmware_modify` 在构建期强制覆盖禁用高精度定时器；
