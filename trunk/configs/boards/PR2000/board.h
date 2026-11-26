@@ -7,7 +7,7 @@
 #define BOARD_VENDOR_URL	"https://www.netgear.com/"
 #define BOARD_MODEL_URL		"https://www.netgear.com/support/product/PR2000.aspx"
 #define BOARD_BOOT_TIME		25
-#define BOARD_FLASH_TIME	120
+#define BOARD_FLASH_TIME	150
 
 #define BOARD_GPIO_BTN_RESET	1
 #define BOARD_GPIO_SLIDER_P1	20

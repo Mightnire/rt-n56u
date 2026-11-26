@@ -1,6 +1,7 @@
 更新日志
 
 2026/11/26：
+- 修正 `PR2000` 网口物理映射颠倒问题：在 `PR2000/kernel-3.4.x.config` 中将 `CONFIG_RAETH_ESW_PORT_WAN` 调整为 `0`、`CONFIG_RAETH_ESW_PORT_LAN1` 调整为 `4`；
 - 修复 `MAC2600R/kernel-3.4.x.config` 缺失 `# CONFIG_RT_FIRST_IF_MT7915` / `# CONFIG_RT_SECOND_IF_MT7915` / `# CONFIG_RT_THIRD_IF_MT7915` 占位项导致 `silentoldconfig` 中止的问题；
 - 关闭 MT7621 机型（`MI-R3P-spi`、`MI-R3G`、`MAC2600R`）模板中的 `CONFIG_FIRMWARE_CPU_SLEEP`，真正启用内核高精度定时器（`CONFIG_HIGH_RES_TIMERS=y`）：
   - 在 `MI-R3P-spi.config`、`MI-R3G.config`、`MAC2600R.config` 中注释 `CONFIG_FIRMWARE_CPU_SLEEP=y`，避免 `build_firmware_modify` 在构建期强制打开 `CONFIG_RALINK_SYSTICK_COUNTER` / `CONFIG_RALINK_CPUSLEEP` 并覆盖关闭 `CONFIG_HIGH_RES_TIMERS`；
