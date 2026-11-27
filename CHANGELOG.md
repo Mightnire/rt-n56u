@@ -1,5 +1,11 @@
 更新日志
 
+2026/11/27：
+- 全面关闭其余所有机型模板中的 CPU 休眠模式（`CONFIG_FIRMWARE_CPU_SLEEP`），并确保全平台内核启用高精度定时器（`CONFIG_HIGH_RES_TIMERS=y`，参照上游 `hanwckf/rt-n56u` issue #606 及 BW050-A 实测稳定性验证）：
+  - 在 `TCL-T1.config`、`RT-AC51U.config` 中注释 `CONFIG_FIRMWARE_CPU_SLEEP=y`；
+  - 将 `RT-AC1200GU/kernel-3.4.x.config` 中残留的 `CONFIG_RALINK_SYSTICK_COUNTER=y` 清理为 `# CONFIG_RALINK_SYSTICK_COUNTER is not set`，避免 `build_firmware_modify` 构建期触发强制开启 `CONFIG_RALINK_CPUSLEEP` 并覆盖关闭 `CONFIG_HIGH_RES_TIMERS`；
+  - 核查全仓库所有 59 份板级 `kernel-3.4.x*.config` 均已开启 `CONFIG_HIGH_RES_TIMERS=y`、`CONFIG_TICK_ONESHOT=y` 且关闭 `CONFIG_RALINK_CPUSLEEP`。
+
 2026/11/26：
 - 修正 `PR2000` 网口物理映射颠倒问题：在 `PR2000/kernel-3.4.x.config` 中将 `CONFIG_RAETH_ESW_PORT_WAN` 调整为 `0`、`CONFIG_RAETH_ESW_PORT_LAN1` 调整为 `4`；
 - 修复 `MAC2600R/kernel-3.4.x.config` 缺失 `# CONFIG_RT_FIRST_IF_MT7915` / `# CONFIG_RT_SECOND_IF_MT7915` / `# CONFIG_RT_THIRD_IF_MT7915` 占位项导致 `silentoldconfig` 中止的问题；
