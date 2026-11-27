@@ -72,6 +72,8 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_dns1_x", "" },
 	{ "wan_dns2_x", "" },
 	{ "wan_dns3_x", "" },
+	{ "redirect_all_dns", "0" },		/* Redirect all LAN IPv4 DNS queries to router */
+	{ "redirect_dns_bypass", "" },		/* Bypass source IPv4/CIDR list for DNS redirect */
 	{ "wan_hostname", "" },			/* WAN hostname */
 	{ "wan_vci", "" },			/* WAN vendor class identifier (OPT-60) */
 	{ "wan_ttl_fix", "0" },

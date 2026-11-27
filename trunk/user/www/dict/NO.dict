@@ -1297,3 +1297,7 @@ TweaksWdg_desc=Hardware watchdog timer reboot system during 15 seconds on CPU hu
 IP6_NAPT66_Hint=Note: Only for Native L3 routing. Incompatible with Relay mode.
 WIFIKVR_KV=802.11k/v Roaming-assistanse
 WIFIKVR_R=802.11r Rask overgang
+IPConnection_x_DNSRedirect_itemname=Tving DNS-viderekobling?
+IPConnection_x_DNSRedirect_itemdesc=Viderekobler alle utgående LAN IPv4 DNS-forespørsler (TCP/UDP-port 53 utenfor LAN-subnettet) til ruteren.
+IPConnection_x_DNSRedirectBypass_itemname=Unntaks-IP-er for DNS-viderekobling:
+IPConnection_x_DNSRedirectBypass_itemdesc=Kilde-IPv4-adresser eller CIDR-subnett som har lov til å spørre ekstern DNS direkte (adskilt med komma eller mellomrom).

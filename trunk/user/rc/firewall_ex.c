@@ -672,6 +672,71 @@ include_vts_nat(FILE *fp)
 	}
 }
 
+static int
+is_valid_ipv4_or_cidr(const char *token)
+{
+	char buf[24];
+	char *slash;
+
+	if (!token || !*token || strlen(token) >= sizeof(buf))
+		return 0;
+
+	snprintf(buf, sizeof(buf), "%s", token);
+	slash = strchr(buf, '/');
+	if (slash) {
+		const char *p;
+		int prefix;
+
+		*slash++ = '\0';
+		if (!*slash || strlen(slash) > 2)
+			return 0;
+		if (slash[0] == '0' && slash[1] != '\0')
+			return 0;
+		for (p = slash; *p; p++) {
+			if (*p < '0' || *p > '9')
+				return 0;
+		}
+		prefix = atoi(slash);
+		if (prefix < 0 || prefix > 32)
+			return 0;
+	}
+
+	return is_valid_ipv4(buf);
+}
+
+static int
+is_dns_redirect_active(int is_nat_enabled, const char *lan_ip, const char *lan_net)
+{
+	return is_nat_enabled &&
+	       nvram_match("redirect_all_dns", "1") &&
+	       is_valid_ipv4(lan_ip) &&
+	       lan_net && *lan_net;
+}
+
+static void
+include_dns_redirect_rules(FILE *fp, const char *lan_if, const char *lan_ip, const char *lan_net)
+{
+	char bypass_buf[512];
+	char *tok, *saveptr = NULL;
+
+	/* Intercept LAN IPv4 DNS queries destined outside lan_net */
+	fprintf(fp, "-A PREROUTING -i %s ! -d %s -p tcp --dport 53 -j %s\n",
+		lan_if, lan_net, IPT_CHAIN_NAME_DNS_REDIRECT);
+	fprintf(fp, "-A PREROUTING -i %s ! -d %s -p udp --dport 53 -j %s\n",
+		lan_if, lan_net, IPT_CHAIN_NAME_DNS_REDIRECT);
+
+	/* Bypass rules for exempted source IPv4/CIDR hosts */
+	snprintf(bypass_buf, sizeof(bypass_buf), "%s", nvram_safe_get("redirect_dns_bypass"));
+	for (tok = strtok_r(bypass_buf, ", \t\r\n", &saveptr); tok; tok = strtok_r(NULL, ", \t\r\n", &saveptr)) {
+		if (is_valid_ipv4_or_cidr(tok))
+			fprintf(fp, "-A %s -s %s -j RETURN\n", IPT_CHAIN_NAME_DNS_REDIRECT, tok);
+		else
+			logmessage("firewall", "Skip invalid DNS redirect bypass entry: %s", tok);
+	}
+
+	fprintf(fp, "-A %s -j DNAT --to %s\n", IPT_CHAIN_NAME_DNS_REDIRECT, lan_ip);
+}
+
 static void
 include_masquerade(FILE *fp, char *wan_if, char *wan_ip, char *lan_net)
 {
@@ -1728,7 +1793,7 @@ ipt_nat_rules(char *man_if, char *man_ip,
 	FILE *fp;
 	char *dtype, *vpnc_if;
 	const char *ipt_file = "/tmp/ipt_nat.rules";
-	int wport, lport, is_nat_enabled, is_fw_enabled, is_upnp_enabled;
+	int wport, lport, is_nat_enabled, is_fw_enabled, is_upnp_enabled, is_dns_redirect;
 	int i_vpns_enable, i_vpnc_enable, i_vpns_type, i_vpnc_type, i_vpnc_sfw, i_http_proto;
 #if defined (APP_OPENVPN)
 	int i_vpns_ov_mode = nvram_get_int("vpns_ov_mode");
@@ -1737,6 +1802,7 @@ ipt_nat_rules(char *man_if, char *man_ip,
 	is_nat_enabled = nvram_match("wan_nat_x", "1");
 	is_fw_enabled = nvram_match("fw_enable_x", "1");
 	is_upnp_enabled = nvram_invmatch("upnp_enable_x", "0");
+	is_dns_redirect = is_dns_redirect_active(is_nat_enabled, lan_ip, lan_net);
 
 	i_vpns_enable = nvram_get_int("vpns_enable");
 	i_vpnc_enable = nvram_get_int("vpnc_enable");
@@ -1773,6 +1839,8 @@ ipt_nat_rules(char *man_if, char *man_ip,
 	fprintf(fp, ":%s - [0:0]\n", IPT_CHAIN_NAME_VSERVER);
 	fprintf(fp, ":%s - [0:0]\n", MINIUPNPD_CHAIN_IP4_NAT);
 	fprintf(fp, ":%s - [0:0]\n", MINIUPNPD_CHAIN_IP4_NAT_POST);
+	if (is_dns_redirect)
+		fprintf(fp, ":%s - [0:0]\n", IPT_CHAIN_NAME_DNS_REDIRECT);
 
 	// VSERVER chain
 	dtype = IPT_CHAIN_NAME_VSERVER;
@@ -1792,6 +1860,9 @@ ipt_nat_rules(char *man_if, char *man_ip,
 	if (is_nat_enabled) {
 		char dmz_ip[16];
 		int is_use_dmz;
+
+		if (is_dns_redirect)
+			include_dns_redirect_rules(fp, lan_if, lan_ip, lan_net);
 		
 		snprintf(dmz_ip, sizeof(dmz_ip), "%s", nvram_safe_get("dmz_ip"));
 		is_use_dmz = (is_valid_ipv4(dmz_ip)) ? 1 : 0;
@@ -2074,10 +2145,17 @@ void
 ipt_nat_default(void)
 {
 	FILE *fp;
-	int is_nat_enabled;
+	int is_nat_enabled, is_dns_redirect = 0;
+	char *lan_if = IFNAME_BR;
+	char *lan_ip = nvram_safe_get("lan_ipaddr");
+	char lan_net[24] = {0};
 	const char *ipt_file = "/tmp/ipt_nat.default";
 
 	is_nat_enabled = nvram_match("wan_nat_x", "1");
+	if (is_nat_enabled && is_valid_ipv4(lan_ip)) {
+		ip2class(lan_ip, nvram_safe_get("lan_netmask"), lan_net, sizeof(lan_net));
+		is_dns_redirect = is_dns_redirect_active(is_nat_enabled, lan_ip, lan_net);
+	}
 
 	if (!(fp=fopen(ipt_file, "w")))
 		return;
@@ -2089,19 +2167,17 @@ ipt_nat_default(void)
 	fprintf(fp, ":%s - [0:0]\n", IPT_CHAIN_NAME_VSERVER);
 	fprintf(fp, ":%s - [0:0]\n", MINIUPNPD_CHAIN_IP4_NAT);
 	fprintf(fp, ":%s - [0:0]\n", MINIUPNPD_CHAIN_IP4_NAT_POST);
+	if (is_dns_redirect)
+		fprintf(fp, ":%s - [0:0]\n", IPT_CHAIN_NAME_DNS_REDIRECT);
 
-	if (is_nat_enabled) {
-		char *lan_if = IFNAME_BR;
-		char *lan_ip = nvram_safe_get("lan_ipaddr");
-		if (is_valid_ipv4(lan_ip)) {
-			char lan_net[24] = {0};
-			ip2class(lan_ip, nvram_safe_get("lan_netmask"), lan_net, sizeof(lan_net));
-			
-			/* masquerade lan to lan (NAT loopback) */
-			if (nvram_match("nf_nat_loop", "1")) {
-				fprintf(fp, "-A POSTROUTING -o %s -s %s -d %s -j SNAT --to-source %s\n",
-					lan_if, lan_net, lan_net, lan_ip);
-			}
+	if (is_nat_enabled && *lan_net) {
+		if (is_dns_redirect)
+			include_dns_redirect_rules(fp, lan_if, lan_ip, lan_net);
+		
+		/* masquerade lan to lan (NAT loopback) */
+		if (nvram_match("nf_nat_loop", "1")) {
+			fprintf(fp, "-A POSTROUTING -o %s -s %s -d %s -j SNAT --to-source %s\n",
+				lan_if, lan_net, lan_net, lan_ip);
 		}
 	}
 

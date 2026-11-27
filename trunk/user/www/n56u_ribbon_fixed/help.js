@@ -62,7 +62,9 @@ helpcontent[7] = new Array("",
 				"<#hwnat_desc#>",
 				"<#vpn_passthrough_desc#>",
 				"<#vpn_passthrough_desc#>",
-				"<#vpn_passthrough_desc#>");
+				"<#vpn_passthrough_desc#>",
+				"<#IPConnection_x_DNSRedirect_itemdesc#>",
+				"<#IPConnection_x_DNSRedirectBypass_itemdesc#>");
 //Firewall
 helpcontent[8] = new Array("",
 				"<#FirewallConfig_WanLanLog_itemdesc#>",

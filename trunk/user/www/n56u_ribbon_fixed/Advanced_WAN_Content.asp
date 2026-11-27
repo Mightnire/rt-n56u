@@ -27,6 +27,7 @@ $j(document).ready(function() {
 	init_itoggle('gw_arp_ping');
 	init_itoggle('x_DHCPClient', change_wan_dhcp_auto);
 	init_itoggle('wan_dnsenable_x', change_wan_dns_auto);
+	init_itoggle('redirect_all_dns', change_redirect_dns_enabled);
 	init_itoggle('vlan_filter', change_stb_port_and_vlan);
 });
 
@@ -90,6 +91,7 @@ function initial(){
 	AuthSelection(document.form.wan_auth_mode.value);
 
 	change_stb_port_and_vlan();
+	change_redirect_dns_enabled();
 }
 
 function applyRule(){
@@ -148,6 +150,11 @@ function validForm(){
 		if(!validate_ipaddr_final(document.form.wan_dns2_x, 'wan_dns_x'))
 			return false;
 		if(!validate_ipaddr_final(document.form.wan_dns3_x, 'wan_dns_x'))
+			return false;
+	}
+
+	if(document.form.redirect_all_dns[0].checked){
+		if(!validate_dns_bypass(document.form.redirect_dns_bypass))
 			return false;
 	}
 
@@ -383,6 +390,30 @@ function fixed_change_wan_type(wan_type){
 		if(flag == true && document.form.wan_dns1_x.value.length == 0 && !document.form.wan_dnsenable_x[0].checked)
 			document.form.wan_dns1_x.focus();
 	}
+}
+
+function change_redirect_dns_enabled(){
+	var v = document.form.redirect_all_dns[0].checked;
+	showhide_div("row_redirect_dns_bypass", v);
+}
+
+function validate_dns_bypass(obj){
+	var raw = obj.value.replace(/^\s+|\s+$/g, "");
+	if(raw.length == 0)
+		return true;
+	var parts = raw.split(/[\s,]+/);
+	var re = /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}(\/(3[0-2]|[12]?\d))?$/;
+	for(var i = 0; i < parts.length; i++){
+		if(parts[i].length == 0)
+			continue;
+		if(!re.test(parts[i])){
+			alert(parts[i] + " <#JS_validip#>");
+			obj.focus();
+			obj.select();
+			return false;
+		}
+	}
+	return true;
 }
 
 function set_wan_dns_auto(use_auto){
@@ -823,6 +854,27 @@ function simplyMAC(fullMAC){
                                             <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,7,15);"><#IPConnection_x_DNSServer1_itemname#> 3:</a></th>
                                             <td>
                                                <input type="text" maxlength="15" class="input" size="15" name="wan_dns3_x" value="<% nvram_get_x("","wan_dns3_x"); %>" onkeypress="return is_ipaddr(this,event);"/>
+                                            </td>
+                                        </tr>
+                                        <tr id="row_redirect_all_dns">
+                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,7,28);"><#IPConnection_x_DNSRedirect_itemname#></a></th>
+                                            <td>
+                                                <div class="main_itoggle">
+                                                    <div id="redirect_all_dns_on_of">
+                                                        <input type="checkbox" id="redirect_all_dns_fake" <% nvram_match_x("", "redirect_all_dns", "1", "value=1 checked"); %><% nvram_match_x("", "redirect_all_dns", "0", "value=0"); %>>
+                                                    </div>
+                                                </div>
+                                                <div style="position: absolute; margin-left: -10000px;">
+                                                    <input type="radio" name="redirect_all_dns" id="redirect_all_dns_1" class="input" value="1" <% nvram_match_x("", "redirect_all_dns", "1", "checked"); %>/><#checkbox_Yes#>
+                                                    <input type="radio" name="redirect_all_dns" id="redirect_all_dns_0" class="input" value="0" <% nvram_match_x("", "redirect_all_dns", "0", "checked"); %>/><#checkbox_No#>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr id="row_redirect_dns_bypass" style="display:none">
+                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,7,29);"><#IPConnection_x_DNSRedirectBypass_itemname#></a></th>
+                                            <td>
+                                                <input type="text" maxlength="256" class="input" size="32" style="width: 260px;" name="redirect_dns_bypass" value="<% nvram_get_x("", "redirect_dns_bypass"); %>" onkeypress="return is_string(this,event);"/>
+                                                <br/><span style="color:#888;">e.g. 192.168.1.2, 192.168.1.10/32</span>
                                             </td>
                                         </tr>
                                     </table>

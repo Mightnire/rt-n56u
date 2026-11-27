@@ -999,6 +999,11 @@ init_router(void)
 
 	is_ap_mode = get_ap_mode();
 
+	if (!nvram_get("redirect_all_dns"))
+		nvram_set("redirect_all_dns", "0");
+	if (!nvram_get("redirect_dns_bypass"))
+		nvram_set("redirect_dns_bypass", "");
+
 	init_loopback();
 	init_bridge(is_ap_mode);
 #if defined (USE_IPV6)

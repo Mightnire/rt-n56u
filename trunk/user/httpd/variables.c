@@ -322,6 +322,8 @@
 			{"wan_dns1_x", "", NULL, EVM_RESTART_WAN},
 			{"wan_dns2_x", "", NULL, EVM_RESTART_WAN},
 			{"wan_dns3_x", "", NULL, EVM_RESTART_WAN},
+			{"redirect_all_dns", "", NULL, EVM_RESTART_FIREWALL},
+			{"redirect_dns_bypass", "", NULL, EVM_RESTART_FIREWALL},
 			{"wan_hostname", "", NULL, EVM_RESTART_WAN},
 			{"wan_vci", "", NULL, EVM_RESTART_WAN},
 			{"wan_hwaddr_x", "", NULL, EVM_RESTART_WAN},

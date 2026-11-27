@@ -1879,3 +1879,7 @@ JS_shutdown=关机后需要手动断电并重新接电才能启动路由!!!\n确
 IP6_NAPT66_Hint=注意：仅适用于原生三层路由，无法与中继（Relay）模式同时开启
 WIFIKVR_KV=802.11k/v 漫游辅助
 WIFIKVR_R=802.11r 快速漫游
+IPConnection_x_DNSRedirect_itemname=强制 DNS 重定向?
+IPConnection_x_DNSRedirect_itemdesc=启用后将自动把局域网发往本网段外的所有 IPv4 DNS 请求（TCP/UDP 53 端口）强制重定向到路由器本地处理。
+IPConnection_x_DNSRedirectBypass_itemname=DNS 重定向例外 IP:
+IPConnection_x_DNSRedirectBypass_itemdesc=允许直接出网解析 DNS 的例外源 IPv4 或 CIDR 网段列表（以逗号或空格分隔，例如 192.168.1.2, 192.168.1.10/32）。

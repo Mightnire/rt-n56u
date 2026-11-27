@@ -1,3 +1,7 @@
+## [2026-11-28]
+### Added
+- **IPv4 DNS Redirection (`redirect_all_dns`)**: Add configurable IPv4 TCP/UDP port 53 `PREROUTING` redirection via dedicated `dnsredirect` NAT chain (`user/rc/firewall_ex.c`, `rc.h`), targeting packets destined outside `lan_net` so local/LAN DNS servers are unaffected; support comma/space-separated source IPv4/CIDR bypass list (`redirect_dns_bypass`) with strict client-side JS and server-side C validation, NVRAM defaults & upgrade fallbacks (`user/shared/defaults.c`, `user/rc/rc.c`), `EVM_RESTART_FIREWALL` registration (`user/httpd/variables.c`), WAN WebUI controls (`Advanced_WAN_Content.asp`, `help.js`), and translations across all 14 language dictionaries.
+
 ## [2026-11-27]
 ### Added
 - **#743 (802.11k/v/r KVR Roaming)**: Add optional compile-time `CONFIG_FIRMWARE_INCLUDE_WIFI_KVR` (`SUPPORT_WIFI_KVR`) enabled across all 47 KVR-capable board templates (`MT7602E`/`MT7603E`/`MT7612E`/`MT7615`/`MT7628`/`MT7915`) with per-chip `DOT11K_RRM`/`DOT11R_FT`/`WNM` kernel options, keeping legacy MT7620/MT7610E boards untouched; wire `HT_80211KV` / `HT_80211R` through `defaults.c`, `variables.c`, `ralink.c`, `web_ex.c` (`support_kvr()`), and conditional WebUI controls.

@@ -74,6 +74,7 @@
 #define IPT_CHAIN_NAME_LOG_ACCEPT	"logaccept"
 #define IPT_CHAIN_NAME_LOG_DROP		"logdrop"
 #define IPT_CHAIN_NAME_VSERVER		"vserver"
+#define IPT_CHAIN_NAME_DNS_REDIRECT	"dnsredirect"
 
 #define MODEM_NODE_DIR			"/tmp/modem"
 #define PPP_PEERS_DIR			"/tmp/ppp/peers"

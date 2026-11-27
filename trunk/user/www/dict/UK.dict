@@ -1740,3 +1740,7 @@ Login=Логін
 IP6_NAPT66_Hint=Note: Only for Native L3 routing. Incompatible with Relay mode.
 WIFIKVR_KV=802.11k/v Допомога в роумінгу
 WIFIKVR_R=802.11r Швидкий перехід
+IPConnection_x_DNSRedirect_itemname=Примусове перенаправлення DNS?
+IPConnection_x_DNSRedirect_itemdesc=Перенаправляти всі вихідні IPv4 DNS-запити клієнтів LAN (TCP/UDP порт 53 за межі підмережі LAN) на маршрутизатор.
+IPConnection_x_DNSRedirectBypass_itemname=Винятки перенаправлення DNS:
+IPConnection_x_DNSRedirectBypass_itemdesc=Список вихідних IPv4-адрес або підмереж CIDR, яким дозволені прямі зовнішні DNS-запити (через кому або пробіл, напр. 192.168.1.2, 192.168.1.10/32).
