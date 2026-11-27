@@ -511,7 +511,7 @@ ej_nvram_match_x(int eid, webs_t wp, int argc, char **argv)
 	
 	if (nvram_match(name, match))
 	{
-		return websWrite(wp, output);
+		return websWrite(wp, "%s", output);
 	}
 
 	return 0;
@@ -530,7 +530,7 @@ ej_nvram_double_match_x(int eid, webs_t wp, int argc, char **argv)
 	
 	if (nvram_match(name, match) && nvram_match(name2, match2))
 	{
-		return websWrite(wp, output);
+		return websWrite(wp, "%s", output);
 	}
 
 	return 0;
@@ -555,11 +555,11 @@ ej_nvram_match_both_x(int eid, webs_t wp, int argc, char **argv)
 	
 	if (nvram_match(name, match))
 	{
-		return websWrite(wp, output);
+		return websWrite(wp, "%s", output);
 	}
 	else
 	{
-		return websWrite(wp, output_not);
+		return websWrite(wp, "%s", output_not);
 	}
 }
 
@@ -581,7 +581,7 @@ ej_nvram_get_list_x(int eid, webs_t wp, int argc, char **argv)
 		return -1;
 	}
 
-	ret += websWrite(wp, nvram_get_list_x(name, which));
+	ret += websWrite(wp, "%s", nvram_get_list_x(name, which));
 	return ret;
 }
 
@@ -645,7 +645,7 @@ ej_nvram_match_list_x(int eid, webs_t wp, int argc, char **argv)
 	}
 
 	if (nvram_match_list_x(name, match, which))
-		return websWrite(wp, output);
+		return websWrite(wp, "%s", output);
 
 	return 0;
 }
@@ -676,7 +676,7 @@ ej_uptime(int eid, webs_t wp, int argc, char **argv)
 	time_t tm;
 
 	time(&tm);
-	return websWrite(wp, rfctime(&tm));
+	return websWrite(wp, "%s", rfctime(&tm));
 }
 
 static int
@@ -1765,16 +1765,24 @@ wanlink_hook(int eid, webs_t wp, int argc, char **argv)
 			init_bytes_rx = strtoull(nvram_safe_get(strcat_r(prefix, "bytes_rx", tmp)), NULL, 10);
 			init_bytes_tx = strtoull(nvram_safe_get(strcat_r(prefix, "bytes_tx", tmp)), NULL, 10);
 			
-			/* support only 64 bit counters */
-			if (wan_bytes_rx < init_bytes_rx)
-				wan_bytes_rx = 0;
-			else
+			/* Handle 32-bit counter wraparound on non-64-bit WAN interfaces (e.g. WISP/NDIS) */
+			if (wan_bytes_rx < init_bytes_rx) {
+				if (init_bytes_rx <= 0xFFFFFFFFULL)
+					wan_bytes_rx = (0x100000000ULL - init_bytes_rx) + wan_bytes_rx;
+				else
+					wan_bytes_rx = 0;
+			} else {
 				wan_bytes_rx -= init_bytes_rx;
+			}
 			
-			if (wan_bytes_tx < init_bytes_tx)
-				wan_bytes_tx = 0;
-			else
+			if (wan_bytes_tx < init_bytes_tx) {
+				if (init_bytes_tx <= 0xFFFFFFFFULL)
+					wan_bytes_tx = (0x100000000ULL - init_bytes_tx) + wan_bytes_tx;
+				else
+					wan_bytes_tx = 0;
+			} else {
 				wan_bytes_tx -= init_bytes_tx;
+			}
 		} else {
 			wan_bytes_rx = 0;
 			wan_bytes_tx = 0;
@@ -2531,7 +2539,8 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function support_5g_160mhz() { return %d;}\n"
 		"function support_5g_11ax() { return %d;}\n"
 		"function support_2g_11ax() { return %d;}\n"
-		"function support_6relayd() { return %d;}\n",
+		"function support_6relayd() { return %d;}\n"
+		"function support_kvr() { return %d;}\n",
 		has_ipv6,
 		has_ipv6_ppe,
 		has_ipv4_ppe,
@@ -2569,7 +2578,12 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		has_5g_160mhz,
 		has_5g_11ax,
 		has_2g_11ax,
-		has_6relayd
+		has_6relayd,
+#if defined (SUPPORT_WIFI_KVR)
+		1
+#else
+		0
+#endif
 	);
 
 	return 0;
@@ -4179,12 +4193,12 @@ ej_backup_nvram(int eid, webs_t wp, int argc, char **argv)
 			continue;
 		v = nvram_safe_get(k);
 		websWrite(wp, "\t%s: '", k);
-		websWrite(wp, v);
+		websWrite(wp, "%s", v);
 		websWrite(wp, "',\n");
 	}
 	free(list);
 	websWrite(wp, "\thttp_id: '");
-	websWrite(wp, nvram_safe_get("http_id"));
+	websWrite(wp, "%s", nvram_safe_get("http_id"));
 	websWrite(wp, "'};\n");
 
 	return 0;

@@ -357,6 +357,10 @@ void wan6_up(char *wan_ifname, int unit)
 		if (!is_valid_ipv4(wan_gate4))
 			wan_gate4 = NULL;
 		start_sit_tunnel(ipv6_type, wan_ifname, wan_addr4, wan_gate4, wan_addr6);
+		if (is_upnp_run()) {
+			stop_upnp();
+			start_upnp();
+		}
 	} else {
 		set_wan_unit_value(unit, "ifname6", wan_ifname);
 		
@@ -373,6 +377,10 @@ void wan6_up(char *wan_ifname, int unit)
 			if (*wan_gate6) {
 				doSystem("ip -6 route add %s dev %s", wan_gate6, wan_ifname);
 				doSystem("ip -6 route add default via %s metric %d", wan_gate6, 1);
+			}
+			if (is_upnp_run()) {
+				stop_upnp();
+				start_upnp();
 			}
 #if defined (APP_6RELAYD)
 		} else if (ipv6_type == IPV6_RELAY) {
@@ -456,7 +464,10 @@ int dhcp6c_main(int argc, char **argv)
 	lan6_auto = nvram_get_int("ip6_lan_auto");
 	if (lan6_auto) {
 		lan_addr6_new = get_ifaddr6(IFNAME_BR, 0, addr6s);
-		store_lan_addr6(lan_addr6_new);
+		if (store_lan_addr6(lan_addr6_new) && is_upnp_run()) {
+			stop_upnp();
+			start_upnp();
+		}
 	}
 
 	dns6_auto = nvram_get_int("ip6_dns_auto");

@@ -533,7 +533,9 @@ static int get_address(ddns_t *ctx)
 			alias->ip_has_changed = strncmp(alias->address, address, sizeof(alias->address)) != 0;
 			if (alias->ip_has_changed) {
 				anychange++;
-				strlcpy(alias->address, address, sizeof(alias->address));
+				strlcpy(alias->new_address, address, sizeof(alias->new_address));
+			} else {
+				alias->new_address[0] = '\0';
 			}
 
 #ifdef ENABLE_SIMULATION
@@ -590,7 +592,8 @@ static int check_alias_update_table(ddns_t *ctx)
 
 			alias->update_required = 1;
 			logit(LOG_NOTICE, "Update %s for alias %s, new IP# %s",
-			      override ? "forced" : "needed", alias->name, alias->address);
+			      override ? "forced" : "needed", alias->name,
+			      alias->ip_has_changed ? alias->new_address : alias->address);
 		}
 
 		info = conf_info_iterator(0);
@@ -722,17 +725,28 @@ static int update_alias_table(ddns_t *ctx)
 				if (exec_mode == EXEC_MODE_COMPAT)
 					continue;
 				event = "nochg";
-			} else if ((rc = send_update(ctx, info, alias, &anychange))) {
-				if (exec_mode == EXEC_MODE_COMPAT)
-					break;
-				event = "error";
 			} else {
-				/* Only reset if send_update() succeeds. */
-				alias->update_required = 0;
-				alias->last_update = time(NULL);
+				char prev_address[MAX_ADDRESS_LEN];
 
-				/* Update cache file for this entry */
-				write_cache_file(alias);
+				strlcpy(prev_address, alias->address, sizeof(prev_address));
+				if (alias->ip_has_changed && alias->new_address[0])
+					strlcpy(alias->address, alias->new_address, sizeof(alias->address));
+
+				if ((rc = send_update(ctx, info, alias, &anychange))) {
+					/* Restore previous IP so subsequent retries still detect change. */
+					strlcpy(alias->address, prev_address, sizeof(alias->address));
+					if (exec_mode == EXEC_MODE_COMPAT)
+						break;
+					event = "error";
+				} else {
+					/* Only commit new IP if send_update() succeeds. */
+					alias->new_address[0] = '\0';
+					alias->update_required = 0;
+					alias->last_update = time(NULL);
+
+					/* Update cache file for this entry */
+					write_cache_file(alias);
+				}
 			}
 
 			/* Run command or script on successful update. */

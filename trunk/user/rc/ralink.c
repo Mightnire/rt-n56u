@@ -682,7 +682,31 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	fprintf(fp, "CalCacheApply=%d\n", 0);
 	fprintf(fp, "LoadCodeMethod=%d\n", 0);
 	fprintf(fp, "VHT_Sec80_Channel=%d\n", 0);
+#if defined (SUPPORT_WIFI_KVR)
+	{
+		int kvr_cap = 0;
+		int kvr_kv = 0, kvr_r = 0;
+#if defined (USE_WID_5G) && (USE_WID_5G==7612 || USE_WID_5G==7615 || USE_WID_5G==7915)
+		if (is_aband) kvr_cap = 1;
+#endif
+#if defined (USE_WID_2G) && (USE_WID_2G==7602 || USE_WID_2G==7603 || USE_WID_2G==7612 || USE_WID_2G==7615 || USE_WID_2G==7628 || USE_WID_2G==7915)
+		if (!is_aband) kvr_cap = 1;
+#endif
+		if (kvr_cap) {
+			kvr_kv = nvram_wlan_get_int(is_aband, "HT_80211KV") ? 1 : 0;
+			kvr_r = nvram_wlan_get_int(is_aband, "HT_80211R") ? 1 : 0;
+		}
+		fprintf(fp, "RRMEnable=%d;%d\n", kvr_kv, kvr_kv);
+		fprintf(fp, "WNMEnable=%d;%d\n", kvr_kv, kvr_kv);
+		if (kvr_cap) {
+			fprintf(fp, "FtSupport=%d\n", kvr_r);
+			fprintf(fp, "FtOtd=0\n");
+			fprintf(fp, "FtRic=1\n");
+		}
+	}
+#else
 	fprintf(fp, "WNMEnable=%d\n", 0);
+#endif
 	fprintf(fp, "SKUenable=%d\n", 0);
 	fprintf(fp, "PowerUpenable=%d\n", 0);
 	fprintf(fp, "VOW_Airtime_Fairness_En=%d\n", 0);
@@ -704,7 +728,9 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	fprintf(fp, "DfsDedicatedZeroWait=%d\n", 0);
 	fprintf(fp, "DfsZeroWaitDefault=%d\n", 0);
 	fprintf(fp, "KernelRps=%d\n", 0);
+#if !defined (SUPPORT_WIFI_KVR)
 	fprintf(fp, "RRMEnable=%d\n", 0);
+#endif
 	fprintf(fp, "MboSupport=%d\n", 0);
 
 #if defined (USE_MT7615_AP) || defined (USE_MT7915_AP)

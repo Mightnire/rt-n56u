@@ -141,9 +141,7 @@ typedef enum _FT_SUB_ELEMENT_ID {
 	FT_R1KH_ID = 1,
 	FT_GTK,
 	FT_R0KH_ID,
-#ifdef DOT11W_PMF_SUPPORT
 	FT_IGTK_ID,
-#endif /* DOT11W_PMF_SUPPORT */
 	FT_RESERVED_ID
 } FT_SUB_ELEMENT_ID, *PFT_SUB_ELEMENT_ID;
 
@@ -208,7 +206,7 @@ typedef struct _FT_OVER_DS_ACTION_REQ_CONFIRM {
 	/* must be 1 or 3 */
 	UCHAR	Action;
 
-	/* the STA¡¦s MAC address */
+	/* the STAï¿½ï¿½s MAC address */
 	UCHAR	STA_Addr[ETH_ALEN];
 
 	/* the BSSID value of the target AP */
@@ -229,7 +227,7 @@ typedef struct _FT_OVER_DS_ACTION_RSP_ACK {
 	/* must be 2 or 4 */
 	UCHAR	Action;
 
-	/* the STA¡¦s MAC address */
+	/* the STAï¿½ï¿½s MAC address */
 	UCHAR	STA_Addr[ETH_ALEN];
 
 	/* the BSSID value of the target AP */

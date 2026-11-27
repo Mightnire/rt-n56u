@@ -2280,9 +2280,10 @@ void WNM_ReadParametersFromFile(
 		for (loop = 0, macptr = rstrtok(tmpbuf, ";");
 				(macptr && loop < MAX_MBSSID_NUM(pAd));
 					macptr = rstrtok(NULL, ";"), loop++) {
-			LONG Enable;
+			LONG Enable = 0;
 
-			kstrtol(macptr, 10, &Enable);
+			if (kstrtol(macptr, 10, &Enable) != 0)
+				Enable = 0;
 			pAd->ApCfg.MBSSID[loop].WNMCtrl.WNMBTMEnable =
 				(Enable > 0) ? TRUE : FALSE;
 			DBGPRINT(RT_DEBUG_TRACE, ("%s::(bDot11vWNMEnable[%d]=%d\n",

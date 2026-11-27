@@ -1174,9 +1174,9 @@ enum nl_msg_id {
 #ifdef DOT11W_PMF_SUPPORT
 #define CATEGORY_SA			8	/* defined in IEEE 802.11w-D8.0 7.3.1.11*/
 #define CATEGORY_PD			9	/* Protected Dual of Action defined in IEEE 802.11w */
-#define CATEGORY_WNM 10
 #define CATEGORY_VSP			126	/* Vendor-specific Protected defined in IEEE 802.11w */
 #endif // DOT11W_PMF_SUPPORT //
+#define CATEGORY_WNM 10
 //#ifdef WFD_SUPPORT
 #define CATEGORY_VENDOR_SPECIFIC_WFD	127 //CFG_TODO CATEGORY_VENDOR, WHY ONLY WFD ?
 //#endif /* WFD_SUPPORT */

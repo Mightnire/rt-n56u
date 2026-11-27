@@ -4021,7 +4021,7 @@ INT RTMPAPSetInformation(
 			struct btm_req_data *req_data;
 			PHOTSPOT_CTRL pHSCtrl =  &pAd->ApCfg.MBSSID[pObj->ioctl_if].HotSpotCtrl;
 			
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 			req_data = (struct btm_req_data *)Buf;
 			
@@ -4054,7 +4054,7 @@ INT RTMPAPSetInformation(
 			struct wnm_req_data *req_data;
 			PHOTSPOT_CTRL pHSCtrl =  &pAd->ApCfg.MBSSID[pObj->ioctl_if].HotSpotCtrl;
 			
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		
 			req_data = (struct wnm_req_data *)Buf;
@@ -4094,7 +4094,7 @@ INT RTMPAPSetInformation(
 			struct qosmap_data *req_data;
 			unsigned int i;
 		
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		
 			req_data = (struct qosmap_data *)Buf;

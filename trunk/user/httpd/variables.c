@@ -746,6 +746,10 @@
 			{"wl_HT_BW", "", NULL, EVM_RESTART_WIFI5},
 			{"wl_HT_RDG", "", NULL, EVM_RESTART_WIFI5},
 			{"wl_HT_AMSDU", "", NULL, EVM_RESTART_WIFI5},
+#if defined (SUPPORT_WIFI_KVR)
+			{"wl_HT_80211KV", "", NULL, EVM_RESTART_WIFI5},
+			{"wl_HT_80211R", "", NULL, EVM_RESTART_WIFI5},
+#endif
 			{"wl_HT_MpduDensity", "", NULL, EVM_RESTART_WIFI5},
 			{"wl_HT_BAWinSize", "", NULL, EVM_RESTART_WIFI5},
 			{"wl_HT_AutoBA", "", NULL, EVM_RESTART_WIFI5},
@@ -918,6 +922,10 @@
 			{"rt_HT_EXTCHA", "", NULL, EVM_RESTART_WIFI2},
 			{"rt_HT_RDG", "", NULL, EVM_RESTART_WIFI2 },
 			{"rt_HT_AMSDU", "", NULL, EVM_RESTART_WIFI2 },
+#if defined (SUPPORT_WIFI_KVR)
+			{"rt_HT_80211KV", "", NULL, EVM_RESTART_WIFI2 },
+			{"rt_HT_80211R", "", NULL, EVM_RESTART_WIFI2 },
+#endif
 			{"rt_HT_MpduDensity", "", NULL, EVM_RESTART_WIFI2 },
 			{"rt_HT_BAWinSize", "", NULL, EVM_RESTART_WIFI2 },
 			{"rt_HT_AutoBA", "", NULL, EVM_RESTART_WIFI2},

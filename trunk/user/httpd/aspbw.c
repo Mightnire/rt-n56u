@@ -128,110 +128,44 @@ static int hex_char_to_int(const uint8_t *hex)
 }
 
 
-/**
- * @author 荒野无灯
- * @date 2016-08-01 12:30
- * @param str the str to detect
- * @param sz string total bytes
- * @return
- */
-static int can_be_chinese_utf8(const uint8_t *str, int sz)
+static int hex_nibble(uint8_t c)
 {
-	int len = strlen (str);
-	if (sz < 6) {
-		return 0;
-	}
-
-	if ((len >= 6) &&
-		(hex_char_to_int(str) >= 0xe4 && hex_char_to_int(str) <= 0xe9)
-		&& (hex_char_to_int(str+2) >= 0x80 && hex_char_to_int(str+2) <= 0xbf)
-		&& (hex_char_to_int(str+4) >= 0x80 && hex_char_to_int(str+4) <= 0xbf)
-	) {
-		return 1;
-	}
-
-	if (((sz - len >= 2) && (len >=4)) &&
-		(hex_char_to_int(str-2) >= 0xe4 && hex_char_to_int(str-2) <= 0xe9)
-		&& (hex_char_to_int(str) >= 0x80 && hex_char_to_int(str) <= 0xbf)
-		&& (hex_char_to_int(str+2) >= 0x80 && hex_char_to_int(str+2) <= 0xbf)
-	) {
-		return 1;
-	}
-
-	if (((sz - len >= 4) && (len >= 2)) &&
-		(hex_char_to_int(str-4) >= 0xe4 && hex_char_to_int(str-4) <= 0xe9)
-		&& ((hex_char_to_int(str-2) >= 0x80 && hex_char_to_int(str-2) <= 0xbf)
-		|| (hex_char_to_int(str) >= 0x80 && hex_char_to_int(str) <= 0xbf))
-	) {
-		return 1;
-	}
-
-	return 0;
+	if (c >= '0' && c <= '9')
+		return c - '0';
+	if (c >= 'A' && c <= 'F')
+		return c - 'A' + 10;
+	if (c >= 'a' && c <= 'f')
+		return c - 'a' + 10;
+	return -1;
 }
 
-
-/**
- * @author 荒野无灯
- * @date 2016-08-01 12:30
- * @param str the str to detect
- * @param sz string total bytes
- * @return int
- */
-static int can_be_ascii_utf8(const uint8_t *str, int sz)
-
+/* Trim incomplete trailing UTF-8 multibyte sequence to avoid JS URIError. */
+static size_t trim_incomplete_utf8(uint8_t *buf, size_t len)
 {
-	int len = strlen (str);
-	uint8_t the_char = hex_char_to_int(str);
-	if (( len >= 2) &&
-		(the_char >= '0' && the_char <= '9')
-		|| (the_char >= 'A' && the_char <= 'Z')
-		|| (the_char >= 'a' && the_char <= 'z')
-		|| the_char == '!' || the_char == '*'
-		|| the_char == '(' || the_char == ')'
-		|| the_char == '_' || the_char == '-'
-		|| the_char == '\'' || the_char == '.') 
-	{
-		return 1;
+	size_t i = 0;
+
+	while (i < len) {
+		uint8_t c = buf[i];
+		size_t seq_len = 1;
+
+		if (c < 0x80)
+			seq_len = 1;
+		else if ((c & 0xE0) == 0xC0)
+			seq_len = 2;
+		else if ((c & 0xF0) == 0xE0)
+			seq_len = 3;
+		else if ((c & 0xF8) == 0xF0)
+			seq_len = 4;
+		else
+			break;
+
+		if (i + seq_len > len)
+			break;
+
+		i += seq_len;
 	}
-	return 0;
-}
-
-
-/**
- * @param input the string to validate
- * @author 荒野无灯
- * @date 2016-08-01 12:30
- * @return int
- */
-static int is_valid_hex_string(uint8_t *input)
-{
-	int i;
-	int input_len, input_hex_len;
-	char *input_ptr;
-
-	//detect from index 2, skip char "0x"
-	input_ptr = input+2;
-	input_len = strlen(input);
-	input_hex_len = input_len -2;
-
-	int is_valid_ascii_or_Chinese = 1;
-
-	//0xAA
-	if(input_len >4 && input_len % 2 == 0 && input[0] == '0' && input[1] == 'x') {
-		for ( i=2; i < input_len; i += 2) {
-			if (!( ((*input_ptr>='0' && *input_ptr <='9') || ( *input_ptr >='A' && *input_ptr <='F')) && ((*(input_ptr+1) >='0' && *(input_ptr+1) <='9') || ( *(input_ptr+1) >='A' && *(input_ptr+1) <='F')))) {
-				is_valid_ascii_or_Chinese = 0;
-				break;
-			}
-			if (!can_be_chinese_utf8(input_ptr, input_hex_len) && !can_be_ascii_utf8(input_ptr, input_hex_len)) {
-				is_valid_ascii_or_Chinese = 0;
-				break;
-			}
-		}
-	} else {
-		is_valid_ascii_or_Chinese = 0;
-	}
-	return is_valid_ascii_or_Chinese;
+	buf[i] = '\0';
+	return i;
 }
 
 void char_to_ascii(char *output, uint8_t *input)
@@ -242,38 +176,54 @@ void char_to_ascii(char *output, uint8_t *input)
 	int input_len;
 
 	ptr = output;
-	input_len = strlen(input);
+	input_len = strlen((const char *)input);
 
-	if (is_valid_hex_string(input)) {
-		for ( i=2; i<input_len; i+=2) {
-			sprintf(tmp, "%%%c%c", input[i], input[i+1]);
+	for (i = 0; i < input_len; i++) {
+		if ((input[i] >= '0' && input[i] <= '9')
+		   || (input[i] >= 'A' && input[i] <= 'Z')
+		   || (input[i] >= 'a' && input[i] <= 'z')
+		   || input[i] == '!' || input[i] == '*'
+		   || input[i] == '(' || input[i] == ')'
+		   || input[i] == '_' || input[i] == '-'
+		   || input[i] == '\'' || input[i] == '.') {
+			*ptr = input[i];
+			ptr++;
+		} else {
+			sprintf(tmp, "%%%.02X", input[i]);
 			strcpy(ptr, tmp);
-			ptr+=3;
-		}
-	} else {
-		for ( i=0; i<input_len; i++ )
-		{
-			if ((input[i]>='0' && input[i] <='9')
-			   ||(input[i]>='A' && input[i]<='Z')
-			   ||(input[i] >='a' && input[i]<='z')
-			   || input[i] == '!' || input[i] == '*'
-			   || input[i] == '(' || input[i] == ')'
-			   || input[i] == '_' || input[i] == '-'
-			   || input[i] == '\'' || input[i] == '.')
-			{
-				*ptr = input[i];
-				ptr++;
-			}
-			else
-			{
-				sprintf(tmp, "%%%.02X", input[i]);
-				strcpy(ptr, tmp);
-				ptr+=3;
-			}
+			ptr += 3;
 		}
 	}
 
 	*ptr = '\0';
+}
+
+/* Decode driver "0x..." hex-encoded site-survey SSIDs safely before URL encoding. */
+void scan_ssid_to_ascii(char *output, uint8_t *input)
+{
+	size_t input_len = strlen((const char *)input);
+	uint8_t decoded[64];
+	size_t i, out_len = 0;
+
+	if (input_len >= 4 && (input_len % 2) == 0 && input[0] == '0' && input[1] == 'x') {
+		for (i = 2; i < input_len && out_len < sizeof(decoded) - 1; i += 2) {
+			int hi = hex_nibble(input[i]);
+			int lo = hex_nibble(input[i + 1]);
+			if (hi < 0 || lo < 0) {
+				out_len = 0;
+				break;
+			}
+			decoded[out_len++] = (uint8_t)((hi << 4) | lo);
+		}
+		if (out_len > 0) {
+			decoded[out_len] = '\0';
+			trim_incomplete_utf8(decoded, out_len);
+			char_to_ascii(output, decoded);
+			return;
+		}
+	}
+
+	char_to_ascii(output, input);
 }
 
 int do_f(const char *path, webs_t wp)

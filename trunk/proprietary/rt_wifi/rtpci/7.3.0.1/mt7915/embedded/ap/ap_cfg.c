@@ -5422,7 +5422,7 @@ INT RTMPAPSetInformation(
 		UCHAR *Buf = NULL;
 		struct wnm_command *cmd_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		cmd_data = (struct wnm_command *)Buf;
 
@@ -5471,7 +5471,7 @@ INT RTMPAPSetInformation(
 		MAC_TABLE_ENTRY *pEntry = NULL;
 		struct btm_req_data *req_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct btm_req_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -5514,7 +5514,7 @@ INT RTMPAPSetInformation(
 		UCHAR *Buf = NULL;
 		MAC_TABLE_ENTRY *pEntry = NULL;
 		struct btm_rsp_data *rsp_data;
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		rsp_data = (struct btm_rsp_data *)Buf;
 		pEntry = MacTableLookup(pAd, rsp_data->peer_mac_addr);
@@ -5571,7 +5571,7 @@ INT RTMPAPSetInformation(
 		MAC_TABLE_ENTRY *pEntry;
 		struct wnm_req_data *req_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct wnm_req_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -5609,7 +5609,7 @@ INT RTMPAPSetInformation(
 		unsigned int i;
 		UCHAR PoolID = 0;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct qosmap_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -8916,7 +8916,7 @@ INT RTMPAPQueryInformation(
 		UCHAR *Buf;
 		STA_HS_CONSORTIUM_OI *hs_consortium;
 		MAC_TABLE_ENTRY *mac_entry = NULL;
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 
 		if (Buf) {
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);

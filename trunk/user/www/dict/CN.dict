@@ -1877,3 +1877,5 @@ JS_shutdown=关机后需要手动断电并重新接电才能启动路由!!!\n确
 
 
 IP6_NAPT66_Hint=注意：仅适用于原生三层路由，无法与中继（Relay）模式同时开启
+WIFIKVR_KV=802.11k/v 漫游辅助
+WIFIKVR_R=802.11r 快速漫游

@@ -1,3 +1,16 @@
+## [2026-11-27]
+### Added
+- **#743 (802.11k/v/r KVR Roaming)**: Add optional compile-time `CONFIG_FIRMWARE_INCLUDE_WIFI_KVR` (`SUPPORT_WIFI_KVR`) enabled across all 47 KVR-capable board templates (`MT7602E`/`MT7603E`/`MT7612E`/`MT7615`/`MT7628`/`MT7915`) with per-chip `DOT11K_RRM`/`DOT11R_FT`/`WNM` kernel options, keeping legacy MT7620/MT7610E boards untouched; wire `HT_80211KV` / `HT_80211R` through `defaults.c`, `variables.c`, `ralink.c`, `web_ex.c` (`support_kvr()`), and conditional WebUI controls.
+
+### Fixed
+- **WiFi Drivers (`mt76x2`/`mt76x3`/`mt7615`/`mt7628`/`mt7915`)**: Fix uninitialized `os_alloc_mem(Buf` calls in `ap_cfg.c`, expose `CATEGORY_WNM` (`rtmp_def.h`) and `FT_IGTK_ID` (`dot11r_ft.h`) outside `DOT11W_PMF_SUPPORT` guards, and check `kstrtol()` return value in `mt76x3/common/wnm.c` to resolve `-Werror` build failures when KVR is enabled.
+- **#600 (`inadyn` DDNS)**: Defer committing new IP to `alias->address` until `send_update()` succeeds (`user/inadyn/inadyn-2.8.1/include/ddns.h`, `src/ddns.c`), preventing subsequent 5-minute retries from falsely reporting `No IP# change detected` after a temporary update failure.
+- **#375 (`miniupnpd` IPv6)**: Restart `miniupnpd` (`stop_upnp(); start_upnp();`) when `dhcp6c_main()` acquires/updates LAN IPv6 address or `wan6_up()` finishes static/SIT IPv6 setup (`user/rc/net_wan6.c`), resolving `no HTTP IPv6 address, disabling IPv6` on early boot.
+- **#710 / #463 (SSID Hex & Chinese Scan)**: Remove `is_valid_hex_string()` from `char_to_ascii()` so literal `0x...` SSIDs (e.g. `0x5678`) are preserved in WebUI; extract dedicated `scan_ssid_to_ascii()` with proper hex-pair iteration and incomplete trailing UTF-8 trimming for `ej_wl_scan_2g`/`ej_wl_scan_5g` (`user/httpd/aspbw.c`, `httpd.h`, `ralink.c`).
+- **#613 (WPA2-PSK `%` Handling)**: Fix `unescape()` hex validation, overlapping `strncpy` -> `memmove`, and `init_cgi()` split-before-unescape (`user/httpd/cgi.c`); replace unsafe `websWrite(wp, var)` calls with `websWrite(wp, "%s", var)` (`user/httpd/web_ex.c`, `ralink.c`).
+- **#597 (WAN Traffic 4GB Wrap)**: Handle 32-bit `init_bytes_rx`/`tx` wraparound in `wanlink_hook()` (`user/httpd/web_ex.c`) so non-64-bit WAN interfaces do not reset to 0 and freeze after 4 GiB.
+- **#707 (`nf_conntrack` Buckets)**: Dynamically scale `/sys/module/nf_conntrack/parameters/hashsize` to `nf_max_conn / 4` (clamped to `2048..32768`) in `set_nf_conntrack()` (`user/rc/net.c`).
+
 更新日志
 
 2026/11/27：

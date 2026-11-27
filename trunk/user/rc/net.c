@@ -849,6 +849,14 @@ set_nf_conntrack(void)
 
 	i_nf_val = nvram_safe_get_int("nf_max_conn", 16384, 4096, i_nf_lim);
 	fput_int("/proc/sys/net/nf_conntrack_max", i_nf_val);
+
+	/* Keep conntrack hash buckets proportional to nf_conntrack_max (1:4, min 2048). */
+	i_nf_val /= 4;
+	if (i_nf_val < 2048)
+		i_nf_val = 2048;
+	else if (i_nf_val > 32768)
+		i_nf_val = 32768;
+	fput_int("/sys/module/nf_conntrack/parameters/hashsize", i_nf_val);
 }
 
 void

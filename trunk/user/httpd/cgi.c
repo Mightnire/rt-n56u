@@ -23,6 +23,7 @@
 
 /* Use SVID search */
 #define __USE_GNU
+#include <ctype.h>
 #include <search.h>
 
 /* CGI hash table */
@@ -36,9 +37,13 @@ unescape(char *s)
 	while ((s = strpbrk(s, "%+"))) {
 		/* Parse %xx */
 		if (*s == '%') {
-			sscanf(s + 1, "%02x", &c);
-			*s++ = (char) c;
-			strncpy(s, s + 2, strlen(s) + 1);
+			if (isxdigit((unsigned char)s[1]) && isxdigit((unsigned char)s[2]) &&
+			    sscanf(s + 1, "%02x", &c) == 1) {
+				*s++ = (char) c;
+				memmove(s, s + 2, strlen(s + 2) + 1);
+			} else {
+				s++;
+			}
 		}
 		/* Space is special */
 		else if (*s == '+')
@@ -99,16 +104,19 @@ init_cgi(char *query)
 	hcreate_r(nel, &htab);
 
 	for (q = query; q < (query + len);) {
-		/* Unescape each assignment */
-		unescape(name = value = q);
+		/* Split assignment before unescaping so %3D in values is preserved */
+		name = value = q;
 
 		/* Skip to next assignment */
 		for (q += strlen(q); q < (query + len) && !*q; q++);
 
 		/* Assign variable */
 		name = strsep(&value, "=");
-		if (value)
+		if (value) {
+			unescape(name);
+			unescape(value);
 			set_cgi(name, value);
+		}
 	}
 }
 

@@ -972,7 +972,7 @@ print_apcli_wds_header(webs_t wp, const char *caption)
 {
 	int ret = 0;
 
-	ret += websWrite(wp, caption);
+	ret += websWrite(wp, "%s", caption);
 	ret += websWrite(wp, "----------------------------------------\n");
 	ret += websWrite(wp, "%-19s%-8s%-4s%-4s%-4s%-5s%-5s%-6s%-5s\n",
 				   "BSSID", "PhyMode", " BW", "MCS", "SGI", "LDPC", "STBC", "TRate", "RSSI");
@@ -1722,7 +1722,7 @@ ej_wl_scan_5g(int eid, webs_t wp, int argc, char **argv)
 			site_signal[9] = '\0';
 			
 			memset(ssid_str, 0, sizeof(ssid_str));
-			char_to_ascii(ssid_str, trim_r(site_ssid));
+			scan_ssid_to_ascii(ssid_str, trim_r(site_ssid));
 			
 			if (!strlen(ssid_str))
 				strcpy(ssid_str, "???");
@@ -1741,7 +1741,7 @@ ej_wl_scan_5g(int eid, webs_t wp, int argc, char **argv)
 
 	if (apCount < 1)
 	{
-		retval += websWrite(wp, empty);
+		retval += websWrite(wp, "%s", empty);
 	}
 
 	retval += websWrite(wp, "]");
@@ -1822,7 +1822,7 @@ ej_wl_scan_2g(int eid, webs_t wp, int argc, char **argv)
 			site_signal[9] = '\0';
 			
 			memset(ssid_str, 0, sizeof(ssid_str));
-			char_to_ascii(ssid_str, trim_r(site_ssid));
+			scan_ssid_to_ascii(ssid_str, trim_r(site_ssid));
 			
 			if (!strlen(ssid_str))
 				strcpy(ssid_str, "???");
@@ -1841,7 +1841,7 @@ ej_wl_scan_2g(int eid, webs_t wp, int argc, char **argv)
 
 	if (apCount < 1)
 	{
-		retval += websWrite(wp, empty);
+		retval += websWrite(wp, "%s", empty);
 	}
 
 	retval += websWrite(wp, "]");

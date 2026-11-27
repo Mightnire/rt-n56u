@@ -112,6 +112,7 @@ typedef struct {
 typedef struct {
 	int            ip_has_changed;
 	char           address[MAX_ADDRESS_LEN];
+	char           new_address[MAX_ADDRESS_LEN];
 
 	char           name[SERVER_NAME_LEN];
 	int            update_required;

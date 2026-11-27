@@ -4506,7 +4506,7 @@ INT RTMPAPSetInformation(
 		UCHAR *Buf;
 		struct wifi_dev *wdev = get_wdev_by_ioctl_idx_and_iftype(pAd, pObj->ioctl_if, pObj->ioctl_if_type);
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		mtk_send_offchannel_action_frame(pAd, wdev, (struct action_frm_data *)Buf);
 		os_free_mem(Buf);
@@ -4524,7 +4524,7 @@ INT RTMPAPSetInformation(
 		UCHAR *Buf;
 		struct wifi_dev *wdev = get_wdev_by_ioctl_idx_and_iftype(pAd, pObj->ioctl_if, pObj->ioctl_if_type);
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		mtk_start_roc(pAd, wdev, (struct roc_req *)Buf);
 		os_free_mem(Buf);
@@ -4539,7 +4539,7 @@ INT RTMPAPSetInformation(
 			struct wifi_dev *wdev = get_wdev_by_ioctl_idx_and_iftype(pAd,
 							pObj->ioctl_if, pObj->ioctl_if_type);
 
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 			mtk_set_pmk(pAd, wdev, (struct pmk_req *)Buf);
 			os_free_mem(Buf);
@@ -4603,7 +4603,7 @@ INT RTMPAPSetInformation(
 		UCHAR *Buf;
 		struct wnm_command *cmd_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		cmd_data = (struct wnm_command *)Buf;
 
@@ -4652,7 +4652,7 @@ INT RTMPAPSetInformation(
 		MAC_TABLE_ENTRY *pEntry = NULL;
 		struct btm_req_data *req_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct btm_req_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -4720,7 +4720,7 @@ INT RTMPAPSetInformation(
 		MAC_TABLE_ENTRY *pEntry;
 		struct wnm_req_data *req_data;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct wnm_req_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -4758,7 +4758,7 @@ INT RTMPAPSetInformation(
 		unsigned int i;
 		UCHAR PoolID = 0;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		req_data = (struct qosmap_data *)Buf;
 		pEntry = MacTableLookup(pAd, req_data->peer_mac_addr);
@@ -5274,7 +5274,7 @@ INT RTMPAPSetInformation(
 		UINT32 length = 0;
 		UINT32 oui_oitype = 0;
 
-		os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+		os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 		Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 		vie_op_data = (struct vie_op_data_s *)Buf;
 		length = vie_op_data->vie_length;
@@ -20120,7 +20120,7 @@ VOID RTMPIoctlQueryNaSTAReport( PRTMP_ADAPTER	pAd, RTMP_IOCTL_INPUT_STRUCT	*wrq)
 	if (wrq->u.data.length < MAC_ADDR_LEN) {
 		MTWF_LOG(DBG_CAT_CFG, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("Error in %s(), Invalid value \n", __FUNCTION__));
 	}
-	os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+	os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 	copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 	COPY_MAC_ADDR(Addr, Buf);
 	MTWF_LOG(DBG_CAT_CFG, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("%s() MAC ADDR %2x:%2x:%2x:%2x:%2x:%2x \n", __FUNCTION__,
@@ -20178,7 +20178,7 @@ INT Steer_Action(PRTMP_ADAPTER pAd, RTMP_IOCTL_INPUT_STRUCT *wrq)
 		MTWF_LOG(DBG_CAT_CFG, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("Error in %s(), Invalid value \n", __FUNCTION__));
 		return NDIS_STATUS_INVALID_DATA;
 	}
-	os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+	os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 	Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 	pSteerActionType = (PSTEER_ACTION_TYPE)Buf;
 
@@ -20325,7 +20325,7 @@ INT Store_Btm_Action_Frame_Request(PRTMP_ADAPTER pAd, RTMP_IOCTL_INPUT_STRUCT *w
 		MTWF_LOG(DBG_CAT_CFG, DBG_SUBCAT_ALL, DBG_LVL_ERROR,("Error in %s(), Invalid value \n", __FUNCTION__));
 		return NDIS_STATUS_INVALID_DATA;
 	}
-	os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+	os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 	Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 	pActionFrameRequest = (PBTM_REQUEST_ACTION_FRAME)Buf;
 

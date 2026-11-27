@@ -4138,7 +4138,7 @@ INT RTMPAPSetInformation(
 			
 			UCHAR *Buf;
 			struct wnm_command *cmd_data;
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 			cmd_data = (struct wnm_command *)Buf;
 			if(wnm_handle_command(pAd, cmd_data) != NDIS_STATUS_SUCCESS)
@@ -4154,7 +4154,7 @@ INT RTMPAPSetInformation(
 			UCHAR *Buf;
 			MAC_TABLE_ENTRY *pEntry = NULL;
 			struct btm_req_data *req_data;
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 			req_data = (struct btm_req_data *)Buf;
 			
@@ -4203,7 +4203,7 @@ INT RTMPAPSetInformation(
 			MAC_TABLE_ENTRY  *pEntry;
 			struct wnm_req_data *req_data;
 			PHOTSPOT_CTRL pHSCtrl =  &pAd->ApCfg.MBSSID[pObj->ioctl_if].HotSpotCtrl;
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 
 			req_data = (struct wnm_req_data *)Buf;
@@ -4244,7 +4244,7 @@ INT RTMPAPSetInformation(
 			unsigned int i;
 			UCHAR PoolID = 0;
 
-			os_alloc_mem(Buf, (UCHAR **)&Buf, wrq->u.data.length);
+			os_alloc_mem(NULL, (UCHAR **)&Buf, wrq->u.data.length);
 			Status = copy_from_user(Buf, wrq->u.data.pointer, wrq->u.data.length);
 
 			req_data = (struct qosmap_data *)Buf;
