@@ -1264,6 +1264,19 @@ man_down(char *man_ifname, int unit)
 	stop_igmpproxy(man_ifname);
 }
 
+#if defined (USE_SINGLE_MAC) && !defined (RSTATS_SKIP_ESW)
+static int
+use_single_mac_esw_wan_bytes(int unit, int wan_proto, int is_modem, const char *man_ifname)
+{
+	if (unit != 0 || is_modem || get_usb_modem_wan(unit) || is_man_wisp(man_ifname))
+		return 0;
+
+	return (wan_proto == IPV4_WAN_PROTO_IPOE_STATIC ||
+		wan_proto == IPV4_WAN_PROTO_IPOE_DHCP ||
+		wan_proto == IPV4_WAN_PROTO_PPPOE);
+}
+#endif
+
 void
 wan_up(char *wan_ifname, int unit, int is_static)
 {
@@ -1279,6 +1292,21 @@ wan_up(char *wan_ifname, int unit, int is_static)
 	snprintf(wan_cnt, sizeof(wan_cnt), "%ld", uptime());
 	set_wan_unit_value(unit, "uptime", wan_cnt);
 
+#if defined (USE_SINGLE_MAC) && !defined (RSTATS_SKIP_ESW)
+	if (use_single_mac_esw_wan_bytes(unit, wan_proto, modem_unit_id, get_man_ifname(unit))) {
+		uint64_t bytes_rx = 0, bytes_tx = 0;
+
+		if (phy_status_port_bytes(0, &bytes_rx, &bytes_tx) != 0) {
+			bytes_rx = 0;
+			bytes_tx = 0;
+		}
+		snprintf(wan_cnt, sizeof(wan_cnt), "%llu", bytes_rx);
+		set_wan_unit_value(unit, "bytes_rx", wan_cnt);
+
+		snprintf(wan_cnt, sizeof(wan_cnt), "%llu", bytes_tx);
+		set_wan_unit_value(unit, "bytes_tx", wan_cnt);
+	} else
+#endif
 	if (modem_unit_id || wan_proto != IPV4_WAN_PROTO_IPOE_STATIC) {
 		snprintf(wan_cnt, sizeof(wan_cnt), "%llu", get_ifstats_bytes_rx(wan_ifname));
 		set_wan_unit_value(unit, "bytes_rx", wan_cnt);

@@ -1509,6 +1509,17 @@ Internet connection status code:
 #define INET_STATE_NO_DGW		8
 #define INET_STATE_SUBNETS_CONFLICT	9
 
+#if defined (USE_SINGLE_MAC) && !defined (RSTATS_SKIP_ESW)
+static void
+read_single_mac_esw_wan_bytes(uint64_t *rx, uint64_t *tx)
+{
+	if (get_eth_port_bytes(0, rx, tx) != 0) {
+		*rx = 0;
+		*tx = 0;
+	}
+}
+#endif
+
 static int
 wanlink_hook(int eid, webs_t wp, int argc, char **argv)
 {
@@ -1663,6 +1674,11 @@ wanlink_hook(int eid, webs_t wp, int argc, char **argv)
 				wan_ifstate = get_if_state(wan_ifname, addr4_wan);
 				man_ifstate = get_if_state(man_ifname, addr4_man);
 				
+#if defined (USE_SINGLE_MAC) && !defined (RSTATS_SKIP_ESW)
+				if (wan_ifstate > 0 && !wisp && wan_proto == IPV4_WAN_PROTO_PPPOE) {
+					read_single_mac_esw_wan_bytes(&wan_bytes_rx, &wan_bytes_tx);
+				} else
+#endif
 				/* skip PPPoE traffic collect with HW_NAT enabled */
 				if (wan_ifstate > 0 && (wisp || wan_proto != IPV4_WAN_PROTO_PPPOE || nvram_get_int("hw_nat_mode") == 2)) {
 					wan_bytes_rx = get_ifstats_bytes_rx(wan_ifname);
@@ -1673,6 +1689,11 @@ wanlink_hook(int eid, webs_t wp, int argc, char **argv)
 			} else {
 				wan_ifstate = get_if_state(man_ifname, addr4_wan);
 				
+#if defined (USE_SINGLE_MAC) && !defined (RSTATS_SKIP_ESW)
+				if (wan_ifstate > 0 && !wisp) {
+					read_single_mac_esw_wan_bytes(&wan_bytes_rx, &wan_bytes_tx);
+				} else
+#endif
 				if (wan_ifstate > 0 && (wisp ||
 #if !defined (USE_SINGLE_MAC)
 								strcmp(man_ifname, IFNAME_MAC2) == 0 ||
